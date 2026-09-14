@@ -1,0 +1,195 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632": {
+          "type": "question",
+          "settings": {
+            "question": "How can I see customer reviews?",
+            "answer": "<p>We've shipped 20,000+ packages over the last 2 years. But we can understand if it's your first time ordering and you're hesitant!</p><p>We're just starting off with Vescartes but to view feedback from our main brands, you can check the hundreds of tagged pictures on our IG pages (@caedeslondon & @kenshin.kollection).</p>"
+          }
+        },
+        "890e6c8a-3088-4bb9-a826-708950e408a5": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Returns and Refunds",
+            "icon": "none",
+            "icon_width": 16
+          }
+        }
+      },
+      "block_order": [
+        "category",
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632",
+        "890e6c8a-3088-4bb9-a826-708950e408a5"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "<strong>Cancellation Policy</strong>",
+        "content": "<p>We understand that sometimes circumstances may change, and you may need to cancel your order.</p><p>Please review our cancellation policy below for more information:</p><p>____________________________</p><p><strong>Cancellation Period: </strong>Cancellations can only be accepted during the period when our online store is open. Once our online store has closed, and production has commenced, cancellations are not possible.</p><p><strong>Cancellation Procedure: </strong>To cancel an order, please log in to your account on our website and navigate to the order history section. If you encounter any issues, please contact our customer support team during our business hours for assistance.</p><p><strong>Production Start: </strong>Orders enter the production phase shortly after the online store closes. Once production has started, cancellations are no longer possible.</p><p><strong>Refund Process: </strong>If your cancellation request is received within the allowed period, we will initiate a refund for the full purchase amount. Refunds will be processed using the original payment method. Please allow 5-7 business days for the refund to reflect in your account.</p><p><strong>Exceptions: </strong>Customized or personalized items may not be eligible for cancellation once production has begun. Please contact our customer support team for further assistance.</p><p><strong>Contact Information: </strong>For cancellation inquiries, please contact our customer support team at general@caedeslondon.com. Our team will be happy to assist you with any questions or concerns related to cancellations.</p><p><strong>Changes to Orders: </strong>Once an order is confirmed and the online store is closed, changes to the order, including cancellations, may not be possible. Please double-check your order before completing the purchase.</p><p><strong>Store Closure Information: </strong>Information about the closing and opening times of our online store will be clearly communicated on our website.</p><p>____________________________</p><p>We appreciate your understanding of our cancellation policy, which is designed to ensure efficient order processing and customer satisfaction.</p><p>If you have any further questions, please feel free to reach out to our customer support team</p>"
+      }
+    },
+    "rich_text_bJx7gP": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_fHjXNy": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_Anm4bB": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>Privacy Policy</strong>",
+            "heading_tag": "h1"
+          }
+        },
+        "richtext_3DXwML": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>This Privacy Policy describes how VESCARTES (\"we,\" \"us,\" or \"our\") collects and uses information about you when you visit our website.</p><p>____________________________</p><p><strong>1. INFO WE COLLECT</strong></p><p><strong>Personal Information: </strong>When you make a purchase, we collect personal information such as your name, email address, shipping address, and payment details.</p><p><strong>Communication Data: </strong>We may collect information when you contact us through email or other communication channels.</p><p><strong>Website Usage Data: </strong>We gather data on how you interact with our website, including pages visited, time spent on the site, and device information.</p><p><strong>2. HOW WE USE INFO</strong></p><p><strong>Order Processing: </strong>We use your personal information to process and fulfill your orders, communicate with you about your purchase, and provide customer support.</p><p><strong>Account Management: </strong>If you create an account, we use your information to manage and maintain your account.</p><p><strong>Marketing Communications: </strong>With your consent, we may send you marketing emails about new products, promotions, or other updates. You can opt-out at any time.</p><p><strong>Improving our Services: </strong>We analyze website usage data to enhance and personalize your online experience and improve our products and services.</p><p><strong>3. SHARING OF INFO</strong></p><p><strong>Service Providers: </strong>We may share your information with trusted third-party service providers to facilitate order fulfillment, payment processing, and other essential functions.</p><p><strong>Legal Compliance: </strong>We may disclose your information to comply with applicable laws, regulations, or legal requests.</p><p><strong>4. YOUR RIGHTS</strong></p><p><strong>Access and Correction: </strong>You have the right to access and correct your personal information. You can update your account details or contact us for assistance.</p><p><strong>Opting Out: </strong>You can opt-out of marketing communications at any time by following the instructions provided in our emails or contacting us directly.</p><p><strong>5. OTHER</strong></p><p><strong>Data Security:</strong> We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction.</p><p><strong>Cookies:</strong> We use cookies to enhance your browsing experience. You can manage your cookie preferences through your browser settings.</p><p>____________________________</p><p>We appreciate your understanding of our privacy policy.</p><p>If you have any further questions, please feel free to reach out to our customer support team.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fHjXNy",
+        "heading_Anm4bB",
+        "richtext_3DXwML"
+      ],
+      "disabled": true,
+      "settings": {
+        "custom_class": "",
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    },
+    "stacked_content_edPYPr": {
+      "type": "stacked-content",
+      "blocks": {
+        "text_KGXGFx": {
+          "type": "text",
+          "settings": {
+            "heading": "Privacy Policy",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>This Privacy Policy describes how VESCARTES (\"we,\" \"us,\" or \"our\") collects and uses information about you when you visit our website.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "hr_XkHQPV": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_E8yq9W": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "center",
+            "underline_heading": true,
+            "text": "<p><strong>1. INFO WE COLLECT</strong></p><p>Personal Information: When you make a purchase, we collect personal information such as your name, email address, shipping address, and payment details.</p><p>Communication Data:<strong> </strong>We may collect information when you contact us through email or other communication channels.</p><p>Website Usage Data:<strong> </strong>We gather data on how you interact with our website, including pages visited, time spent on the site, and device information.</p><p><strong>2. HOW WE USE INFO</strong></p><p>Order Processing:<strong> </strong>We use your personal information to process and fulfill your orders, communicate with you about your purchase, and provide customer support.</p><p>Account Management:<strong> </strong>If you create an account, we use your information to manage and maintain your account.</p><p>Marketing Communications:<strong> </strong>With your consent, we may send you marketing emails about new products, promotions, or other updates. You can opt-out at any time.</p><p>Improving our Services:<strong> </strong>We analyze website usage data to enhance and personalize your online experience and improve our products and services.</p><p><strong>3. SHARING OF INFO</strong></p><p>Service Providers: We may share your information with trusted third-party service providers to facilitate order fulfillment, payment processing, and other essential functions.</p><p>Legal Compliance:<strong> </strong>We may disclose your information to comply with applicable laws, regulations, or legal requests.</p><p><strong>4. YOUR RIGHTS</strong></p><p>Access and Correction: You have the right to access and correct your personal information. You can update your account details or contact us for assistance.</p><p>Opting Out:<strong> </strong>You can opt-out of marketing communications at any time by following the instructions provided in our emails or contacting us directly.</p><p><strong>5. OTHER</strong></p><p>Data Security: We implement reasonable security measures to protect your personal information from unauthorized access, disclosure, alteration, and destruction.</p><p>Cookies: We use cookies to enhance your browsing experience. You can manage your cookie preferences through your browser settings.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_kMdwVk": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_f8tpPy": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "center",
+            "underline_heading": true,
+            "text": "<p>We appreciate your understanding of our privacy policy.</p><p>If you have any further questions, please feel free to reach out to our customer support team.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_KGXGFx",
+        "hr_XkHQPV",
+        "text_E8yq9W",
+        "hr_kMdwVk",
+        "text_f8tpPy"
+      ],
+      "name": "Stacked Content",
+      "settings": {
+        "background_color": "#ffffff",
+        "container_width": 800,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "rich_text_bJx7gP",
+    "stacked_content_edPYPr"
+  ]
+}

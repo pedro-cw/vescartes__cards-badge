@@ -1,0 +1,448 @@
+{% comment %} custom-filter-drawer.liquid {% endcomment %}
+<div id="CustomFilterDrawer" class="custom-filter-drawer" aria-hidden="true">
+  <div class="custom-drawer-overlay" onclick="closeCustomDrawer()"></div>
+  
+  <div class="custom-drawer-panel">
+    
+    <div class="custom-drawer-header">
+      <span class="custom-drawer-title">FILTER & SORTING</span>
+      <button type="button" class="custom-drawer-close" onclick="closeCustomDrawer()">
+        <span>X</span> CLOSE
+      </button>
+    </div>
+
+    <form id="CustomFilterForm" class="custom-drawer-body">
+        {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+        
+        <div class="custom-filter-group">
+            <p class="custom-filter-heading">SORT BY</p>
+            <div class="custom-filter-list">
+            {%- for option in collection.sort_options -%}
+                <label class="custom-list-item {% if option.value == sort_by %}selected{% endif %}">
+                <input type="radio" name="sort_by" value="{{ option.value }}" {% if option.value == sort_by %}checked{% endif %}>
+                <span class="custom-radio-indicator"></span>
+                <span class="custom-item-label">{{ option.name }}</span>
+                </label>
+            {%- endfor -%}
+            </div>
+        </div>
+
+        {%- for filter in collection.filters -%}
+            <div class="custom-filter-group">
+            <p class="custom-filter-heading">{{ filter.label | upcase }}</p>
+
+            {%- case filter.presentation -%}
+                
+                {%- comment -%} 1. COLOUR SWATCHES (2-Column Grid) {%- endcomment -%}
+                {%- when 'swatch' or filter.label == 'Colour' or filter.label == 'Color' -%}
+                <div class="custom-filter-grid color-grid">
+                    {%- for value in filter.values -%}
+                    <label class="custom-grid-item color-item {% if value.active %}selected{% endif %}">
+                        <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %}>
+                        
+                        {%- if filter.presentation == 'swatch' -%}
+                        <div class="color-swatch-block" style="--swatch-color: {{ value.swatch.color }}; background-image: url({{ value.swatch.image | image_url: width: 40 }});"></div>
+                        {%- else -%}
+                        {%- comment -%} Fallback if not using native visual filters {%- endcomment -%}
+                        <div class="color-swatch-block" style="background-color: {{ value.label | downcase | replace: ' ', '' }};"></div>
+                        {%- endif -%}
+                        
+                        <span class="custom-item-label">{{ value.label }}</span>
+                    </label>
+                    {%- endfor -%}
+                </div>
+
+                {%- comment -%} 2. SIZES (Auto-Fit Grid) {%- endcomment -%}
+                {%- else -%}
+                {%- if filter.label == 'Size' or filter.label == 'Sizes' -%}
+                    <div class="custom-filter-grid size-grid">
+                    {%- for value in filter.values -%}
+                        <label class="custom-grid-item size-item {% if value.active %}selected{% endif %}">
+                        <span class="custom-radio-indicator"></span>
+                        <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %}>
+                        <span class="custom-item-label">{{ value.label }}</span>
+                        </label>
+                    {%- endfor -%}
+                    </div>
+
+                {%- comment -%} 3. STANDARD LISTS (Categories, etc.) {%- endcomment -%}
+                {%- else -%}
+                    <div class="custom-filter-list">
+                    {%- for value in filter.values -%}
+                        <label class="custom-list-item {% if value.active %}selected{% endif %}">
+                        <input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %}>
+                        <span class="custom-radio-indicator"></span>
+                        <span class="custom-item-label">{% if value.label == "Jerseys" %}Tops{% else %}{{ value.label }}{% endif %}</span>
+                        </label>
+                    {%- endfor -%}
+                    </div>
+                {%- endif -%}
+
+            {%- endcase -%}
+            </div>
+        {%- endfor -%}
+        </form>
+
+    <div class="custom-drawer-footer">
+      <button type="button" class="custom-drawer-btn btn-clear" id="BtnClearAll" style="display: none;">
+        CLEAR ALL
+      </button>
+
+      <button type="submit" form="CustomFilterForm" class="custom-drawer-btn btn-apply full-width" id="BtnApply">
+        SHOW {{ collection.results_count | default: collection.products_count }} ITEMS
+      </button>
+    </div>
+    
+  </div>
+</div>
+
+
+<style>
+  /* Base Drawer Setup */
+  .custom-filter-drawer {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    justify-content: flex-end;
+    visibility: hidden;
+    transition: visibility 0.4s ease;
+  }
+  .custom-filter-drawer[aria-hidden="false"] {
+    visibility: visible;
+  }
+
+  /* Overlay */
+  .custom-drawer-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0);
+    transition: background 0.4s ease;
+  }
+  .custom-filter-drawer[aria-hidden="false"] .custom-drawer-overlay {
+    background: rgba(0,0,0,0.4);
+  }
+
+  /* Sliding Panel */
+  .custom-drawer-panel {
+    position: relative;
+    width: 100%;
+    max-width: 400px; /* Adjust based on your preference */
+    background: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .custom-filter-drawer[aria-hidden="false"] .custom-drawer-panel {
+    transform: translateX(0);
+  }
+
+  /* Header */
+  .custom-drawer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px 15px;
+    border-bottom: 1px solid #000;
+  }
+  .custom-drawer-title { font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .custom-drawer-close { background: none; border: none; color: #0033cc; cursor: pointer; font-size: 14px; text-transform: uppercase; display: flex; align-items: center; gap: 4px; padding: 0;}
+
+  /* Body */
+  .custom-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  /* Footer */
+  .custom-drawer-footer {
+    display: flex;
+    border-top: 1px solid #000;
+    padding: 10px;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  .custom-drawer-btn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 40px;
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 10px;
+    cursor: pointer;
+    border: none;
+    max-width: calc(50% - 10px);
+    padding: 4px 9px 18px;
+    justify-self: flex-end;
+  }
+  .btn-clear { background: #fff; color: #000; border: 1px solid #000; }
+  .btn-apply { background: #000; color: #fff; }
+  .btn-apply.full-width { width: 100%; }
+
+  /* Hide actual browser radio/checkbox inputs */
+  .custom-drawer-body input[type="radio"],
+  .custom-drawer-body input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* Group Headings */
+  .custom-filter-group {
+    margin-bottom: 30px;
+    padding: 10px;
+  }
+  .custom-filter-heading {
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  /* --- STANDARD LISTS (Sorting & Categories) --- */
+  .custom-filter-list {
+    border: 1px solid #f0f0f0;
+    border-bottom: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .custom-list-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 9px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin: -1px -1px 0 -1px; /* Overlap borders */
+  }
+  .custom-list-item.selected {
+    border: 1px solid #000;
+    background-color: #f8fbff; /* Very faint blue tint if desired, or keep white */
+    z-index: 2;
+  }
+  .custom-radio-indicator {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: inline-block;
+  }
+  .custom-list-item.selected .custom-radio-indicator {
+    border-width: 4px;
+  }
+
+  /* --- COLOUR SWATCHES (2-Column Grid) --- */
+  .color-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+  }
+  .color-item {
+    display: flex;
+    align-items: stretch;
+    cursor: pointer;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    margin: -1px -1px 0 0;
+    transition: all 0.2s;
+  }
+  .color-swatch-block {
+    width: 25px;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border-right: 1px solid #f0f0f0;
+  }
+  .color-item .custom-item-label {
+    padding: 12px 15px;
+    font-size: 13px;
+  }
+  .color-item.selected {
+    background-color: #e8f0ff; /* Light blue selected state */
+    border: 1px solid #000;
+    z-index: 2;
+  }
+  .color-item.selected .color-swatch-block {
+    border-right-color: #000;
+  }
+
+  /* --- SIZES (Multi-Column Grid) --- */
+  .size-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+  }
+  .size-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 4px 9px 12px;
+    cursor: pointer;
+    border-right: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;
+    margin: -1px -1px 0 0;
+    transition: all 0.2s;
+    flex: 1 1 100%;
+  }
+  .size-item .custom-item-label {
+    font-size: 13px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+  .size-item.selected {
+    background-color: #e8f0ff; /* Light blue selected state */
+    border: 1px solid #000;
+    z-index: 2;
+  }
+
+  @media screen and (max-width: 768px){
+    .custom-drawer-panel {
+    max-width: 95vw;
+}
+}
+
+.custom-grid-item.size-item.selected span.custom-radio-indicator {
+    border-width: 4px;
+}
+</style>
+
+<script>
+  function closeCustomDrawer() {
+    document.getElementById('CustomFilterDrawer').setAttribute('aria-hidden', 'true');
+  }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterForm = document.getElementById('CustomFilterForm');
+    const applyButton = document.getElementById('BtnApply');
+    const clearButton = document.getElementById('BtnClearAll');
+    const baseUrl = '{{ window.location.pathname }}';
+
+    if (!filterForm) return;
+
+    // --- Helper: Check if we need to show the CLEAR ALL button ---
+    function toggleClearButton() {
+      // Check if any checkboxes are currently checked
+      const hasActiveFilters = Array.from(filterForm.querySelectorAll('input[type="checkbox"]')).some(input => input.checked);
+      
+      if (hasActiveFilters) {
+        clearButton.style.display = 'flex';
+        applyButton.classList.remove('full-width');
+      } else {
+        clearButton.style.display = 'none';
+        applyButton.classList.add('full-width');
+      }
+    }
+
+    // Run once on load just in case filters are already applied in the URL
+    toggleClearButton();
+
+    // --- 1. Listen for changes (Updates UI & Button Count) ---
+    filterForm.addEventListener('change', function(event) {
+      const input = event.target;
+      const label = input.closest('label');
+
+      // Update visual states
+      if (input.type === 'checkbox') {
+        if (input.checked) {
+          label.classList.add('selected');
+        } else {
+          label.classList.remove('selected');
+        }
+      } else if (input.type === 'radio') {
+        const siblings = filterForm.querySelectorAll(`input[name="${input.name}"]`);
+        siblings.forEach(sib => sib.closest('label').classList.remove('selected'));
+        label.classList.add('selected');
+      }
+
+      // Check if we need to show/hide the Clear All button
+      toggleClearButton();
+
+      // Fetch new count via AJAX
+      applyButton.innerHTML = 'LOADING...';
+      
+      const formData = new FormData(filterForm);
+      const searchParams = new URLSearchParams(formData);
+      const urlWithParams = `${baseUrl}?${searchParams.toString()}`;
+
+      fetch(urlWithParams)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const newButton = doc.getElementById('BtnApply');
+          
+          if (newButton) {
+            applyButton.innerHTML = newButton.innerHTML;
+          } else {
+            applyButton.innerHTML = 'SHOW ITEMS';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching count:', error);
+          applyButton.innerHTML = 'SHOW ITEMS';
+        });
+    });
+
+    // --- 2. Handle CLEAR ALL clicks ---
+    clearButton.addEventListener('click', function() {
+      // Uncheck all checkboxes
+      filterForm.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+        cb.checked = false;
+        cb.closest('label').classList.remove('selected');
+      });
+      
+      // Trigger a change event so the button count updates automatically
+      filterForm.dispatchEvent(new Event('change', { bubbles: true }));
+    });
+
+    // --- 3. Apply Filters dynamically on Submit ---
+    filterForm.addEventListener('submit', function(event) {
+      event.preventDefault(); 
+      
+      applyButton.innerHTML = 'APPLYING...';
+      
+      const formData = new FormData(filterForm);
+      const searchParams = new URLSearchParams(formData);
+      const urlWithParams = `${baseUrl}?${searchParams.toString()}`;
+
+      window.history.pushState({ path: urlWithParams }, '', urlWithParams);
+
+      fetch(urlWithParams)
+        .then(response => response.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(html, 'text/html');
+          const currentGrid = document.getElementById('ProductGridContainer');
+          const newGrid = doc.getElementById('ProductGridContainer');
+
+          if (currentGrid && newGrid) {
+            currentGrid.innerHTML = newGrid.innerHTML;
+          } else {
+            window.location.href = urlWithParams;
+            return;
+          }
+
+          applyButton.innerHTML = doc.getElementById('BtnApply')?.innerHTML || 'SHOW ITEMS';
+          closeCustomDrawer();
+        })
+        .catch(() => window.location.href = urlWithParams);
+    });
+
+    window.addEventListener('popstate', function() {
+      window.location.reload(); 
+    });
+  });
+</script>

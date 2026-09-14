@@ -1,0 +1,87 @@
+{% schema %}
+{
+  "name": "Custom Menu Accordion",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "nav-menu",
+      "label": "Navigation Menu",
+    },
+  ],
+  "presets": [
+    {
+      "name": "Custom Menu Accordion",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="accordion-container-{{ section.id }}">
+  <div class="accordion-header-{{ section.id }}">
+    <h4>{{ section.settings['nav-menu'].title }}</h4>
+    <span class="accordion-icon-{{ section.id }}">+</span>
+  </div>
+  <div class="panel-{{ section.id }}">
+    {% for link in section.settings['nav-menu'].links %}
+      <a style="margin-bottom:10px;" href="{{ link.url }}">
+        <p>{{ link.title }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .accordion-container-{{ section.id }} {
+    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .accordion-container-{{ section.id }} {
+      display: block;
+    }
+  }
+
+  .accordion-header-{{ section.id }} {
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .accordion-icon-{{ section.id }} {
+    font-size: 20px;
+  }
+
+  .panel-{{ section.id }} {
+    display: none;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var accordion = document.querySelector('.accordion-header-{{ section.id }}');
+    var panel = document.querySelector('.panel-{{ section.id }}');
+    var icon = document.querySelector('.accordion-icon-{{ section.id }}');
+
+    accordion.addEventListener('click', function () {
+      this.classList.toggle('active');
+      if (panel.style.display === 'block') {
+        panel.style.display = 'none';
+        icon.textContent = '+';
+      } else {
+        panel.style.display = 'block';
+        icon.textContent = '−';
+      }
+    });
+  });
+</script>

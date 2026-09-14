@@ -1,0 +1,203 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collections_bar_yDcPHH": {
+      "type": "collections-bar",
+      "blocks": {
+        "collection_TWiyw7": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "New Arrivals",
+            "collection": "nova"
+          }
+        },
+        "collection_mW7cBM": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Shop All",
+            "collection": "shop-all"
+          }
+        },
+        "collection_XgjkDQ": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Best Sellers",
+            "collection": "current-available-items"
+          }
+        },
+        "collection_VTqKUX": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Denims",
+            "collection": "3-denim"
+          }
+        },
+        "collection_NpMHUn": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Jackets",
+            "collection": "4-jackets"
+          }
+        },
+        "collection_midWtg": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Hoodies",
+            "collection": "5-hoodies"
+          }
+        },
+        "collection_VeHJeA": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "Tops",
+            "collection": "6-tops"
+          }
+        }
+      },
+      "block_order": [
+        "collection_TWiyw7",
+        "collection_mW7cBM",
+        "collection_XgjkDQ",
+        "collection_VTqKUX",
+        "collection_NpMHUn",
+        "collection_midWtg",
+        "collection_VeHJeA"
+      ],
+      "name": "Collections Bar",
+      "settings": {}
+    },
+    "rich_text_pmbqjd": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_PatC9q": {
+          "type": "heading",
+          "settings": {
+            "text": "BLACK FRIDAY SALE",
+            "heading_tag": "h5"
+          }
+        },
+        "richtext_Qi8ihQ": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p> SPEND $200  →  GET $25 OFF</p><p> SPEND $300  → GET $45 OFF</p><p> SPEND $400  → GET $75 OFF</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_PatC9q",
+        "richtext_Qi8ihQ"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".prose:not(.prose--tight) :where(:not(meta, span) + *) {margin-block-start: 0;}",
+        " {border-bottom: 1px solid; margin-bottom: 20px;}",
+        "p.h5 {font-weight: 600;}"
+      ],
+      "name": "t:sections.rich_text.presets.rich_text.name",
+      "settings": {
+        "bg_image": "shopify://shop_images/57037c90-171f-4cce-a740-3da592876b25_4.jpg",
+        "custom_class": "",
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "content_width": "xs",
+        "text_position": "center",
+        "remove_vertical_spacing": true
+      }
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "image_size": "auto",
+        "allow_transparent_header": true,
+        "reveal": true,
+        "enable_parallax": true,
+        "show_image": true,
+        "show_collection_title": true,
+        "show_collection_description": true,
+        "show_breadcrumb": false,
+        "content_width": "xs",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "custom_css": [
+        ".justify-items-center {justify-items: left;}",
+        "a.product-title.h6 {text-align: left;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-2",
+        "hide_product_information": false,
+        "products_per_page": 50,
+        "products_per_row_mobile": "2",
+        "products_size_desktop": "medium",
+        "show_grid_mode_selector": false,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 0.2,
+        "filter_layout": "drawer",
+        "quick_links_menu": "",
+        "show_sort_by": false,
+        "show_filters": true,
+        "show_results_count": true,
+        "show_filter_group_name": false,
+        "show_filter_values_count": false,
+        "open_filters_by_default": false
+      }
+    },
+    "270c1eb9-707e-4489-a801-852fc400eac5": {
+      "type": "featured-collections",
+      "blocks": {
+        "template--16933633229014__270c1eb9-707e-4489-a801-852fc400eac5-collection-1": {
+          "type": "collection",
+          "settings": {
+            "collection": "nmn-supplements",
+            "products_count": 35,
+            "title": "",
+            "link_url": "",
+            "link_text": "View all"
+          }
+        }
+      },
+      "block_order": [
+        "template--16933633229014__270c1eb9-707e-4489-a801-852fc400eac5-collection-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": false,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1,
+        "vertical_spacing_factor": 1,
+        "subheading": ""
+      }
+    }
+  },
+  "order": [
+    "collections_bar_yDcPHH",
+    "rich_text_pmbqjd",
+    "collection-banner",
+    "main",
+    "270c1eb9-707e-4489-a801-852fc400eac5"
+  ]
+}

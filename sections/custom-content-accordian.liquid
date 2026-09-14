@@ -1,0 +1,90 @@
+{% schema %}
+{
+  "name": "Custom Content Accordion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "accordion_title",
+      "label": "Accordion Title",
+      "default": "Accordion Title"
+    },
+    {
+      "type": "textarea",
+      "id": "accordion_description",
+      "label": "Accordion Description",
+      "default": "Accordion description goes here."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Content Accordion",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="accordion-container-{{ section.id }}">
+  <div class="accordion-header-{{ section.id }}">
+    <h4>{{ section.settings.accordion_title }}</h4>
+    <span class="accordion-icon-{{ section.id }}">+</span>
+  </div>
+  <div class="panel-{{ section.id }}">
+    <p>{{ section.settings.accordion_description }}</p>
+  </div>
+</div>
+
+<style>
+  .accordion-container-{{ section.id }} {
+    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    background: white;
+  }
+
+  @media (max-width: 768px) {
+    .accordion-container-{{ section.id }} {
+      display: block;
+    }
+  }
+
+  .accordion-header-{{ section.id }} {
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .accordion-icon-{{ section.id }} {
+    font-size: 20px;
+  }
+
+  .panel-{{ section.id }} {
+    display: none;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var accordion = document.querySelector('.accordion-header-{{ section.id }}');
+    var panel = document.querySelector('.panel-{{ section.id }}');
+    var icon = document.querySelector('.accordion-icon-{{ section.id }}');
+
+    accordion.addEventListener('click', function () {
+      this.classList.toggle('active');
+      if (panel.style.display === 'block') {
+        panel.style.display = 'none';
+        icon.textContent = '+';
+      } else {
+        panel.style.display = 'block';
+        icon.textContent = '−';
+      }
+    });
+  });
+</script>

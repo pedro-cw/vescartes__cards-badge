@@ -1,0 +1,74 @@
+{% if template.name == 'product' or template.name == 'collection' or template.name == 'index' %}
+<div class="collections-bar container full-bleed">
+    <ul style="{% if template.name == 'product' %}margin-bottom: 0px;{% elsif template.name == 'collection' %} {% endif %}">
+        {% for block in section.blocks %}
+            {% assign coll = block.settings.collection %}
+            {% assign collection_title = collection.title %}
+            <li>
+                <a href="{{ coll.url }}" 
+                   {% if coll == collection %} 
+                     style="color: #730101;" 
+                     class="active-collection" 
+                   {% endif %}>
+                   {% if block.settings.collect_title != blank %}{{ block.settings.collect_title }}{% else %}{{ coll.title }}{% endif %}
+                </a>
+                {% if block.settings.show_dot %}
+                    <sup class="coll-dot"></sup>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const activeCollection = document.querySelector('.active-collection');
+    
+    if (activeCollection) {
+      // Scrolls the active element into the center of the horizontal viewport
+      activeCollection.scrollIntoView({ 
+        behavior: 'auto',   // Use 'smooth' if you want an animated scroll effect on load
+        block: 'nearest',   // Prevents vertical page jumping
+        inline: 'center'    // Centers the active item horizontally
+      });
+    }
+  });
+</script>
+{% endif %}
+
+{% schema %}
+{
+    "name": "Collections Bar",
+    "blocks": [
+        {
+            "name": "Collection",
+            "type": "collection",
+            "settings": [
+                {
+                    "type": "checkbox",
+                    "id": "show_dot",
+                    "label": "Show Dot"
+                },
+                {
+                    "type": "inline_richtext",
+                    "id": "collect_title",
+                    "label": "Collection Title"
+                },
+                {
+                    "type": "collection",
+                    "id": "collection",
+                    "label": "Collection"
+                }
+            ]
+        }
+    ],
+    "settings": [
+
+    ],
+   "presets": [
+        {
+            "name": "Collections Bar"
+        }
+    ]
+}
+{% endschema %}

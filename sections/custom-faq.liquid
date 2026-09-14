@@ -1,0 +1,356 @@
+<style>
+  {{ heading_font | font_face: font_display: 'swap' }}
+  {{ body_font | font_face: font_display: 'swap' }}
+
+  .faq-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-section-{{ section.id }} .faq-main-title {
+    text-align: center;
+    color: {{ section.settings.heading_color }};
+    font-size: {{ section.settings.title_size_mobile }}px;
+    margin-bottom: 30px;
+    font-family: var(--heading-font-family);
+  }
+
+  .faq-section-{{ section.id }} details {
+    border-bottom: 1px solid {{ section.settings.border_color }};
+  }
+
+  /* Remove default markers */
+  .faq-section-{{ section.id }} summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-section-{{ section.id }} summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+  }
+
+  .faq-section-{{ section.id }} .category-title {
+    font-weight: 600;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.category_size_mobile }}px;
+    font-family: var(--heading-font-family);
+  }
+
+  /* Sub-accordion (Questions) */
+  .faq-section-{{ section.id }} .faq-question {
+    border-bottom: 1px solid {{ section.settings.border_color }};
+    background-color: transparent;
+    font-family: var(--heading-font-family);
+  }
+  .faq-section-{{ section.id }} .faq-question:last-child {
+    border-bottom: none;
+  }
+
+  /* Active state for Questions */
+  .faq-section-{{ section.id }} .faq-question[open] .question-title {
+    background-color: {{ section.settings.active_bg_color }};
+  }
+
+  .faq-section-{{ section.id }} .question-title {
+    font-weight: 400;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.question_size_mobile }}px;
+    padding: 15px 10px;
+    transition: background-color 0.2s ease;
+  }
+
+  .faq-section-{{ section.id }} .faq-answer {
+    padding: 10px 10px 20px 10px;
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.answer_size_mobile }}px;
+    opacity: 0.8;
+    line-height: 1.6;
+    font-family: var(--text-font-family);
+  }
+
+  /* Icons */
+  .faq-section-{{ section.id }} .icon-chevron {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: {{ section.settings.icon_color }};
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-section-{{ section.id }} details[open] > summary > .icon-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Desktop Font Sizes */
+  @media screen and (min-width: 768px) {
+    .faq-section-{{ section.id }} {
+      padding: 60px 40px;
+    }
+    .faq-section-{{ section.id }} .faq-main-title {
+      font-size: {{ section.settings.title_size_desktop }}px;
+    }
+    .faq-section-{{ section.id }} .category-title {
+      font-size: {{ section.settings.category_size_desktop }}px;
+    }
+    .faq-section-{{ section.id }} .question-title {
+      font-size: {{ section.settings.question_size_desktop }}px;
+    }
+    .faq-section-{{ section.id }} .faq-answer {
+      font-size: {{ section.settings.answer_size_desktop }}px;
+    }
+  }
+</style>
+
+<div class="faq-section-{{ section.id }}">
+  {% if section.settings.title != blank %}
+    <h2 class="faq-main-title">{{ section.settings.title }}</h2>
+  {% endif %}
+
+  {%- comment -%} 
+    Step 1: Extract Unique Categories from Blocks 
+    We use a delimiter to group them safely without complex filters in conditions.
+  {%- endcomment -%}
+  {%- assign category_list = "" -%}
+  
+  {%- for block in section.blocks -%}
+    {%- assign current_category = block.settings.category | strip -%}
+    {%- if current_category != blank -%}
+      {%- assign cat_with_delimiter = current_category | append: "|||" -%}
+      {%- unless category_list contains cat_with_delimiter -%}
+        {%- assign category_list = category_list | append: cat_with_delimiter -%}
+      {%- endunless -%}
+    {%- endif -%}
+  {%- endfor -%}
+
+  {%- assign unique_categories = category_list | split: "|||" -%}
+
+  {%- comment -%} Step 2: Loop through unique categories {%- endcomment -%}
+  <div class="faq-accordion-container">
+    {%- for cat in unique_categories -%}
+      {%- if cat == blank -%}
+        {%- continue -%}
+      {%- endif -%}
+
+      <details class="faq-category">
+        <summary class="category-title">
+          {{ cat }}
+          <svg class="icon-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+        </summary>
+
+        <div class="category-content">
+          {%- comment -%} Step 3: Output questions that match the current category {%- endcomment -%}
+          {%- for block in section.blocks -%}
+            {%- assign block_cat = block.settings.category | strip -%}
+            
+            {%- if block_cat == cat -%}
+              <details class="faq-question" {{ block.shopify_attributes }}>
+                <summary class="question-title">
+                  {{ block.settings.question }}
+                  <svg class="icon-chevron" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg>
+                </summary>
+                <div class="faq-answer">
+                  {{ block.settings.answer }}
+                </div>
+              </details>
+            {%- endif -%}
+            
+          {%- endfor -%}
+        </div>
+      </details>
+      
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Nested FAQs",
+  "settings": [
+    {
+      "type": "header",
+      "content": "General"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "FAQs"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#eaeaea"
+    },
+    {
+      "type": "color",
+      "id": "active_bg_color",
+      "label": "Active Question Background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Font Sizes"
+    },
+    {
+      "type": "range",
+      "id": "title_size_desktop",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Main Title Size",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "category_size_desktop",
+      "min": 14,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Category Title Size",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "question_size_desktop",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Question Size",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "answer_size_desktop",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Answer Size",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Mobile Font Sizes"
+    },
+    {
+      "type": "range",
+      "id": "title_size_mobile",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Main Title Size",
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "category_size_mobile",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Category Title Size",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "question_size_mobile",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Question Size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "answer_size_mobile",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Answer Size",
+      "default": 14
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category Name",
+          "info": "Exact spelling matters. Group questions by giving them the same category name (e.g., 'Shipping & Delivery').",
+          "default": "General"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How do I track my order?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Once your order has been dispatched, you will receive a shipping confirmation email containing your tracking number.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Nested FAQs",
+      "blocks": [
+        { "type": "faq_item", "settings": { "category": "Shipping & Delivery" } },
+        { "type": "faq_item", "settings": { "category": "Shipping & Delivery" } },
+        { "type": "faq_item", "settings": { "category": "Orders & Payments" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

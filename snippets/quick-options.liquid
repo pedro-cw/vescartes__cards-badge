@@ -1,0 +1,22 @@
+<form id="quick-checkout-form" data-product-id="{{ product.id }}" data-product-name="{{ product.title }}" data-product-featured-image="{{ product.featured_image | image_url: width: product.featured_image.width }}">
+  {%- for option in product.options_with_values -%}
+  <fieldset class="product-option" data-option-index="{{ forloop.index0 }}">
+    <div class="product-option-buttons">
+      {%- for value in option.values -%}
+        <button
+          type="button"
+          class="product-option-button"
+          data-value="{{ value | escape }}"
+          {% if value.available %}
+          {% else %}
+            disabled
+          {% endif %}
+        >
+          {{ value }}
+        </button>
+      {%- endfor -%}
+    </div>
+  </fieldset>
+{%- endfor -%}
+
+</form>

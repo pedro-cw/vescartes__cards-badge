@@ -1,0 +1,321 @@
+<!doctype html>
+
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
+  <head>
+    {% render 'shogun-optimizer' %}
+
+    
+
+    <!-- Added by AVADA SEO Suite -->
+    {% include 'avada-seo' %}
+    <!-- /Added by AVADA SEO Suite -->
+
+    <meta name="facebook-domain-verification" content="xlg3s0k3z0d42gtoo5hm54a747yryw">
+
+    <meta charset="utf-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=5.0"
+    >
+
+    <title>
+      {% if page_title == blank -%}
+        {{- shop.name -}}
+        {% elsif request.page_type == '404' %}
+          Vescartes - Sign Up
+      {%- else -%}
+        {{- page_title -}}
+        {%- if current_page != 1 %} &ndash; {{ 'general.page' | t: page: current_page }}{% endif -%}
+      {%- endif %}
+    </title>
+
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | image_url: width: 96 }}">
+      <link rel="apple-touch-icon" href="{{ settings.favicon | image_url: width: 180 }}">
+    {%- endif -%}
+
+    {%- comment -%}Few prefetch to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+
+    {%- unless settings.heading_font.system? -%}
+      <link rel="preload" href="{{ settings.heading_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- unless settings.text_font.system? -%}
+      <link rel="preload" href="{{ settings.text_font | font_url }}" as="font" type="font/woff2" crossorigin>
+    {%- endunless -%}
+
+    {%- render 'social-meta-tags' -%}
+    {%- render 'microdata-schema' -%}
+    {%- render 'css-variables' -%}
+    {%- render 'js-variables' -%}
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+    {%- if request.page_type == 'gift_card' -%}
+      <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
+    {%- endif -%}
+
+    <script>
+      if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+        const importMapPolyfill = document.createElement('script');
+        importMapPolyfill.async = true;
+        importMapPolyfill.src = "{{ 'es-module-shims.min.js' | asset_url }}";
+
+        document.head.appendChild(importMapPolyfill);
+      }
+    </script>
+
+    <script type="importmap">
+      {%- comment -%}On Safari 16.3 and lower, a polyfill is used to load importmap{%- endcomment -%}
+      {
+        "imports": {
+          "vendor": "{{ 'vendor.min.js' | asset_url }}",
+          "theme": "{{ 'theme.js' | asset_url }}",
+          "photoswipe": "{{ 'photoswipe.min.js' | asset_url }}"
+        }
+      }
+    </script>
+
+    <script type="module" src="{{ 'vendor.min.js' | asset_url }}"></script>
+    <script type="module" src="{{ 'theme.js' | asset_url }}"></script>
+
+    {{ content_for_header }}
+
+    {{- 'theme.aio.min.css' | asset_url | stylesheet_tag: preload: true -}}
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'rkjz6krt19');
+    </script>
+    {% include 'pagefly-app-header' %}
+
+    {{- 'custom.css' | asset_url | stylesheet_tag: preload: true -}}
+
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                });
+            }
+            ((p = t.createElement('script')).type = 'text/javascript'),
+              (p.async = !0),
+              (p.src = s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(p, r);
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return 'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e;
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep'.split(
+                    ' '
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_BtQNWeiQBuuokS9H4y5yZH7hMFndHoFuW2E9J8Q5gqZ5', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-01-30',
+      });
+    </script>
+
+    <script>
+      window.__ph_distinct_id = posthog.get_distinct_id();
+      // Cookie fallback so the pixel can read distinct_id on the checkout subdomain
+      document.cookie =
+        'ph_did=' + posthog.get_distinct_id() + '; path=/; domain=.vescartes.com; SameSite=Lax; Secure';
+    </script>
+    
+  </head>
+
+  {% liquid
+    assign features_class = ''
+
+    if settings.show_button_transition
+      assign features_class = features_class | append: 'features--button-transition '
+    endif
+
+    if settings.show_image_zoom_on_hover
+      assign features_class = features_class | append: 'features--zoom-image '
+    endif
+
+    if settings.show_page_transition
+      assign features_class = features_class | append: 'features--page-transition '
+    endif
+  %}
+
+  <body class="{{ features_class }} template-{{ template.name }} color-scheme color-scheme--{{ settings.default_color_scheme.id }}">
+    {%- render 'shadow-dom-templates' -%}
+
+    <loading-bar class="loading-bar" aria-hidden="true"></loading-bar>
+    <a href="#main" allow-hash-change class="skip-to-content sr-only">
+      {{- 'general.accessibility.skip_to_content' | t -}}
+    </a>
+
+    <span
+      id="header-scroll-tracker"
+      style="position: absolute; width: 1px; height: 1px; top: var(--header-scroll-tracker-offset, 10px); left: 0;"
+    >
+      {%- comment -%}
+        This allows our theme to track when the user has scrolled a given amount of pixels, without relying on a global scroll listener. This helps
+        to improve performance and reduce reflows.
+      {%- endcomment -%}
+    </span>
+        {%- assign show_sections = true -%}
+
+        {%- if request.page_type == 'password' or request.page_type == '404' or page.handle == 'nova' -%}
+          {%- assign show_sections = false -%}
+        {%- endif -%}
+
+        {%- if show_sections -%}
+          {%- sections 'header-group' -%}
+          {%- sections 'overlay-group' -%}
+        {%- endif -%}
+
+    <main id="main" class="anchor {{request.page_type  }} {{ template.suffix }}">
+      {{ content_for_layout }}
+
+      {%- comment -%}
+        IMPLEMENTATION NOTE: For best semantics, having the footer group outside the main would be slightly better, but
+          moving it inside the main allows to have all the sections (including sections inside the footer group) to be
+          consecutive, and hence having a cleaner margin collapsing management.
+      {%- endcomment -%}
+      {%- if show_sections -%}
+        {%- sections 'footer-group' -%}
+      {%- endif -%}
+    </main>
+
+    <script>
+      var Shopify = Shopify || {};
+       // ---------------------------------------------------------------------------
+       // Money format handler
+       // ---------------------------------------------------------------------------
+       Shopify.money_format = {{ shop.money_format | json }};
+       Shopify.formatMoney = function(cents, format) {
+         if (typeof cents == 'string') { cents = cents.replace('.',''); }
+         var value = '';
+         var placeholderRegex = /\{\{\s*(\w+)\s*\}\}/;
+         var formatString = (format || this.money_format);
+
+         function defaultOption(opt, def) {
+           return (typeof opt == 'undefined' ? def : opt);
+         }
+
+         function formatWithDelimiters(number, precision, thousands, decimal) {
+           precision = defaultOption(precision, 2);
+           thousands = defaultOption(thousands, ',');
+           decimal   = defaultOption(decimal, '.');
+
+           if (isNaN(number) || number == null) { return 0; }
+
+           number = (number/100.0).toFixed(precision);
+
+           var parts   = number.split('.'),
+               dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
+               cents   = parts[1] ? (decimal + parts[1]) : '';
+
+           return dollars + cents;
+         }
+
+         switch(formatString.match(placeholderRegex)[1]) {
+           case 'amount':
+             value = formatWithDelimiters(cents, 2);
+             break;
+           case 'amount_no_decimals':
+             value = formatWithDelimiters(cents, 0);
+             break;
+           case 'amount_with_comma_separator':
+             value = formatWithDelimiters(cents, 2, '.', ',');
+             break;
+           case 'amount_no_decimals_with_comma_separator':
+             value = formatWithDelimiters(cents, 0, '.', ',');
+             break;
+         }
+
+         return formatString.replace(placeholderRegex, value);
+       };
+    </script>
+
+    <script>
+      // Disable right-click context menu
+      document.addEventListener('contextmenu', (event) => {
+        event.preventDefault();
+      });
+
+      // Disable common dev tools shortcuts
+      document.addEventListener('keydown', (event) => {
+        // F12
+        if (event.key === 'F12') {
+          event.preventDefault();
+        }
+        // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C / Ctrl+U
+        if (
+          (event.ctrlKey && event.shiftKey && ['I', 'J', 'C'].includes(event.key.toUpperCase())) ||
+          (event.ctrlKey && event.key.toUpperCase() === 'U')
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
+  <script>
+(function () {
+  if (window.location.pathname !== '/pages/nova') return;
+  if (window.__novaKlaviyoLeadTrackingInitialized) return;
+
+  window.__novaKlaviyoLeadTrackingInitialized = true;
+
+  var NOVA_KLAVIYO_FORM_ID = 'XDkw2v';
+
+  window.addEventListener('klaviyoForms', function (event) {
+    var detail = event.detail || {};
+
+    if (detail.type !== 'submit') return;
+    if (detail.formId !== NOVA_KLAVIYO_FORM_ID) return;
+
+    if (typeof window.fbq !== 'function') return;
+
+    window.fbq('track', 'Lead');
+  });
+})();
+</script>
+  </body>
+</html>

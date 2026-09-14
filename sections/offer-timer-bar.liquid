@@ -1,0 +1,108 @@
+{% render 'offer-timer-bar' %}
+
+{% schema %}
+  {
+    "name": "Offer Timer Bar",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Promo Bar"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "offer_text",
+        "label": "Offer Text"
+      },
+      {
+        "type": "color",
+        "id": "promo-text",
+        "label": "Promo Text",
+        "default": "#fff"
+      },
+      {
+        "type": "color",
+        "id": "promo-bg",
+        "label": "Promo Background",
+        "default": "#6f4292"
+      },
+      {
+        "type": "inline_richtext",
+        "id": "timer_text",
+        "label": "Timer Text",
+        "info": "Add [timer] to show timer"
+      },
+      {
+        "type": "header",
+        "content": "Banner"
+      },
+      {
+      "type": "image_picker",
+      "id": "banner_image_desktop",
+      "label": "Banner Image (Desktop)"
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image_mobile",
+      "label": "Banner Image (Mobile)"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Heading",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_description",
+      "label": "Description",
+      "default": "Discover amazing deals and new arrivals."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_background_color",
+      "label": "Button Background Color",
+      "default": "#000000"
+    }
+    ],
+    "presets": [
+      {
+        "name": "Offer Timer Bar"
+      }
+    ]
+  }
+{% endschema %}

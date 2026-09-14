@@ -1,0 +1,243 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "question-1": {
+          "type": "question",
+          "settings": {
+            "question": "Will I receive a tracking number?",
+            "answer": "<p>Yes! When your orders ships out, you'll automatically be notified via e-mail. This e-mail will also contain a tracking number that you can click to see where exactly your package is on it's journey.<br/><br/>If you lose this tracking number, you can also email / DM us and we'd be happy to check on the status of your item!</p>"
+          }
+        },
+        "question_zy446w": {
+          "type": "question",
+          "settings": {
+            "question": "I Haven't Received An Order Confirmation?",
+            "answer": "<p>If you haven't received your order confirmation email, please note that sometimes it may be automatically linked to the email associated with your default payment method.<br/><br/>Order confirmations are sent to all customers within 5-10 minutes of purchasing. If you have not received one, please check your spam / trash folder.<br/><br/>If you still can't find it, you can reach out to us for help (contact@vescartes.com) and we’ll locate it. To locate your order, we'll just need your full name, shipping address, and purchase date.</p>"
+          }
+        },
+        "question-2": {
+          "type": "question",
+          "settings": {
+            "question": "What size is best for me?",
+            "answer": "<p>Unsure what size to get? You can use both our Interactive Size Chart and Sizing Quiz, found on every one of the product pages, to determine the best size for you.</p><p>The Interactive Size Chart can be used to compare our garment measurements to clothes you already own, to ensure our items fit you just as well.</p><p>Our Sizing Quiz will ask you a series of questions, and use these data points to recommend you the best size! </p><p>If you still aren't sure, you can always message us and we can help you out. <br/><br/></p>"
+          }
+        },
+        "167a3c27-a03c-409d-8e60-f46cd159a499": {
+          "type": "question",
+          "settings": {
+            "question": "Do you accept returns?",
+            "answer": "<p>Yes! We have a 10-day return policy - you have 10 days after receiving your item to request a return.</p><p>To be eligible for a return, your item must be in the same condition that you received it, unworn or unused, with tags, and in its original packaging. You’ll also need the receipt or proof of purchase.</p><p>To start a return, you can contact us through our 'Contact' page or email us (contact@vescartes.com).<br/><br/>If your return is accepted, we’ll send you instructions on how and where to send your package. Items sent back to us without first requesting a return will not be accepted.</p>"
+          }
+        },
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632": {
+          "type": "question",
+          "settings": {
+            "question": "How can I see customer reviews?",
+            "answer": "<p>We've shipped thousands of items since we started. But we can understand if it's your first time ordering and you're hesitant!<br/><br/>To view our items on customers, you can check the hundreds of tagged pictures on our <a href=\"https://www.instagram.com/vescartes.clo/tagged/\" title=\"https://www.instagram.com/vescartes.clo/tagged/\">Instagram</a> (@vescartes.clo).<br/><br/>You can also check our <a href=\"https://www.trustpilot.com/review/vescartes.com\" title=\"https://www.trustpilot.com/review/vescartes.com\">TrustPilot</a>, where customers have shared their feedback on items they've received from us.</p>"
+          }
+        },
+        "question-3": {
+          "type": "question",
+          "settings": {
+            "question": "Any other questions?",
+            "answer": "<p>You can contact us through our contact page! We will be happy to assist you.</p>"
+          }
+        },
+        "890e6c8a-3088-4bb9-a826-708950e408a5": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Returns and Refunds",
+            "icon": "none",
+            "icon_width": 16
+          }
+        }
+      },
+      "block_order": [
+        "category",
+        "question-1",
+        "question_zy446w",
+        "question-2",
+        "167a3c27-a03c-409d-8e60-f46cd159a499",
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632",
+        "question-3",
+        "890e6c8a-3088-4bb9-a826-708950e408a5"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "<strong>Frequently Asked Questions</strong>",
+        "content": "<h6>This section aims to address  the common queries asked by you guys.<br/><br/>If you have further questions, please reach out via email (<strong>contact@vescartes.com</strong>) or send us a DM on IG (<strong>@vescartes.clo</strong>).</h6>"
+      }
+    },
+    "custom_faq_7Fhcah": {
+      "type": "custom-faq",
+      "blocks": {
+        "faq_item_KgkwmD": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping & Delivery",
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order has been dispatched, you will receive a shipping confirmation email containing your tracking number.</p>"
+          }
+        },
+        "faq_item_dRjYWE": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping & Delivery",
+            "question": "When will I recieve my tracking number?",
+            "answer": "<p>We aim to dispatch orders the same day. You should receive your tracking number within 24 hours of placing your order.</p>"
+          }
+        },
+        "faq_item_hdRwRQ": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Shipping & Delivery",
+            "question": "Will I have to pay customs or duties?",
+            "answer": "<p>No. All customs duties and tariffs are prepaid and included in the final price.</p>"
+          }
+        },
+        "faq_item_fLBKwA": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders & Payments",
+            "question": "What payment methods do you accept?",
+            "answer": "<p>We accept major credit and debit cards, along with selected alternative payment methods shown at checkout.</p>"
+          }
+        },
+        "faq_item_f4AdwF": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Orders & Payments",
+            "question": "Can I make changes to my order?",
+            "answer": "<p>Orders can be amended up until dispatch. It is the customer’s responsibility to ensure all details are correct at checkout. Once an order has been dispatched, we are unable to make any changes.</p>"
+          }
+        },
+        "faq_item_KAD8jY": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Returns & Exchanges",
+            "question": "What is your returns policy?",
+            "answer": "<p>Returns can be requested within 14 days of delivery. For full details, please refer to our Returns & Exchanges page.</p>"
+          }
+        },
+        "faq_item_GP7FyR": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Products & Sizing",
+            "question": "Where can I view customer reviews?",
+            "answer": "<p>Customer reviews are available on our Trustpilot profile. You can also explore how our pieces look on customers through our tagged posts on Instagram.</p>"
+          }
+        },
+        "faq_item_pKbmHE": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Products & Sizing",
+            "question": "How do your garments fit?",
+            "answer": "<p>Each product page includes detailed measurements and fit guidance to help you choose the right size.</p>"
+          }
+        },
+        "faq_item_gHrEUz": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Products & Sizing",
+            "question": "What if I’m between sizes?",
+            "answer": "<p>If you’re between sizes, we recommend using our size finder for personalised guidance based on your fit preference.</p>"
+          }
+        },
+        "faq_item_newrje": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Products & Sizing",
+            "question": "How do I find my size?",
+            "answer": "<p>Our interactive size charts, size finder, and model reference images are available on each product page to help you determine the best fit. You can also email us or message us on social media for further guidance.</p>"
+          }
+        },
+        "faq_item_Pz9TJn": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Product Care",
+            "question": "How should I care for my garments?",
+            "answer": "<p>Care instructions are provided on the product page, our Product Care page, and on the garment itself for full guidance.</p>"
+          }
+        },
+        "faq_item_4pz9Ht": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Craftsmanship & Design",
+            "question": "How are your pieces designed and made?",
+            "answer": "<p>All pieces are hand drawn by us in London. Learn more about our craftsmanship and design process on our About Us page.</p>"
+          }
+        },
+        "faq_item_bfUnHD": {
+          "type": "faq_item",
+          "settings": {
+            "category": "Contact",
+            "question": "How can I contact you?",
+            "answer": "<p>You can reach us via email or social media. For full contact details, please refer to our Contact page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_KgkwmD",
+        "faq_item_dRjYWE",
+        "faq_item_hdRwRQ",
+        "faq_item_fLBKwA",
+        "faq_item_f4AdwF",
+        "faq_item_KAD8jY",
+        "faq_item_GP7FyR",
+        "faq_item_pKbmHE",
+        "faq_item_gHrEUz",
+        "faq_item_newrje",
+        "faq_item_Pz9TJn",
+        "faq_item_4pz9Ht",
+        "faq_item_bfUnHD"
+      ],
+      "name": "Nested FAQs",
+      "settings": {
+        "title": "FAQs",
+        "bg_color": "#ffffff",
+        "heading_color": "#000000",
+        "text_color": "#333333",
+        "border_color": "#eaeaea",
+        "active_bg_color": "#f5f5f5",
+        "icon_color": "#000000",
+        "title_size_desktop": 36,
+        "category_size_desktop": 20,
+        "question_size_desktop": 16,
+        "answer_size_desktop": 14,
+        "title_size_mobile": 28,
+        "category_size_mobile": 18,
+        "question_size_mobile": 14,
+        "answer_size_mobile": 14
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "custom_faq_7Fhcah"
+  ]
+}

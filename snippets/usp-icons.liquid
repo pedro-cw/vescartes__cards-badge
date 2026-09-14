@@ -1,0 +1,117 @@
+<div class="upsell-items">
+                
+                  <div class="upsell-item">
+                    <div class="upsell-item-wrapper">
+                      <div class="upsell-image">
+                        {% if block.settings.icon_1 != blank %}
+                        <div class="media media--adapt media--transparent" style="padding-bottom:100.0%">
+                          <img src="{{ block.settings.icon_1 | image_url: width: 256 }}" loading="lazy" width="256" height="256" alt="Worldwide Shipping">
+                        </div>
+                        {% endif %}
+                      </div>
+                      
+                      {% if block.settings.text_1 != blank %}
+                        <h4>{{ block.settings.text_1 }}</h4>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="upsell-item">
+                    <div class="upsell-item-wrapper">
+                      <div class="upsell-image">
+                        {% if block.settings.icon_2 != blank %}
+                        <div class="media media--adapt media--transparent" style="padding-bottom:100.0%">
+                          <img src="{{ block.settings.icon_2 | image_url: width: 256 }}" loading="lazy" width="256" height="256" alt="Worldwide Shipping">
+                        </div>
+                        {% endif %}
+                      </div>
+                      
+                      {% if block.settings.text_2 != blank %}
+                        <h4>{{ block.settings.text_2 }}</h4>
+                      {% endif %}
+                    </div>
+                  </div>
+                  <div class="upsell-item">
+                    <div class="upsell-item-wrapper">
+                      <div class="upsell-image">
+                        {% if block.settings.icon_3 != blank %}
+                        <div class="media media--adapt media--transparent" style="padding-bottom:100.0%">
+                          <img src="{{ block.settings.icon_3 | image_url: width: 256 }}" loading="lazy" width="256" height="256" alt="Worldwide Shipping">
+                        </div>
+                        {% endif %}
+                      </div>
+                      
+                      {% if block.settings.text_3 != blank %}
+                        <h4>{{ block.settings.text_3 }}</h4>
+                      {% endif %}
+                    </div>
+                  </div>
+                
+                
+                
+              </div>
+
+<style>
+    .upsell-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+}
+@media screen and (min-width: 990px) {
+    .upsell-items {
+        max-width: 500px;
+        gap: 20px;
+    }
+}
+.upsell-items {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.upsell-item-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.upsell-image {
+    width: 30px;
+    min-width: 30px;
+}
+.upsell-image .media {
+    display: block;
+    background-color: rgba(var(--color-foreground), 0.1);
+    position: relative;
+    overflow: hidden;
+}
+.upsell-image .media--transparent {
+    background-color: transparent;
+}
+.upsell-image img{
+    display: block;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.upsell-item-wrapper h4 {
+    margin-left: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    max-width: 110px;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: left;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 768px){
+    .upsell-item-wrapper h4{
+        font-size: 10px;
+    }
+}
+</style>

@@ -1,0 +1,98 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632": {
+          "type": "question",
+          "settings": {
+            "question": "How can I see customer reviews?",
+            "answer": "<p>We've shipped 20,000+ packages over the last 2 years. But we can understand if it's your first time ordering and you're hesitant!</p><p>We're just starting off with Vescartes but to view feedback from our main brands, you can check the hundreds of tagged pictures on our IG pages (@caedeslondon & @kenshin.kollection).</p>"
+          }
+        },
+        "890e6c8a-3088-4bb9-a826-708950e408a5": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Returns and Refunds",
+            "icon": "none",
+            "icon_width": 16
+          }
+        }
+      },
+      "block_order": [
+        "category",
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632",
+        "890e6c8a-3088-4bb9-a826-708950e408a5"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "<strong>Cancellation Policy</strong>",
+        "content": "<p>We understand that sometimes circumstances may change, and you may need to cancel your order.</p><p>Please review our cancellation policy below for more information:</p><p>____________________________</p><p><strong>Cancellation Period: </strong>Cancellations can only be accepted during the period when our online store is open. Once our online store has closed, and production has commenced, cancellations are not possible.</p><p><strong>Cancellation Procedure: </strong>To cancel an order, please log in to your account on our website and navigate to the order history section. If you encounter any issues, please contact our customer support team during our business hours for assistance.</p><p><strong>Production Start: </strong>Orders enter the production phase shortly after the online store closes. Once production has started, cancellations are no longer possible.</p><p><strong>Refund Process: </strong>If your cancellation request is received within the allowed period, we will initiate a refund for the full purchase amount. Refunds will be processed using the original payment method. Please allow 5-7 business days for the refund to reflect in your account.</p><p><strong>Exceptions: </strong>Customized or personalized items may not be eligible for cancellation once production has begun. Please contact our customer support team for further assistance.</p><p><strong>Contact Information: </strong>For cancellation inquiries, please contact our customer support team at general@caedeslondon.com. Our team will be happy to assist you with any questions or concerns related to cancellations.</p><p><strong>Changes to Orders: </strong>Once an order is confirmed and the online store is closed, changes to the order, including cancellations, may not be possible. Please double-check your order before completing the purchase.</p><p><strong>Store Closure Information: </strong>Information about the closing and opening times of our online store will be clearly communicated on our website.</p><p>____________________________</p><p>We appreciate your understanding of our cancellation policy, which is designed to ensure efficient order processing and customer satisfaction.</p><p>If you have any further questions, please feel free to reach out to our customer support team</p>"
+      }
+    },
+    "rich_text_bJx7gP": {
+      "type": "rich-text",
+      "blocks": {
+        "subheading_fHjXNy": {
+          "type": "subheading",
+          "disabled": true,
+          "settings": {
+            "text": "Subheading"
+          }
+        },
+        "heading_Anm4bB": {
+          "type": "heading",
+          "settings": {
+            "text": "<strong>Payments</strong>",
+            "heading_tag": "h2"
+          }
+        },
+        "richtext_3DXwML": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>We accept all major debit cards and credit cards.</p><p>Visa, Visa Debit / Delta, Visa Electron, MasterCard Debit, MasterCard, UK Maestro, American Express, Apple Pay, Google Pay and PayPal.</p><p>All transactions are processed via Shopify Payments, Google Pay,  Apple Pay or PayPal, and are encrypted for your safety.</p><p>All payments must be made before your order is shipped to you. We work closely with <a href=\"http://www.visaeurope.com/en/cardholders/verified_by_visa.aspx\">Verified by Visa</a> & <a href=\"https://www.mastercard.co.uk/en-gb.html\" target=\"_blank\" title=\"https://www.mastercard.co.uk/en-gb.html\">MasterCard SecureCode</a> to provide you with a safer shopping experience when using your card online.</p><p>All credit/debit cardholders are subject to validation checks and authorisation by the card issuer.</p><p>Additional validation and fraud checks are carried out internally.</p><p>The actual price charged to overseas customers will be subject to the exchange rate applied by the customer's credit or debit card company.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "subheading_fHjXNy",
+        "heading_Anm4bB",
+        "richtext_3DXwML"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": false
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "rich_text_bJx7gP"
+  ]
+}

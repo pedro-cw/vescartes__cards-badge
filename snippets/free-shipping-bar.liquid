@@ -1,0 +1,66 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+FREE SHIPPING BAR
+----------------------------------------------------------------------------------------------------------------------
+
+Renders the free shipping bar component. It is used on cart page and cart drawer to render the remaining amount before
+being eligible for free shipping.
+{%- endcomment -%}
+
+{%- liquid
+  assign calculated_total_price = 0
+
+  for line_item in cart.items
+    if line_item.requires_shipping
+      assign calculated_total_price = calculated_total_price | plus: line_item.final_line_price
+    endif
+  endfor
+
+  # We have to remove the cart level discount from the calculated amount
+
+  assign total_cart_discount = 0
+
+  for discount_application in cart.cart_level_discount_applications
+    assign total_cart_discount = total_cart_discount | plus: discount_application.total_allocated_amount
+  endfor
+
+  assign calculated_total_price = calculated_total_price | minus: total_cart_discount
+-%}
+ 
+ 
+{% assign product =  settings.shipping_threshold %}
+ 
+{%- if cart.requires_shipping -%}
+  <free-shipping-bar class="free-shipping-bar" threshold="{{ product.price | divided_by: 100  }}" total-price="{{ calculated_total_price }}" reached-message="{{ 'cart.free_shipping_bar.limit_reached_html' | t | escape }}" unreached-message="{{ 'cart.free_shipping_bar.limit_unreached_html' | t | escape }}">
+    {%- comment -%}The span below is the placeholder where the content will be inserted in JS{%- endcomment -%}
+    <span class="text-subdued">&nbsp;</span>
+    
+    <div class="free-shipping-bar__progress">
+      <div class="free-shipping-bar__fill"></div>
+    </div>
+  </free-shipping-bar>
+{%- endif -%}
+
+<style>
+  .free-shipping-bar__progress {
+      position: relative;
+      background: #e5e5e5;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 4px;
+      margin-top: 0.5em;
+  }
+
+  .free-shipping-bar__fill {
+      height: 100%;
+      width: 0%;
+      background: #730101;
+      /* or use your theme accent color */
+      transition: width 0.3s ease;
+  }
+  free-shipping-bar .text-subdued{
+    text-align: left;
+    display: block;
+    text-transform: none;
+  }
+</style>

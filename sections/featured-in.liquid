@@ -1,0 +1,162 @@
+{%- if section.blocks.size > 0 -%}
+  {%- assign featured_id = 'featured-in-' | append: section.id -%}
+
+  <div class="featured-in {{ section.settings.custom_class }}" id="{{ featured_id }}">
+    {%- if section.settings.title != blank -%}
+      <p class="featured-in__title">{{ section.settings.title }}</p>
+    {%- endif -%}
+
+    <div class="featured-in__viewport">
+      <div class="featured-in__track" data-featured-in-track>
+        {%- for i in (1..2) -%}
+          <div class="featured-in__set" data-featured-in-set>
+            {%- for block in section.blocks -%}
+              <div class="featured-in__item" {{ block.shopify_attributes }}>
+                {%- if block.settings.logo != blank -%}
+                  {{- block.settings.logo | image_url: width: 300 | image_tag: loading: 'lazy', alt: block.settings.alt -}}
+                {%- endif -%}
+              </div>
+            {%- endfor -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+<style>
+  .featured-in {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background: #f4f4f4;
+    padding: 14px 0;
+    overflow: hidden;
+  }
+
+  .featured-in__title {
+    color: #1c1c1c;
+    text-align: center;
+    font-family: 'Neue Haas Unica', sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    text-transform: capitalize;
+    margin: 0 0 20px;
+  }
+
+  .featured-in__viewport {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .featured-in__track {
+    display: flex;
+    width: max-content;
+    --featured-in-duration: 30s;
+    animation: featured-in-scroll var(--featured-in-duration) linear infinite;
+  }
+
+  .featured-in__viewport:hover .featured-in__track {
+    animation-play-state: paused;
+  }
+
+  .featured-in__set {
+    display: flex;
+    width: max-content;
+  }
+
+  .featured-in__item {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 32px;
+  }
+
+  .featured-in__item img {
+    max-height: 32px;
+    width: auto;
+    object-fit: contain;
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+
+  @keyframes featured-in-scroll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @media (min-width: 700px) {
+    .featured-in__title {
+      font-size: 16px;
+      margin: 0 0 32px;
+    }
+
+    .featured-in__item {
+      padding: 0 48px;
+    }
+
+    .featured-in__item img {
+      max-height: 40px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Featured In",
+  "tag": "section",
+  "class": "shopify-section--featured-in",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom Class"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Featured In"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "logo",
+          "label": "Logo image"
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Alt text"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Featured In",
+      "blocks": [
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" },
+        { "type": "logo" }
+      ]
+    }
+  ]
+}
+{% endschema %}

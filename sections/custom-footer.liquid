@@ -1,0 +1,689 @@
+{%- comment -%} CSS Variables and Styles {%- endcomment -%}
+<style>
+  .custom-footer {
+    --bg-color: {{ section.settings.bg_color }};
+    --text-color: {{ section.settings.text_color }};
+    --border-color: {{ section.settings.border_color }};
+    --accent-color: {{ section.settings.text_color }};
+    
+    --size-top-text-mob: {{ section.settings.top_text_size_mob }}px;
+    --size-top-text-desk: {{ section.settings.top_text_size_desk }}px;
+    --size-social-icon: {{ section.settings.social_icon_size }}px;
+    --size-heading-mob: {{ section.settings.heading_size_mob }}px;
+    --size-heading-desk: {{ section.settings.heading_size_desk }}px;
+    --size-body-mob: {{ section.settings.body_size_mob }}px;
+    --size-body-desk: {{ section.settings.body_size_desk }}px;
+
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    padding: 40px 20px;
+    font-family: inherit;
+  }
+
+  .custom-footer * {
+    box-sizing: border-box;
+  }
+
+  .custom-footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .custom-footer a:hover {
+    opacity: 0.7;
+  }
+
+  /* --- Top Banner --- */
+  .cf-top-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+  }
+  .cf-top-text {
+    font-size: var(--size-top-text-mob);
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  /* --- Social Icons --- */
+  .cf-socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px 0;
+  }
+  .cf-socials svg {
+    width: var(--size-social-icon);
+    height: var(--size-social-icon);
+    fill: var(--text-color);
+  }
+
+  /* --- Main Layout (Newsletter + Menus) --- */
+  .cf-main {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-bottom: 20px;
+  }
+
+  /* Newsletter */
+  .cf-newsletter {
+    width: 100%;
+  }
+  .cf-newsletter-heading {
+    font-size: var(--size-heading-mob);
+    margin: 0 0 15px 0;
+  }
+  .cf-form-wrapper {
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid var(--text-color);
+    padding-bottom: 10px;
+  }
+  .cf-input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: var(--size-body-mob);
+    outline: none;
+  }
+  .cf-input::placeholder {
+    color: var(--text-color);
+    opacity: 0.8;
+  }
+  .cf-submit {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  .cf-submit svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  /* Menus (Accordion Mobile) */
+  .cf-menus {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  .cf-menu-block {
+    border-bottom: none;
+  }
+  .cf-menu-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: var(--size-heading-mob);
+    font-weight: bold;
+    text-align: left;
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  .cf-menu-heading svg {
+    width: 12px;
+    height: 12px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+  .cf-menu-heading.is-active svg {
+    transform: rotate(180deg);
+  }
+  .cf-menu-content {
+    display: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .cf-menu-content.is-open {
+    display: block;
+  }
+  .cf-menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .cf-menu-list a {
+    font-size: var(--size-body-mob);
+  }
+
+  /* Single Links masquerading as headings */
+  .cf-menu-single-link {
+    font-size: var(--size-heading-mob);
+    font-weight: bold;
+    display: block;
+    padding: 10px 0;
+  }
+
+  /* --- Payments --- */
+  .cf-payments {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 20px;
+    align-items: center;
+  }
+  .cf-payments svg {
+    height: 24px;
+    width: auto;
+    filter: grayscale(100%);
+  }
+
+  .logo-icon-wrapper img.footer-logo-icon {
+    max-width: 60px;
+    margin: 0 auto;
+}
+
+  /* --- Desktop Responsiveness --- */
+  @media (min-width: 769px) {
+    .custom-footer {
+      padding: 60px 40px;
+    }
+    .cf-top-banner {
+      flex-direction: row;
+      justify-content: space-between; /* Side by side */
+      padding-bottom: 40px;
+    }
+    .cf-top-text {
+      font-size: var(--size-top-text-desk);
+    }
+    .cf-socials {
+      padding: 40px 0;
+    }
+    .cf-main {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 30px;
+    }
+    .cf-newsletter {
+      width: 35%;
+    }
+    .cf-newsletter-heading {
+      font-size: var(--size-heading-desk);
+    }
+    .cf-input {
+      font-size: var(--size-body-desk);
+    }
+    .cf-menus {
+      width: 25%;
+      {% comment %} flex-direction: row; {% endcomment %}
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .cf-menu-block {
+      flex: 1;
+    }
+    .cf-menu-heading {
+      font-size: var(--size-heading-desk);
+      cursor: pointer;
+      {% comment %} pointer-events: none; {% endcomment %} /* Disable accordion toggle on desktop */
+      padding-top: 0;
+    }
+    {% comment %} .cf-menu-heading svg {
+      display: none; /* Hide chevron on desktop */
+    } {% endcomment %}
+    .cf-menu-single-link {
+      font-size: var(--size-heading-desk);
+      padding-top: 0;
+    }
+    {% comment %} .cf-menu-content {
+      display: block !important; /* Always show menu on desktop */
+      padding-top: 20px;
+    } {% endcomment %}
+    .cf-menu-list a {
+      font-size: var(--size-body-desk);
+    }
+  }
+</style>
+
+<footer class="custom-footer">
+  
+  {%- comment -%} Top Banner {%- endcomment -%}
+  <div class="cf-top-banner">
+    {% if section.settings.top_text_1 != blank %}
+      <p class="cf-top-text">{{ section.settings.top_text_1 | escape }}</p>
+    {% endif %}
+    {% if section.settings.top_text_2 != blank %}
+      <p class="cf-top-text">{{ section.settings.top_text_2 | escape }}</p>
+    {% endif %}
+    {% if section.settings.top_text_3 != blank %}
+      <p class="cf-top-text">{{ section.settings.top_text_3 | escape }}</p>
+    {% endif %}
+  </div>
+
+  {%- comment -%} Social Icons {%- endcomment -%}
+  {% if section.settings.show_socials %}
+    <div class="cf-socials">
+      {% if section.settings.social_instagram != blank %}
+        <a href="{{ section.settings.social_instagram }}" target="_blank" aria-label="Instagram">
+          <svg xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 700 700">
+            <defs>
+                <style>
+                .cls-1 {
+                    fill: none;
+                }
+                .cls-2 {
+                    fill: #fff;
+                }
+                </style>
+            </defs>
+            <!--Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)-->
+            <g>
+                <g id="Layer_1">
+                <g>
+                    <circle class="cls-1" cx="350" cy="350" r="350"/>
+                    <g>
+                    <path class="cls-2" d="M350,229.47c-65.34,0-118.49,53.15-118.49,118.49s53.15,118.49,118.49,118.49,118.49-53.15,118.49-118.49-53.15-118.49-118.49-118.49ZM350,425.65c-42.84,0-77.7-34.85-77.7-77.7s34.86-77.7,77.7-77.7,77.7,34.85,77.7,77.7-34.85,77.7-77.7,77.7Z"/>
+                    <path class="cls-2" d="M473.05,197.88c-15.19,0-27.51,12.31-27.51,27.5s12.31,27.51,27.51,27.51,27.5-12.31,27.5-27.51-12.31-27.5-27.5-27.5Z"/>
+                    <path class="cls-2" d="M448.44,119.9h-196.89c-71.47,0-129.62,58.15-129.62,129.62v196.89c0,71.47,58.15,129.62,129.62,129.62h196.89c71.47,0,129.62-58.15,129.62-129.62v-196.89c0-71.47-58.15-129.62-129.62-129.62ZM537.27,446.4c0,48.98-39.85,88.82-88.82,88.82h-196.89c-48.98,0-88.82-39.85-88.82-88.82v-196.89c0-48.98,39.85-88.82,88.82-88.82h196.89c48.98,0,88.82,39.85,88.82,88.82v196.89Z"/>
+                    </g>
+                </g>
+                </g>
+            </g>
+            </svg>
+
+        </a>
+      {% endif %}
+      {% if section.settings.social_facebook != blank %}
+        <a href="{{ section.settings.social_facebook }}" target="_blank" aria-label="Facebook">
+          <svg xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 700 700">
+            <defs>
+                <style>
+                .cls-1 {
+                    fill: none;
+                }
+                .cls-2 {
+                    fill: #fff;
+                }
+                </style>
+            </defs>
+            <g>
+                <g id="Layer_1">
+                <g>
+                    <ellipse class="cls-1" cx="350" cy="345.9" rx="350" ry="345.9"/>
+                    <path class="cls-2" d="M433.64,228.87h61.25v-92.02c-27.03-.99-53.62-2.48-87.62-2.99-64.26,0-122.5,40.55-122.5,139.61h0v67.21h-89.32v105.09h89.32v254.21h104.64v-254.21h89.59l12.5-105.09h-102.09v-67.21c0-26.82,14.26-44.61,44.24-44.61Z"/>
+                </g>
+                </g>
+            </g>
+            </svg>
+
+        </a>
+      {% endif %}
+      {% if section.settings.social_tiktok != blank %}
+        <a href="{{ section.settings.social_tiktok }}" target="_blank" aria-label="TikTok">
+          <svg xmlns="https://www.w3.org/2000/svg" version="1.1" viewBox="0 0 700 700">
+            <defs>
+                <style>
+                .cls-1 {
+                    fill: none;
+                }
+                .cls-2 {
+                    fill: #fff;
+                }
+                </style>
+            </defs>
+            <!--Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)-->
+            <g>
+                <g id="Layer_1">
+                <g>
+                    <circle class="cls-1" cx="350" cy="350" r="350"/>
+                    <path class="cls-2" d="M490.62,205.57c-23.97-15.43-40.75-39.31-44.96-66.81-.41-2.65-.7-5.33-.87-8.05v-11.13c.04-.7.09-1.39.15-2.08h-78.97v13.45c-.13,2.67-.2,5.36-.2,8.07s.07,5.39.2,8.06l-.78,280.82c-.1,36-29.37,65.78-65.83,65.88-.56,0-1.12,0-1.69-.02-10.82-.23-20.96-2.94-29.89-7.58-21.56-11.19-36.03-33.59-35.77-59.39.37-36.3,30.29-65.62,67.14-65.62,6.5,0,12.78.91,18.73,2.62v-79.37c-6.13-.78-12.38-1.18-18.73-1.18-80.67,0-146.07,64.57-146.07,144.23,0,48.46,24.4,91.43,61.66,117.6,24.06,16.9,53.49,26.79,85.18,26.63,76.15-.39,138.5-58.31,144.77-131.99h.09v-161.7c25.01,15.09,54.4,23.79,85.85,23.79,8.1,0,16.06-.59,23.85-1.7v-76.15c-23.82,0-45.87-6.82-63.87-18.4Z"/>
+                </g>
+                </g>
+            </g>
+            </svg>
+
+        </a>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {%- comment -%} Main Row: Newsletter + Menus {%- endcomment -%}
+  <div class="cf-main">
+    
+    <div class="cf-newsletter">
+      <h3 class="cf-newsletter-heading">{{ section.settings.newsletter_heading | escape }}</h3>
+      {% form 'customer', class: 'cf-form-wrapper' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <input 
+          type="email" 
+          name="contact[email]" 
+          class="cf-input" 
+          placeholder="{{ section.settings.newsletter_placeholder | escape }}" 
+          required
+        >
+        <button type="submit" class="cf-submit" aria-label="Submit">
+          <svg viewBox="0 0 24 24"><path d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+        </button>
+      {% endform %}
+    </div>
+
+    <div class="cf-menus">
+      {% for block in section.blocks %}
+        <div class="cf-menu-block" {{ block.shopify_attributes }}>
+          
+          {% if block.type == 'single_link' %}
+            <a href="{{ block.settings.link }}" class="cf-menu-single-link">{{ block.settings.title | escape }}</a>
+          
+          {% elsif block.type == 'accordion_menu' %}
+            <button class="cf-menu-heading js-accordion-toggle">
+              {{ block.settings.title | escape }}
+              <svg viewBox="0 0 24 24"><path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+            </button>
+            <div class="cf-menu-content js-accordion-content">
+              {% if block.settings.menu != blank %}
+                <ul class="cf-menu-list">
+                  {% for link in linklists[block.settings.menu].links %}
+                    <li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+          {% endif %}
+
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  {%- comment -%} Payment Icons {%- endcomment -%}
+  {% if section.settings.show_payments %}
+    <div class="cf-payments">
+      {% for type in shop.enabled_payment_types %}
+        {{ type | payment_type_svg_tag }}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+
+  {% if section.settings.logo_icon != blank %}
+    <div class="logo-icon-wrapper">
+      {{ section.settings.logo_icon | image_url: width: section.settings.logo_icon.width | image_tag: class: 'footer-logo-icon' }}
+    </div>
+  {% endif %}
+  
+
+</footer>
+
+{%- comment -%} JavaScript for Mobile Accordion {%- endcomment -%}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggles = document.querySelectorAll('.js-accordion-toggle');
+    
+    toggles.forEach(toggle => {
+      toggle.addEventListener('click', function() {
+        // Prevent toggle on desktop where CSS pointer-events is none anyway, but just to be safe
+        {% comment %} if(window.innerWidth >= 769) return; {% endcomment %} 
+
+        this.classList.toggle('is-active');
+        const content = this.nextElementSibling;
+        
+        if (content.classList.contains('is-open')) {
+          content.classList.remove('is-open');
+        } else {
+          content.classList.add('is-open');
+        }
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#540000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border Color",
+      "default": "#800000"
+    },
+    {
+      "type": "header",
+      "content": "Typography Settings"
+    },
+    {
+      "type": "range",
+      "id": "top_text_size_mob",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Text Size (Mobile)",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "top_text_size_desk",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Text Size (Desktop)",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "heading_size_mob",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size (Mobile)",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "heading_size_desk",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Heading Size (Desktop)",
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "body_size_mob",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Body Text Size (Mobile)",
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "body_size_desk",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Body Text Size (Desktop)",
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Top Banner Texts"
+    },
+    {
+      "type": "text",
+      "id": "top_text_1",
+      "label": "Text Column 1",
+      "default": "Designed In London"
+    },
+    {
+      "type": "text",
+      "id": "top_text_2",
+      "label": "Text Column 2",
+      "default": "Free Delivery Over £200"
+    },
+    {
+      "type": "text",
+      "id": "top_text_3",
+      "label": "Text Column 3",
+      "default": "Worldwide Shipping – Duties Included"
+    },
+    {
+      "type": "header",
+      "content": "Social Icons"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_socials",
+      "label": "Show Social Icons",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "social_icon_size",
+      "min": 16,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Icon Size",
+      "default": 24
+    },
+    {
+      "type": "url",
+      "id": "social_instagram",
+      "label": "Instagram Link"
+    },
+    {
+      "type": "url",
+      "id": "social_facebook",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "url",
+      "id": "social_tiktok",
+      "label": "TikTok Link"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "Sign Up for Early Access"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_placeholder",
+      "label": "Input Placeholder",
+      "default": "Email Address"
+    },
+    {
+      "type": "header",
+      "content": "Payment Methods"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_payments",
+      "label": "Show Payment Icons",
+      "info": "Icons populate automatically based on your store's payment settings.",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "logo_icon",
+      "label": "Logo Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "single_link",
+      "name": "Single Link Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Link Title",
+          "default": "About Us"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "accordion_menu",
+      "name": "Accordion Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Menu Heading",
+          "default": "Help & Info"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Select Menu"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "blocks": [
+        {
+          "type": "single_link",
+          "settings": {
+            "title": "About Vescartes"
+          }
+        },
+        {
+          "type": "accordion_menu",
+          "settings": {
+            "title": "Help & Info"
+          }
+        },
+        {
+          "type": "single_link",
+          "settings": {
+            "title": "Contact Us"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

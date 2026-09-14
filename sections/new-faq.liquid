@@ -1,0 +1,395 @@
+{% style %}
+    {% if section.settings.hide_section %}
+    .vescartes-faq-section {
+        display: none;
+    }
+    {% endif %}
+    #VescartesFAQ-{{ section.id }} {
+    --faq-background: {{ section.settings.background_color }};
+    --faq-text: {{ section.settings.text_color }};
+    --faq-divider: {{ section.settings.text_color | color_modify: 'alpha', 0.102 }};
+    box-sizing: border-box;
+    width: 100%;
+    padding: {{ section.settings.padding_mobile }}px 16px;
+    background: var(--faq-background);
+    color: var(--faq-text);
+    font-family: "URW DIN";
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0;
+    text-align: start;
+    }
+
+  #VescartesFAQ-{{ section.id }} *,
+  #VescartesFAQ-{{ section.id }} *::before,
+  #VescartesFAQ-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__inner {
+    width: 100%;
+    max-width: {{ section.settings.content_width }}px;
+    margin-inline: auto;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__heading {
+    margin: 0 0 20px;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.1px;
+    text-align: center;
+    text-transform: none;
+    overflow-wrap: anywhere;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item + .vfaq__item {
+    border-top: 1px solid var(--faq-divider);
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    position: relative;
+    margin: 0;
+    padding: 16px 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0;
+    text-align: start;
+    text-transform: none;
+    list-style: none;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item:first-child > .vfaq__question {
+    padding-top: 0;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item:last-child > .vfaq__question {
+    padding-bottom: 0;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question::marker {
+    content: "";
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question::before,
+  #VescartesFAQ-{{ section.id }} .vfaq__question::after {
+    content: none;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__question-text {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__icon {
+    display: grid;
+    place-items: center;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 24px;
+    color: inherit;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__minus,
+  #VescartesFAQ-{{ section.id }} .vfaq__item[open] .vfaq__plus {
+    display: none;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item[open] .vfaq__minus {
+    display: block;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer {
+    margin: 0 28px 0 0;
+    padding: 0 0 16px;
+    color: inherit;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+    color: #1C1C1C99;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__item:last-child .vfaq__answer {
+    margin-top: 8px;
+    padding-bottom: 0;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer > :first-child {
+    margin-top: 0;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer > :last-child {
+    margin-bottom: 0;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer p {
+    margin: 0 0 12px;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer ul,
+  #VescartesFAQ-{{ section.id }} .vfaq__answer ol {
+    padding-inline-start: 24px;
+  }
+
+  #VescartesFAQ-{{ section.id }} .vfaq__answer a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media screen and (min-width: 750px) {
+    #VescartesFAQ-{{ section.id }} {
+      {% if section.settings.match_desktop_height %}
+        min-height: 533px;
+      {% endif %}
+      padding: {{ section.settings.padding_desktop }}px 32px;
+    }
+
+    #VescartesFAQ-{{ section.id }} .vfaq__heading {
+      margin-bottom: 32px;
+      font-size: 28px;
+      line-height: 40px;
+    }
+
+    #VescartesFAQ-{{ section.id }} .vfaq__question {
+      font-size: 24px;
+    }
+
+    #VescartesFAQ-{{ section.id }} .vfaq__icon {
+      flex-basis: 24px;
+      width: 24px;
+      font-size: 24px;
+    }
+
+    #VescartesFAQ-{{ section.id }} .vfaq__answer {
+      margin-inline-end: 36px;
+      font-size: 18px;
+    }
+  }
+{% endstyle %}
+
+<section
+  id="VescartesFAQ-{{ section.id }}"
+  {% if section.settings.heading != blank %}
+    aria-labelledby="VescartesFAQHeading-{{ section.id }}"
+  {% else %}
+    aria-label="Frequently asked questions"
+  {% endif %}
+>
+  <div class="vfaq__inner">
+    {% if section.settings.heading != blank %}
+      <h2
+        id="VescartesFAQHeading-{{ section.id }}"
+        class="vfaq__heading"
+      >
+        {{ section.settings.heading | escape }}
+      </h2>
+    {% endif %}
+
+    <div class="vfaq__list">
+      {% for block in section.blocks %}
+        {% if block.settings.question != blank %}
+          <details
+            id="VescartesFAQItem-{{ section.id }}-{{ block.id }}"
+            class="vfaq__item"
+            {% if section.settings.single_open %}
+              name="VescartesFAQGroup-{{ section.id }}"
+            {% endif %}
+            {{ block.shopify_attributes }}
+          >
+            <summary class="vfaq__question">
+              <span class="vfaq__question-text">
+                {{ block.settings.question | escape }}
+              </span>
+
+              <span class="vfaq__icon" aria-hidden="true">
+                <span class="vfaq__plus">+</span>
+                <span class="vfaq__minus">&minus;</span>
+              </span>
+            </summary>
+
+            {% if block.settings.answer != blank %}
+              <div class="vfaq__answer">
+                {{ block.settings.answer }}
+              </div>
+            {% elsif request.design_mode %}
+              <div class="vfaq__answer">
+                <p>Add an answer in this FAQ block's settings.</p>
+              </div>
+            {% endif %}
+          </details>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Vescartes FAQ",
+  "tag": "div",
+  "class": "vescartes-faq-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "checkbox",
+      "id": "hide_section",
+      "label": "Hide section",
+      "info": "Hides the section with display: none. Visibility can be overridden with external CSS.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "single_open",
+      "label": "Open one answer at a time",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "content_width",
+      "label": "Content width",
+      "min": 600,
+      "max": 1200,
+      "step": 10,
+      "unit": "px",
+      "default": 930
+    },
+    {
+      "type": "range",
+      "id": "padding_desktop",
+      "label": "Desktop vertical padding",
+      "min": 0,
+      "max": 128,
+      "step": 4,
+      "unit": "px",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_mobile",
+      "label": "Mobile vertical padding",
+      "min": 0,
+      "max": 80,
+      "step": 4,
+      "unit": "px",
+      "default": 32
+    },
+    {
+      "type": "checkbox",
+      "id": "match_desktop_height",
+      "label": "Match desktop design height",
+      "info": "Keeps the section at least 533px tall on desktop. Answers can expand it.",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#FDFDFD"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#1C1C1C"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "info": "Add the answer before publishing this section."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Vescartes FAQ",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How does this item fit?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order arrive?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Will I have to pay customs or import duties?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the item if the size isn't right?"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for this piece?"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

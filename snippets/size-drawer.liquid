@@ -1,0 +1,161 @@
+{{ 'size-drawer.aio.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'size-drawer.js' | asset_url }}" defer></script>
+<size-drawer class="s-drawer animate">
+  <div id="SizeDrawer" class="size-drawer">
+    <div id="SizeDrawer-Overlay" class="size-drawer__overlay"></div>
+    <div class="s-drawer__inner gradient" role="dialog" aria-modal="true" aria-label="Size Drawer" tabindex="-1">
+      <div class="s-drawer__header">
+        <div>
+          <h3 class="s-drawer__heading h3">{{ block.settings.heading }}</h3>
+          <p class="s-drawer__subheading h4 uppercase">{{ block.settings.subheading }}</p>
+        </div>
+
+        <button class="s-drawer__close" type="button" onclick="this.closest('size-drawer').close()" aria-label="Close">
+          <svg
+            class="icon icon-close"
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+          >
+            <path d="M14 2L2 14" stroke="black" stroke-linejoin="round"></path>
+            <path d="M2 2L14 14" stroke="black" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+      <!-- Add your size guide content here -->
+      <div class="s-drawer__content">
+        <div class="size-guide--image">
+          {% if block.settings.size_chart_image != blank %}
+          {{ block.settings.size_chart_image | image_url: width: block.settings.size_chart_image.width | image_tag }}
+          {% endif %}
+        </div>
+
+        <div class="size-guide--tabs">
+          <input type="radio" id="size-tab-1" name="size-tabs" class="size-guide--tab-radio" checked="" value="cm">
+          <label for="size-tab-1" class="size-guide--tab-label h4">CM</label>
+
+          <input type="radio" id="size-tab-2" name="size-tabs" class="size-guide--tab-radio" value="in">
+          <label for="size-tab-2" class="size-guide--tab-label h4">INCHES</label>
+        </div>
+
+        <div class="size-guide--table">
+          <table>
+            <thead>
+              <tr>
+                {% if block.settings.col1 != blank %}
+                <th class="h5 uppercase bold">{{ block.settings.col1 }}</th>
+                {% endif %}
+                {% if block.settings.col1 != blank %}
+                <th class="h5 uppercase bold">{{ block.settings.col2 }}</th>
+                {% endif %}
+                {% if block.settings.col1 != blank %}
+                <th class="h5 uppercase bold">{{ block.settings.col3 }}</th>
+                {% endif %}
+                {% if block.settings.col1 != blank %}
+                <th class="h5 uppercase bold">{{ block.settings.col4 }}</th>
+                {% endif %}
+              </tr>
+            </thead>
+            <tbody>
+              {% assign row1 = block.settings.row_1 | split: "|" %}
+              {% assign row2 = block.settings.row_2 | split: "|" %}
+              {% assign row3 = block.settings.row_3 | split: "|" %}
+              {% assign row4 = block.settings.row_4 | split: "|" %}
+              {% assign row5 = block.settings.row_5 | split: "|" %}
+              {% assign row6 = block.settings.row_6 | split: "|" %}
+              <tr>
+                {% for value in row1 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for value in row2 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for value in row3 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for value in row4 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for value in row5 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+              <tr>
+                {% for value in row6 %}
+                  {% if forloop.first %}
+                <td class="h5" data-size="{{ value | strip }}">{{ value | strip }}</td>                
+                  {% else %}
+                <td class="h5">
+                  <button data-cm="{{ value | strip }}">{{ value | strip }}</button>
+                </td>
+                {% endif %}
+                {% endfor %}
+              </tr>
+
+        
+            </tbody>
+          </table>
+        </div>
+
+        {% comment %} <div class="size-guide--actions">
+          {% liquid
+      assign button_disabled = false
+
+      if product.selected_or_first_available_variant.available == false
+        assign button_disabled = true
+        assign button_content = 'product.general.sold_out_button' | t
+      else
+        if product.template_suffix contains 'pre-order'
+          assign button_content = 'product.general.pre_order_button' | t
+        else
+          assign button_content = 'product.general.add_to_cart_button' | t
+        endif
+      endif
+    %}
+    {%- assign atc_button_style = 'solid' -%}
+          {%- render 'button',product_form_id: product_form_id, content: button_content, type: 'submit', disabled: button_disabled, style: atc_button_style, background: atc_button_background, text_color: atc_button_text_color, stretch: true -%}
+        </div> {% endcomment %}
+      </div>
+    </div>
+  </div>
+</size-drawer>

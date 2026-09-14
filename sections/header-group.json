@@ -1,0 +1,150 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "message_3aDEhQ": {
+          "type": "message",
+          "disabled": true,
+          "settings": {
+            "text": "Announce something here"
+          }
+        },
+        "message_rNBXPx": {
+          "type": "message",
+          "settings": {
+            "text": "Free Shipping On Orders Above $200 / £150"
+          }
+        }
+      },
+      "block_order": [
+        "message_3aDEhQ",
+        "message_rNBXPx"
+      ],
+      "settings": {
+        "color_scheme": "scheme-6bb3d565-1bdb-433c-a9cb-9a6f111ba3b7",
+        "enable_sticky": false,
+        "autoplay": false,
+        "cycle_speed": 5,
+        "desktop_font_size": 12,
+        "mobile_font_size": 12
+      }
+    },
+    "header": {
+      "type": "header",
+      "settings": {
+        "color_scheme": "",
+        "enable_sticky": true,
+        "show_separation_border": false,
+        "reduce_padding": true,
+        "logo": "shopify://shop_images/VESCARTES_CURSIVE_Black_a651a4e4-9ba6-4575-a8e9-34f14119d9bf.png",
+        "logo_max_width": 155,
+        "logo_mobile_max_width": 100,
+        "menu": "main-menu",
+        "sidebar_menu": "",
+        "menu_open_trigger": "hover",
+        "enable_search": true,
+        "sidebar_color_scheme": "",
+        "sidebar_text_font": "heading",
+        "sidebar_show_dividers": true,
+        "layout": "logo_left_navigation_inline",
+        "show_icons": true,
+        "show_country_selector": true,
+        "show_country_name": false,
+        "show_country_flag": true,
+        "show_locale_selector": false,
+        "transparent_header_text_color": "#ffffff",
+        "transparent_logo": "shopify://shop_images/VESCARTES_CURSIVE_3_d1968bab-818a-4cc6-b3b9-74d3f83c8ce0.png"
+      }
+    },
+    "collections_bar_RDk4EY": {
+      "type": "collections-bar",
+      "blocks": {
+        "collection_njBxHq": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "current-available-items"
+          }
+        },
+        "collection_VYQrTP": {
+          "type": "collection",
+          "settings": {
+            "show_dot": true,
+            "collect_title": "",
+            "collection": "2-joga-bonito"
+          }
+        },
+        "collection_jPJdKK": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "3-denim"
+          }
+        },
+        "collection_B4XKN9": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "4-jackets"
+          }
+        },
+        "collection_HrHBjB": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "5-hoodies"
+          }
+        },
+        "collection_cbJLUM": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "6-tops"
+          }
+        },
+        "collection_NE4xkp": {
+          "type": "collection",
+          "settings": {
+            "show_dot": false,
+            "collect_title": "",
+            "collection": "shop-all"
+          }
+        }
+      },
+      "block_order": [
+        "collection_njBxHq",
+        "collection_VYQrTP",
+        "collection_jPJdKK",
+        "collection_B4XKN9",
+        "collection_HrHBjB",
+        "collection_cbJLUM",
+        "collection_NE4xkp"
+      ],
+      "disabled": true,
+      "name": "Collections Bar",
+      "settings": {}
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "collections_bar_RDk4EY"
+  ]
+}

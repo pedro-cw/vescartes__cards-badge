@@ -1,0 +1,48 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "contact-form": {
+      "type": "contact",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": false,
+        "subheading": "",
+        "title": "<strong>Contact</strong>",
+        "content": "<p><strong>Email</strong>: contact@vescartes.com<br/><strong>Instagram</strong>: @vescartes<br/><strong>Address</strong>: 16 Banner St, London EC1Y 8QE</p><p></p><p>Please reach out using any of the methods above, or the form below. We aim to get back to all enquiries within 1-2 business days.</p>"
+      }
+    },
+    "b913c151-67ee-4f7b-ad5c-bbf8933a0a10": {
+      "type": "rich-text",
+      "settings": {
+        "custom_class": "",
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "content_width": "sm",
+        "text_position": "center",
+        "remove_vertical_spacing": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "contact-form",
+    "b913c151-67ee-4f7b-ad5c-bbf8933a0a10"
+  ]
+}

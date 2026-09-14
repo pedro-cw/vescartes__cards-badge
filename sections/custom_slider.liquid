@@ -1,0 +1,170 @@
+{% schema %}
+{
+  "name": "Custom Slider",
+  "settings": [
+    {
+      "type": "text",
+      "id": "c_section_heading",
+      "label": "Section Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "c_image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slider"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="custom-carousal-section">
+  <h2 class="h2">{{ section.settings.c_section_heading }}</h2>
+  <div class="carousel" >
+    {% for block in section.blocks %}
+      <div class="carousel-cell">
+        <img loading="eager" src="{{ block.settings.c_image | img_url:"master" }}">
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<style>
+  .custom-carousal-section{
+    margin: 30px 20px;
+  }
+  .custom-carousal-section .carousel-cell {
+    width: 20%;
+    margin:10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+  }
+
+  /* cell number */
+  .custom-carousal-section .carousel-cell:before {
+    display: block;
+    text-align: center;
+    font-size: 80px;
+    color: white;
+  }
+  .custom-carousal-section .flickity-page-dots{
+    display:none;
+  }
+
+  .custom-carousal-section .flickity-prev-next-button {
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-carousal-section .flickity-prev-next-button svg {
+      width: 16px;
+      right: 0;
+      left: 0;
+      margin: auto;
+  }
+
+  @media (max-width:768px){
+    .custom-carousal-section .carousel-cell {
+      width: 25%;
+    }
+  }
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  var carousel = document.querySelector('.custom-carousal-section .carousel');
+
+  if (carousel) {
+    var flkty = new Flickity(carousel, {
+      cellAlign: 'left',
+      contain: true,
+      wrapAround: true,
+      autoPlay: 3000,
+      pauseAutoPlayOnHover: true,
+      prevNextButtons: true,
+      pageDots: true,
+      draggable: true
+    });
+
+    // Keep triggering resize until it "sticks"
+    // Success condition: viewport > 0 and first cell has width
+    function keepResizingUntilReady({
+      interval = 200,
+      maxTries = 30,
+      consecutive = 2
+    } = {}) {
+      let tries = 0;
+      let okStreak = 0;
+
+      const timer = setInterval(() => {
+        tries++;
+        flkty.resize();
+
+        const viewport = carousel.querySelector('.flickity-viewport');
+        const firstCell = carousel.querySelector('.carousel-cell') || carousel.firstElementChild;
+
+        const visible = carousel.offsetParent !== null; // not display:none
+        const ok =
+          viewport && viewport.clientWidth > 0 &&
+          firstCell && firstCell.getBoundingClientRect().width > 0 &&
+          visible;
+
+        if (ok) {
+          okStreak++;
+        } else {
+          okStreak = 0;
+        }
+
+        // Stop when stable for N checks or after max tries
+        if (okStreak >= consecutive || tries >= maxTries) {
+          clearInterval(timer);
+          console.log('Flickity resize loop:', okStreak >= consecutive ? 'success' : 'stopped (max tries)');
+        }
+      }, interval);
+    }
+
+    // Kick it off after an initial short delay
+    setTimeout(() => {
+      keepResizingUntilReady({ interval: 200, maxTries: 40, consecutive: 2 });
+    }, 500);
+
+    // Also re-resize as images load (helps if cells have images)
+    const images = carousel.querySelectorAll('img');
+    images.forEach(img => {
+      if (!img.complete) {
+        img.addEventListener('load', () => flkty.resize(), { once: true });
+        img.addEventListener('error', () => flkty.resize(), { once: true });
+      }
+    });
+
+    // If the carousel starts hidden (e.g., inside a tab/accordion), resize when it becomes visible
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            flkty.resize();
+          }
+        });
+      }, { root: null, threshold: 0.01 });
+      io.observe(carousel);
+    } else {
+      // Fallback: on window load
+      window.addEventListener('load', () => flkty.resize());
+    }
+  }
+});
+</script>

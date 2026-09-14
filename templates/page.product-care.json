@@ -1,0 +1,341 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "page_width": "xs"
+      }
+    },
+    "stacked_content_xMwkjP": {
+      "type": "stacked-content",
+      "blocks": {
+        "text_Uce6Lh": {
+          "type": "text",
+          "settings": {
+            "heading": "Product Care Information",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "image_3ADWwz": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fqs_2025-10-28_140147.703.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_UbppVT": {
+          "type": "text",
+          "settings": {
+            "heading": "Embroidery & Printed Artwork",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Most Vescartes pieces feature dense embroidery or specialist print techniques.<br/>These elements are integral to the garment and should be treated with care.</p><p>Avoid aggressive washing, heat, or friction</p><p>Always turn garments inside out before cleaning</p><p>Never scrub directly over embroidery or printed areas</p><p>Do not iron directly onto artwork</p><p>When in doubt, professional dry cleaning is recommended.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_X9Rbkh": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/124437040006_1.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_R6g6Be": {
+          "type": "text",
+          "settings": {
+            "heading": "Denim (Jeans & Denim Jackets)",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Wash infrequently</p><p>Cold machine wash (30°C max), inside out</p><p>Mild detergent only</p><p>Do not bleach</p><p>Do not tumble dry</p><p>Air dry flat or hung</p><p>For embroidered denim, avoid spin-heavy cycles.<br/>Spot clean where possible to extend lifespan.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_JgmKTW": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC05902_1_1.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_8GitH3": {
+          "type": "text",
+          "settings": {
+            "heading": "Trousers",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Dry clean preferred</p><p>If washing: cold wash, inside out</p><p>Low agitation cycle</p><p>Do not tumble dry</p><p>Steam lightly if needed, avoiding embroidery</p><p>Hang to store. Avoid folding across embroidered panels.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_CG9P9m": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/124437040035.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_mTJVFb": {
+          "type": "text",
+          "settings": {
+            "heading": "Work Jackets",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Dry clean where possible</p><p>Spot clean surface marks with cold water</p><p>Do not soak</p><p>Do not machine dry</p><p>Air dry naturally, away from direct heat</p><p>Use a garment brush to remove surface dust between wears.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_cb3AWQ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fqs_2025-10-28_134105.852_1.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_EFVr69": {
+          "type": "text",
+          "settings": {
+            "heading": "Shell Jackets",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Cold hand wash or specialist outerwear clean</p><p>Do not use fabric softener</p><p>Do not tumble dry</p><p>Hang dry only</p><p>Avoid ironing. Heat may compromise coatings or bonded layers.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_ycCK3M": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fqs_2025-10-30_131404.409.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_LyRfze": {
+          "type": "text",
+          "settings": {
+            "heading": "Puffer Jackets",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Dry clean only</p><p>Do not machine wash</p><p>Do not compress when storing</p><p>Hang on a wide hanger to maintain shape</p><p>Avoid prolonged pressure during storage.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_7z3jFE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/DSC03346.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_rDR9BL": {
+          "type": "text",
+          "settings": {
+            "heading": "Jerseys (Cotton)",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Cold machine wash (30°C)</p><p>Inside out</p><p>Mild detergent</p><p>Do not bleach</p><p>Do not tumble dry</p><p>Iron on reverse, avoiding artwork</p><p>Lay flat to dry if heavily embroidered.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_KyhpL4": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fqs_2025-09-01_164556.128.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_ghMdTf": {
+          "type": "text",
+          "settings": {
+            "heading": "Jerseys (Knit)",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Hand wash cold</p><p>Do not wring</p><p>Lay flat to dry</p><p>Do not hang when wet</p><p>Dry clean preferred for embroidered knits</p><p>Store folded, not hung</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        },
+        "image_XKA6EM": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/fqs_2025-12-19_221714.797.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_xtaf6y": {
+          "type": "text",
+          "settings": {
+            "heading": "Storage & Longevity",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>Recommended care:</p><p>Hand wash cold</p><p>Do not wring</p><p>Lay flat to dry</p><p>Do not hang when wet</p><p>Dry clean preferred for embroidered knits</p><p>Store folded, not hung.</p>",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_Uce6Lh",
+        "image_3ADWwz",
+        "text_UbppVT",
+        "image_X9Rbkh",
+        "text_R6g6Be",
+        "image_JgmKTW",
+        "text_8GitH3",
+        "image_CG9P9m",
+        "text_mTJVFb",
+        "image_cb3AWQ",
+        "text_EFVr69",
+        "image_ycCK3M",
+        "text_LyRfze",
+        "image_7z3jFE",
+        "text_rDR9BL",
+        "image_KyhpL4",
+        "text_ghMdTf",
+        "image_XKA6EM",
+        "text_xtaf6y"
+      ],
+      "name": "Stacked Content",
+      "settings": {
+        "background_color": "#ffffff",
+        "container_width": 1200,
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "stacked_content_xMwkjP"
+  ]
+}

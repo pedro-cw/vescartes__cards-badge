@@ -1,0 +1,317 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-list-collections",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "show_title": true,
+        "collections": [],
+        "collections_per_row_mobile": "1",
+        "collections_per_row_desktop": 3,
+        "image_size": "auto",
+        "content_position": "place-self-end-start text-start",
+        "text_color": "#ffffff",
+        "overlay_color": "#000000",
+        "overlay_opacity": 30
+      }
+    },
+    "stacked_content_zJBmz9": {
+      "type": "stacked-content",
+      "blocks": {
+        "text_ppHXqg": {
+          "type": "text",
+          "settings": {
+            "heading": "Collections",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "",
+            "text_alignment": "center",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "image_QYNGgE": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/1_d37a3e3b-3180-4e4c-a71a-a548a060e578.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_FtzzEf": {
+          "type": "text",
+          "settings": {
+            "heading": "Edo Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released on April 3rd and filmed in Tokyo, Japan, the Edo Collection marked a return to one of the brand’s earliest influences. Drawing from the visual language, symbolism, and cultural depth of the Edo period, the collection explored composition, restraint, and intricate detailing through embroidery and material selection, translating historical references into refined, structured garment forms.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_YQn3VH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/2_b2d952a8-56fb-4f7c-b54f-00c8f4fd88f5.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_3xFJqT": {
+          "type": "text",
+          "settings": {
+            "heading": "Miraj Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in November 2025, the Miraj Collection was filmed across multiple locations in Morocco.<br/>The collection explored a dialogue between Middle Eastern arabic heritage and contemporary fashion, continuing Vescartes's ongoing focus on garments as wearable art. Throught embroidery, material selection, and silhouete, the pieces, referenced the aesthetics, symbolism, and craftsmanship associated with the Golden Age era and historical narratives.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_8gr3wU": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_29.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_QWt4ed": {
+          "type": "text",
+          "settings": {
+            "heading": "Joga Bonito Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in October 2025 and filmed in Italy, the Joga Bonita Collection channels the raw energy and nostalgia of early 200s football culture. Blending athletic heritage with the VESCARTES wearable-art through crafted fabrics, silhoutte, and detail.<br/>This collection explores the visual language, emotion and rhythm of football translated into form, texture, and movement.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_QGFncq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/4_286de970-a763-45b0-a2df-c95f77d26e00.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_Xir7B4": {
+          "type": "text",
+          "settings": {
+            "heading": "Botanical Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in Augest 2025 and filmed in Birmingham, United Kingdom, the Botanical collection drew from natural forms, archival floral studies, and organic structures. The drop translated these influences through embroidery, material selection, and surface composition. The collection explored texture, preparation, and visual rhythm, approaching garments as composed visual objects shaped by detail, balance and material expression.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_gyKkTJ": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6_5c429020-c0a8-4c49-b532-e8c628099b7f.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_8zibAa": {
+          "type": "text",
+          "settings": {
+            "heading": "Renaissance Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in May 2025 and filmed in Liverpool, United Kingdom. The Renaissance collection drew from the visual language, art and cultural atmosphere of the Renaissance period. The drop explored proportion, and historical references throught embroidery, material selection and silhoutte. The collection exampled balance, symbolism, and composition, reflection the structured elegance and  layered detail associated with classical artistic traditions.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_VtEUUy": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/6_db03aa6d-9659-4149-9563-d31f99d50ba7.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_gyngWX": {
+          "type": "text",
+          "settings": {
+            "heading": "Thriller Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released on February 14th 2025 and filmed in Manchester the Thriller Collection explored darker visual narratives influenced by horror imagery and cinematic tension. The release date, coinciding with Valentine's Day, was chosen for its contrast, emphasising tension, mood and atmosphere.<br/>Through embroidery, material, choices and composition, the collection examined symbolism, unease, and visual intensity, transisting themes of suspense and dramatic tenstion into garment form.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_9JbHVx": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/7_882cb24e-f6ad-4524-bcdb-d4c7e695655b.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_cTQmjR": {
+          "type": "text",
+          "settings": {
+            "heading": "Wild West Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in November 2024, the wild West Collection drew from the imagery, symbolism, and visual language associated with the american frontier era. The drop explored themes of ruggedness and historical character throught embroidery, material selection, and silhouette. The collection examined texture, contrast, and narrative detai, translating references from Western iconography into structured, contemporary garment compsitions.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 10,
+            "padding_bottom_mobile": 30
+          }
+        },
+        "image_eL6agw": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_28.jpg",
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "text_miN8GY": {
+          "type": "text",
+          "settings": {
+            "heading": "Edo V1 Collection",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p>Released in September 2024 as the first Vescartes drop, the Edo Collection established the brand's foundational visual direction. Drawing from the aesthetics, symbolism, and cultural references of the Edo period, the collection explored composition, restraint, and surface detail through embroidery, material selection, and silhouette. This release defined the early design language, intruducing garments shaped by historical, influence, balance, and considered ornamentation</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 10,
+            "padding_bottom_desktop": 40,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 20
+          }
+        }
+      },
+      "block_order": [
+        "text_ppHXqg",
+        "image_QYNGgE",
+        "text_FtzzEf",
+        "image_YQn3VH",
+        "text_3xFJqT",
+        "image_8gr3wU",
+        "text_QWt4ed",
+        "image_QGFncq",
+        "text_Xir7B4",
+        "image_gyKkTJ",
+        "text_8zibAa",
+        "image_VtEUUy",
+        "text_gyngWX",
+        "image_9JbHVx",
+        "text_cTQmjR",
+        "image_eL6agw",
+        "text_miN8GY"
+      ],
+      "name": "Stacked Content",
+      "settings": {
+        "background_color": "#ffffff",
+        "container_width": 800,
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    }
+  },
+  "order": [
+    "main",
+    "stacked_content_zJBmz9"
+  ]
+}

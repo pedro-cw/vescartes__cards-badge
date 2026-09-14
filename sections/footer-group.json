@@ -1,0 +1,201 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "custom_content_accordian_a9RL9m": {
+      "type": "custom-content-accordian",
+      "disabled": true,
+      "settings": {
+        "accordion_title": "FOLLOW US",
+        "accordion_description": "IG: @vescartes\n\nTikTok: @vescartes.clo\n\nFB: @vescartes.clo"
+      }
+    },
+    "custom_menu_accordian_LcW3q8": {
+      "type": "custom-menu-accordian",
+      "disabled": true,
+      "settings": {
+        "nav-menu": "terms-and-conditions"
+      }
+    },
+    "text-with-icons": {
+      "type": "text-with-icons",
+      "blocks": {
+        "icon-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-success",
+            "icon_width": 36,
+            "mobile_icon_width": 24,
+            "title": "Tested in the UK",
+            "content": ""
+          }
+        },
+        "icon-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-leaf",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "title": "Vegan",
+            "content": ""
+          }
+        },
+        "icon-4": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-document",
+            "icon_width": 32,
+            "mobile_icon_width": 24,
+            "title": "GMP certified",
+            "content": ""
+          }
+        },
+        "icon-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "icon_width": 28,
+            "mobile_icon_width": 28,
+            "title": "delivery worldwide",
+            "content": ""
+          }
+        }
+      },
+      "block_order": [
+        "icon-2",
+        "icon-3",
+        "icon-4",
+        "icon-1"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "stack_on_mobile": true,
+        "icon_color": "",
+        "text_color": "",
+        "text_alignment": "center"
+      }
+    },
+    "custom_menu_accordian_qE3dFc": {
+      "type": "custom-menu-accordian",
+      "disabled": true,
+      "settings": {
+        "nav-menu": "help-info"
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "newsletter": {
+          "type": "newsletter",
+          "settings": {
+            "title": "GET EARLY ACCESS AND DISCOUNTS",
+            "content": "<p>Sign up to get release notifications and exclusive early access before everyone else!</p>",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000"
+          }
+        },
+        "links_37ARnj": {
+          "type": "links",
+          "settings": {
+            "menu": "terms-and-conditions",
+            "show_menu_title": true,
+            "menu_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "newsletter",
+        "links_37ARnj"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "@media (max-width: 768px) {.footer__block--links:nth-child(2) {display: none; } .footer__block--links:nth-child(3) {display: none; }}",
+        "button.button {width: 100%;}"
+      ],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "separate_section_with_border": false,
+        "show_social_media": true,
+        "show_payment_icons": false,
+        "show_country_selector": true,
+        "show_country_name": true,
+        "show_country_flag": true,
+        "show_locale_selector": true
+      }
+    },
+    "custom_footer_DtyT4K": {
+      "type": "custom-footer",
+      "blocks": {
+        "single_link_cLN8DU": {
+          "type": "single_link",
+          "settings": {
+            "title": "About Vescartes",
+            "link": "shopify://pages/about-us"
+          }
+        },
+        "accordion_menu_7i7nmW": {
+          "type": "accordion_menu",
+          "settings": {
+            "title": "Help & Info",
+            "menu": "help-info"
+          }
+        },
+        "single_link_nizUgV": {
+          "type": "single_link",
+          "settings": {
+            "title": "Contact Us",
+            "link": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "single_link_cLN8DU",
+        "accordion_menu_7i7nmW",
+        "single_link_nizUgV"
+      ],
+      "name": "Custom Footer",
+      "settings": {
+        "bg_color": "#730101",
+        "text_color": "#ffffff",
+        "border_color": "#ffffff",
+        "top_text_size_mob": 12,
+        "top_text_size_desk": 14,
+        "heading_size_mob": 12,
+        "heading_size_desk": 14,
+        "body_size_mob": 12,
+        "body_size_desk": 14,
+        "top_text_1": "Designed In London",
+        "top_text_2": "Free Delivery Over $200",
+        "top_text_3": "Worldwide Shipping – Duties Included",
+        "show_socials": true,
+        "social_icon_size": 32,
+        "social_instagram": "https://www.instagram.com/vescartes/",
+        "social_facebook": "https://www.facebook.com/p/Vescartes-61564301191469/",
+        "social_tiktok": "https://www.tiktok.com/@vescartes.clo",
+        "newsletter_heading": "Sign Up for Early Access",
+        "newsletter_placeholder": "Email Address",
+        "show_payments": false,
+        "logo_icon": "shopify://shop_images/IMG_7681.png"
+      }
+    }
+  },
+  "order": [
+    "custom_content_accordian_a9RL9m",
+    "custom_menu_accordian_LcW3q8",
+    "text-with-icons",
+    "custom_menu_accordian_qE3dFc",
+    "footer",
+    "custom_footer_DtyT4K"
+  ]
+}

@@ -1,0 +1,524 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor": {
+          "type": "vendor",
+          "disabled": true,
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "heading_tag": "h3"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_taxes_notice": false
+          }
+        },
+        "payment_terms": {
+          "type": "payment_terms",
+          "settings": {}
+        },
+        "separator": {
+          "type": "separator",
+          "disabled": true,
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": false,
+            "selector_style": "block",
+            "swatch_selector_style": "swatch",
+            "variant_image_options": "",
+            "size_chart_page": ""
+          }
+        },
+        "size_chart_qrEU7M": {
+          "type": "size-chart",
+          "settings": {
+            "btn_title": "Size chart",
+            "heading": "Size Guide",
+            "subheading": "Puffer Jacket",
+            "size_chart_image": "shopify://shop_images/Untitled_Artwork_87_3_3.jpg",
+            "col1": "Size",
+            "col2": "Length (A)",
+            "col3": "Chest (B)",
+            "col4": "Sleeve (C)",
+            "row_1": "XS | 63 | 58.5 | 58.5",
+            "row_2": "S | 66 | 61 | 60",
+            "row_3": "M | 68.5 | 63.5 | 61",
+            "row_4": "L | 71 | 66 | 62",
+            "row_5": "XL | 73.5 | 68.5 | 63.5",
+            "row_6": "2XL | 76 | 71 | 67"
+          }
+        },
+        "fit_quiz_for_clothes_and_shoes_fitquiz_block_qDTahx": {
+          "type": "shopify://apps/fit-quiz/blocks/fitquiz-block/b10c5f36-d033-4d47-9f46-97864f785a5a",
+          "settings": {}
+        },
+        "inventory_pulse_haRgh9": {
+          "type": "inventory_pulse",
+          "settings": {
+            "show_quantity": false,
+            "inventory_threshold": 10,
+            "text_before": "In stock",
+            "text_after": "",
+            "show_countdown": true,
+            "countdown_prefix": "Order within",
+            "countdown_suffix": "for Next Day Dispatch",
+            "countdown_color": "#008000",
+            "toggle_speed": 6,
+            "text_color": "#1c1c1c",
+            "circle_color": "#027a00",
+            "font_size": 12,
+            "alignment": "center"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": false,
+            "show_gift_card_recipient": false,
+            "atc_button_background": "",
+            "atc_button_text_color": "",
+            "payment_button_background": "#000000",
+            "payment_button_text_color": ""
+          }
+        },
+        "modelinfo_CjPJRT": {
+          "type": "modelinfo",
+          "disabled": true,
+          "settings": {
+            "content": "<p>Jayden is 5\"10 (178cm) & wears Medium.</p><p>Tessa is 5\"9 (174cm) & wears Small. </p>",
+            "box_background": "#f7f7f7",
+            "text_color": "#000000"
+          }
+        },
+        "shippinginfo_rxgVxU": {
+          "type": "shippinginfo",
+          "disabled": true,
+          "settings": {
+            "text": "BLACK FRIDAY SALE LIVE",
+            "shiptext": "",
+            "under_text": "<p><strong>TIER 1</strong>: Spend $200, Get $25 OFF</p><p><strong>TIER 2</strong>: Spend $300, Get $45 OFF</p><p><strong>TIER 3</strong>: Spend $400, Get $75 OFF</p>"
+          }
+        },
+        "usp_icon_9cnRwC": {
+          "type": "usp-icon",
+          "disabled": true,
+          "settings": {
+            "icon_1": "shopify://shop_images/Signature_Embroidery_Icon_c4a7051e-c9a4-4d5c-884d-f4877d47c1f8.png",
+            "text_1": "",
+            "icon_2": "shopify://shop_images/Hand_Drawn_in_London_Icon_58af56d2-571f-4ae0-ab8c-a9d05ca0d251.png",
+            "text_2": "",
+            "icon_3": "shopify://shop_images/Featured_in_Vogue_GQ.png",
+            "text_3": ""
+          }
+        },
+        "image_BTnwN8": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/ILLUSTRATIONS.png",
+            "alignment": "center",
+            "width_mode": "full_width",
+            "max_width": 300,
+            "mobile_max_width": 200
+          }
+        },
+        "icon_features_NCcxjz": {
+          "type": "icon_features",
+          "settings": {
+            "icon_width": 50,
+            "font_size": 13,
+            "text_color": "#121212",
+            "icon_1": "shopify://shop_images/Signature_Embroidery_Icon_1.png",
+            "text_1": "Signature\nEmbroidery",
+            "icon_2": "shopify://shop_images/Hand_Drawn_in_London_Icon_1.png",
+            "text_2": "Hand-Drawn\nin London",
+            "icon_3": "shopify://shop_images/Featured_in_Vogue_GQ_1.png",
+            "text_3": "Featured in\nVogue & GQ"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "collapse_content": true,
+            "show_below_gallery": false
+          }
+        },
+        "accordion_6ayUY4": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "SIZE & Fit",
+            "content": "",
+            "liquid": "<div class=\"size-help\">\n<p>Item has a relaxed, slightly cropped fit - we recommend going true to size.\n<br>\n<br>\nRyo is 6 ft 1\" (70kg) and wears Size M in the photos.\n<br><br>\n<div id=\"cstm-easysize_button\" class=\"cstm-easysize_button\" tabindex=\"0\" role=\"button\">Find my size?</div><br>  <button class=\"size-guide-button small-hide body-text-sm\" type=\"button\" id=\"open-size-drawer\" data-live-text-setting=\"template--25757864165701__main__size_chart_QzTkgi.btn_title\">\n              Size Chart\n            </button></p></div>",
+            "page": ""
+          }
+        },
+        "accordion_HV9gFE": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "SHIPPING & RETURNS",
+            "content": "<p>Shipping</p><p>Shipping is $9.99 / £6.99 worldwide.</p><p>Tracking numbers will be emailed for all orders once they have been dispatched.</p><p>Your order will be dispatched on the next working day and typically delivered within 5–12 working days depending on location.</p><p>Customs</p><p>There are no customs or import fees attached with any of our items.</p><p>Returns and Exchanges</p><p>Returns are accepted within 14 days of receiving an item. Please visit our 'Refund Policy' page to view the terms and details.</p>",
+            "liquid": "",
+            "page": ""
+          }
+        },
+        "accordion_RxXiLP": {
+          "type": "accordion",
+          "settings": {
+            "show_below_gallery": false,
+            "icon": "none",
+            "title": "Product Care",
+            "content": "<p>Wear them pristine or let time leave its mark. However you choose to live in them, caring for your jeans ensures they continue to do  what they were crafted for: move with you, soften with wear, and grow more beautiful over time.</p><p><a href=\"/pages/product-care\" title=\"Product Care\">Discover our care guide.</a></p>",
+            "liquid": "",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "vendor",
+        "title",
+        "price",
+        "payment_terms",
+        "separator",
+        "variant_picker",
+        "size_chart_qrEU7M",
+        "fit_quiz_for_clothes_and_shoes_fitquiz_block_qDTahx",
+        "inventory_pulse_haRgh9",
+        "buy_buttons",
+        "modelinfo_CjPJRT",
+        "shippinginfo_rxgVxU",
+        "usp_icon_9cnRwC",
+        "image_BTnwN8",
+        "icon_features_NCcxjz",
+        "description",
+        "accordion_6ayUY4",
+        "accordion_HV9gFE",
+        "accordion_RxXiLP"
+      ],
+      "custom_css": [
+        ".buy-buttons {width: 100%;}",
+        ".h-stack {display: flex; justify-content: flex-start;}",
+        ".prose {text-align: center;}",
+        "@media (max-width: 800px) {.accordion {width: 90vw; }}"
+      ],
+      "settings": {
+        "btn_text": "Add to Bag",
+        "color_scheme": "scheme-1",
+        "container_size": "lg",
+        "product_info_size": 35,
+        "show_sticky_add_to_cart": false,
+        "center_basic_info": true,
+        "desktop_media_layout": "grid",
+        "desktop_media_grid_gap": 30,
+        "mobile_controls": "dots",
+        "enable_media_autoplay": true,
+        "enable_video_looping": true,
+        "enable_image_zoom": true,
+        "max_image_zoom_level": 3
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "hide_product_information": false,
+        "stack_products": true,
+        "recommendations_count": 4,
+        "products_per_row_mobile": "2",
+        "products_per_row_desktop": 4,
+        "horizontal_spacing_factor": 1.1,
+        "vertical_spacing_factor": 1,
+        "subheading": "",
+        "title": "More from Vescartes",
+        "content": ""
+      }
+    },
+    "custom_slider_9TGR8J": {
+      "type": "custom_slider",
+      "blocks": {
+        "image_picker_HHanPR": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9613_2.jpg"
+          }
+        },
+        "image_picker_wz7KHD": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9620.jpg"
+          }
+        },
+        "image_picker_XxPygg": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9616.jpg"
+          }
+        },
+        "image_picker_VDLmNe": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9627.jpg"
+          }
+        },
+        "image_picker_iGztBJ": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9626.jpg"
+          }
+        },
+        "image_picker_fkFwH8": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9624.jpg"
+          }
+        },
+        "image_picker_fEgdB9": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9619.jpg"
+          }
+        },
+        "image_picker_GHakB6": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_9625.jpg"
+          }
+        },
+        "image_picker_6grDWp": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_2034.jpg"
+          }
+        },
+        "image_picker_APrgaU": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_2035.jpg"
+          }
+        },
+        "image_picker_tHFx3g": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_2037.jpg"
+          }
+        },
+        "image_picker_ybBXk6": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_2038.jpg"
+          }
+        },
+        "image_picker_37Qfty": {
+          "type": "image_picker",
+          "settings": {
+            "c_image": "shopify://shop_images/IMG_2039.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_HHanPR",
+        "image_picker_wz7KHD",
+        "image_picker_XxPygg",
+        "image_picker_VDLmNe",
+        "image_picker_iGztBJ",
+        "image_picker_fkFwH8",
+        "image_picker_fEgdB9",
+        "image_picker_GHakB6",
+        "image_picker_6grDWp",
+        "image_picker_APrgaU",
+        "image_picker_tHFx3g",
+        "image_picker_ybBXk6",
+        "image_picker_37Qfty"
+      ],
+      "disabled": true,
+      "settings": {
+        "c_section_heading": "STYLED BY YOU"
+      }
+    },
+    "new_faq_Hb4LrC": {
+      "type": "new-faq",
+      "blocks": {
+        "faq_yY9xPj": {
+          "type": "faq",
+          "settings": {
+            "question": "How does this item fit?",
+            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
+          }
+        },
+        "faq_jhUdEQ": {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order arrive?",
+            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
+          }
+        },
+        "faq_JaURNj": {
+          "type": "faq",
+          "settings": {
+            "question": "Will I have to pay customs or import duties?",
+            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
+          }
+        },
+        "faq_bUJkRP": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the item if the size isn't right?",
+            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
+          }
+        },
+        "faq_PceVGi": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for this piece?",
+            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_yY9xPj",
+        "faq_jhUdEQ",
+        "faq_JaURNj",
+        "faq_bUJkRP",
+        "faq_PceVGi"
+      ],
+      "name": "Vescartes FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "hide_section": true,
+        "single_open": true,
+        "content_width": 930,
+        "padding_desktop": 64,
+        "padding_mobile": 32,
+        "match_desktop_height": true,
+        "background_color": "#fdfdfd",
+        "text_color": "#1c1c1c"
+      }
+    },
+    "media_grid_zXyRVR": {
+      "type": "media-grid",
+      "blocks": {
+        "image_y7EfyN": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/x_DSC06168.jpg",
+            "column_count": "6",
+            "row_count": 1,
+            "title": "",
+            "heading_tag": "h4",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "place-self-center text-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_e6JLcy": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/Image_4_Complete.jpg",
+            "column_count": "6",
+            "row_count": 1,
+            "title": "",
+            "heading_tag": "h4",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "place-self-center text-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_RQHaPp": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/Image_2_Complete.jpg",
+            "column_count": "6",
+            "row_count": 1,
+            "title": "",
+            "heading_tag": "h4",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "place-self-center text-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        },
+        "image_YkxUFG": {
+          "type": "image",
+          "settings": {
+            "color_scheme": "",
+            "image": "shopify://shop_images/fqs_2025-12-20_143237.694.jpg",
+            "column_count": "6",
+            "row_count": 1,
+            "title": "",
+            "heading_tag": "h4",
+            "content": "",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_position": "place-self-center text-center",
+            "overlay_color": "#000000",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "image_y7EfyN",
+        "image_e6JLcy",
+        "image_RQHaPp",
+        "image_YkxUFG"
+      ],
+      "name": "t:sections.media_grid.presets.media_grid.name",
+      "settings": {
+        "custom-class": "prod-grid",
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "desktop_row_height": 400,
+        "mobile_row_height": 180,
+        "section_width": "full",
+        "spacing": "none",
+        "subheading": "",
+        "title": "",
+        "content": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "custom_slider_9TGR8J",
+    "new_faq_Hb4LrC",
+    "media_grid_zXyRVR"
+  ]
+}

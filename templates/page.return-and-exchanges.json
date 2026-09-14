@@ -1,0 +1,242 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "category": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Order",
+            "icon": "none",
+            "icon_width": 16
+          }
+        },
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632": {
+          "type": "question",
+          "settings": {
+            "question": "How can I see customer reviews?",
+            "answer": "<p>We've shipped 20,000+ packages over the last 2 years. But we can understand if it's your first time ordering and you're hesitant!</p><p>We're just starting off with Vescartes but to view feedback from our main brands, you can check the hundreds of tagged pictures on our IG pages (@caedeslondon & @kenshin.kollection).</p>"
+          }
+        },
+        "890e6c8a-3088-4bb9-a826-708950e408a5": {
+          "type": "category",
+          "disabled": true,
+          "settings": {
+            "title": "Returns and Refunds",
+            "icon": "none",
+            "icon_width": 16
+          }
+        }
+      },
+      "block_order": [
+        "category",
+        "0dcea82b-0750-4bb8-8ca2-57fec5992632",
+        "890e6c8a-3088-4bb9-a826-708950e408a5"
+      ],
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "separate_section_with_border": true,
+        "show_categories": false,
+        "subheading": "",
+        "title": "<strong>Cancellation Policy</strong>",
+        "content": "<p>We understand that sometimes circumstances may change, and you may need to cancel your order.</p><p>Please review our cancellation policy below for more information:</p><p>____________________________</p><p><strong>Cancellation Period: </strong>Cancellations can only be accepted during the period when our online store is open. Once our online store has closed, and production has commenced, cancellations are not possible.</p><p><strong>Cancellation Procedure: </strong>To cancel an order, please log in to your account on our website and navigate to the order history section. If you encounter any issues, please contact our customer support team during our business hours for assistance.</p><p><strong>Production Start: </strong>Orders enter the production phase shortly after the online store closes. Once production has started, cancellations are no longer possible.</p><p><strong>Refund Process: </strong>If your cancellation request is received within the allowed period, we will initiate a refund for the full purchase amount. Refunds will be processed using the original payment method. Please allow 5-7 business days for the refund to reflect in your account.</p><p><strong>Exceptions: </strong>Customized or personalized items may not be eligible for cancellation once production has begun. Please contact our customer support team for further assistance.</p><p><strong>Contact Information: </strong>For cancellation inquiries, please contact our customer support team at general@caedeslondon.com. Our team will be happy to assist you with any questions or concerns related to cancellations.</p><p><strong>Changes to Orders: </strong>Once an order is confirmed and the online store is closed, changes to the order, including cancellations, may not be possible. Please double-check your order before completing the purchase.</p><p><strong>Store Closure Information: </strong>Information about the closing and opening times of our online store will be clearly communicated on our website.</p><p>____________________________</p><p>We appreciate your understanding of our cancellation policy, which is designed to ensure efficient order processing and customer satisfaction.</p><p>If you have any further questions, please feel free to reach out to our customer support team</p>"
+      }
+    },
+    "stacked_content_8qxYJ7": {
+      "type": "stacked-content",
+      "blocks": {
+        "text_YgRPRj": {
+          "type": "text",
+          "settings": {
+            "heading": "Returns & Exchanges",
+            "heading_alignment": "center",
+            "underline_heading": false,
+            "text": "<p>We want you to be satisfied with your purchase. If something isn't right. please review the information below before requesting a return.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 40,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 20,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_c8if9T": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_LCaCyw": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<h4>Return Window</h4><p>Returns must be requested within 14 days of delivery.</p><p>Items must be unworn, unused, and returned in their original packaging.</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_iCxUkp": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_RH6rWb": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<h4>Defective or Incorrect Items</h4><p>We will replace your item at no additional cost or offer full store credit if:</p><ul><li>You recieve a majorly defective item (e.g tears, rips, large stains)</li><li>You recieve the wrong size or an incorrect item.</li></ul><p>If the style is in stock, a replacement will be sent. If the style is unavailable you may keep the item and a full store credit will be issued.</p><p>Minor imperfections - such as loose stitches, slight wash variations or faint marks - are considered part of the production process and are not classified as major defects</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_kgfJaA": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_jeLH9L": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<h4>Returns for Sizing</h4><p>We accept returns for sizing related issues.</p><ul><li>Return shipping for sizing returns is the responsibility of the customer</li><li>All sizing returns must be sent using tracked delivery</li><li>Refunds are processed only once the parcel is confirmed as delivered.</li><li>Size charts allow a 5% measurement leniency due to slight production variations.</li><li>Size recommendations from our team or Size Finder are provided as guidance only. Individual fit preferences may vary, and final size selection remains the customer’s responsibility.</li></ul>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_TrCkC6": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_TmeF8T": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<h4>Return Shipping</h4><p>Return shipping costs are covered by Vescartes only in cases of:</p><ul><li>Major defects</li><li>Incorrect Items</li><li>Incorrect size sent</li></ul><p>All other return shipping costs are the customer's responsibility</p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        },
+        "hr_bhQAPU": {
+          "type": "hr",
+          "settings": {
+            "clr": "#000000",
+            "margin_top": 10,
+            "margin_bottom": 10
+          }
+        },
+        "text_xRR8Cc": {
+          "type": "text",
+          "settings": {
+            "heading": "",
+            "heading_alignment": "left",
+            "underline_heading": false,
+            "text": "<p><em>This policy helps us remain fair and transparent while supporting our limited run production model.<br/>For further assistance. please contact at contact@vescartes.com</em></p>",
+            "text_alignment": "left",
+            "text_color": "#000000",
+            "heading_size_desktop": 32,
+            "heading_size_mobile": 24,
+            "text_size_desktop": 16,
+            "text_size_mobile": 14,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "text_YgRPRj",
+        "hr_c8if9T",
+        "text_LCaCyw",
+        "hr_iCxUkp",
+        "text_RH6rWb",
+        "hr_kgfJaA",
+        "text_jeLH9L",
+        "hr_TrCkC6",
+        "text_TmeF8T",
+        "hr_bhQAPU",
+        "text_xRR8Cc"
+      ],
+      "name": "Stacked Content",
+      "settings": {
+        "background_color": "#ffffff",
+        "container_width": 800,
+        "padding_top_desktop": 0,
+        "padding_bottom_desktop": 0,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 0
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "stacked_content_8qxYJ7"
+  ]
+}
