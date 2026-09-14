@@ -275,6 +275,8 @@
        };
     </script>
 
+    {% comment %} Disabled: was blocking right-click and dev tools shortcuts {% endcomment %}
+    {% comment %}
     <script>
       // Disable right-click context menu
       document.addEventListener('contextmenu', (event) => {
@@ -296,6 +298,7 @@
         }
       });
     </script>
+    {% endcomment %}
   <script>
 (function () {
   if (window.location.pathname !== '/pages/nova') return;
