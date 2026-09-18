@@ -275,6 +275,11 @@
        };
     </script>
 
+    {%- comment -%}
+      Dev tools blocker — disabled. It blocked the right-click menu and the F12 /
+      Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C / Ctrl+U shortcuts. Uncomment the
+      script below to bring it back.
+
     <script>
       // Disable right-click context menu
       document.addEventListener('contextmenu', (event) => {
@@ -296,6 +301,7 @@
         }
       });
     </script>
+    {%- endcomment -%}
   <script>
 (function () {
   if (window.location.pathname !== '/pages/nova') return;

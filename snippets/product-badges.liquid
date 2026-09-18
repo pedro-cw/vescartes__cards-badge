@@ -12,7 +12,7 @@ Supported variables
 * product: the product to render the badges
 * variant: the specific variant to show the badge from
 * vertical: if set to true, the badges are outputted vertically
-* types: the types of badge to output. Can be "custom", "sold_out" or "discount" (or a combination separated by comma). If nothing is set, all badges are outputted.
+* types: the types of badge to output. Can be "custom", "sold_out", "discount" or "card_status" (or a combination separated by comma). If nothing is set, all badges are outputted.
 * form_id: an optional form ID to use to update the badges when a given variant changes
 {%- endcomment -%}
 
@@ -20,6 +20,14 @@ Supported variables
   assign badge_types = types | default: 'custom, sold_out, discount' | split: ','
   assign variant = variant | default: product.selected_or_first_available_variant
 -%}
+
+{%- comment -%}
+  Set to true as soon as the "card_status" group renders a badge. The "custom" and
+  "discount" branches below check it so a card never shows more than one badge —
+  it stays false everywhere "card_status" is not part of the requested types
+  (product page, quick buy...), which keeps those contexts unchanged.
+{%- endcomment -%}
+{%- assign card_status_matched = false -%}
 
 {%- assign is_badge_list_hidden = true -%}
 
@@ -29,12 +37,14 @@ Supported variables
 
     {%- case stripped_badge_type -%}
       {%- when 'custom' -%}
-        {%- assign custom_badges = product.metafields.custom.badges.value -%}
+        {%- unless card_status_matched -%}
+          {%- assign custom_badges = product.metafields.custom.badges.value -%}
 
-        {%- for custom_badge in custom_badges -%}
-          {%- assign is_badge_list_hidden = false -%}
-          <span class="badge badge--custom badge--{{ custom_badge | handle }}">{{ custom_badge }}</span>
-        {%- endfor -%}
+          {%- for custom_badge in custom_badges -%}
+            {%- assign is_badge_list_hidden = false -%}
+            <span class="badge badge--custom badge--{{ custom_badge | handle }}">{{ custom_badge }}</span>
+          {%- endfor -%}
+        {%- endunless -%}
 
       {%- when 'sold_out' -%}
         {%- if settings.show_sold_out_badge -%}
@@ -50,7 +60,7 @@ Supported variables
         {%- endif -%}
 
       {%- when 'discount' -%}
-        {%- if settings.show_discount -%}
+        {%- if settings.show_discount and card_status_matched == false -%}
           {%- assign is_variant_on_sale = false -%}
 
           {%- if variant.compare_at_price > variant.price -%}
@@ -74,6 +84,92 @@ Supported variables
             </on-sale-badge>
           {%- endif -%}
         {%- endif -%}
+
+      {%- when 'card_status' -%}
+        {%- comment -%}
+          ------------------------------------------------------------------------------
+          CARD STATUS (A/B test)
+          ------------------------------------------------------------------------------
+          Exclusive badge group used on the product cards of the collection grids. At
+          most one badge is rendered, in this priority order:
+
+            1. Pre-order    -> custom.card_badge metafield, renders NO badge
+            2. Sold out     -> existing theme logic, untouched
+            3. Low stock    -> fewer than `low_stock_threshold` units in stock
+            4. Best selling -> custom.card_badge metafield
+            5. New in       -> custom.card_badge metafield
+
+          Pre-order comes first and outputs nothing on purpose: those products already
+          carry the pre-order badge inside their own image, so the metafield is there to
+          keep every other badge (sold out included) off the card.
+        {%- endcomment -%}
+        {%- liquid
+          assign low_stock_threshold = 50
+
+          # Normalized so the metafield accepts "New in", "new-in", "new_in"...
+          assign card_badge_value = product.metafields.custom.card_badge.value | downcase | strip | replace: '-', '' | replace: '_', '' | replace: ' ', ''
+
+          # Liquid has no product-wide inventory count, so it is summed by variant.
+          # Only variants whose inventory is actually tracked take part, otherwise
+          # untracked products (quantity 0) would all look like low stock.
+          assign card_inventory_quantity = 0
+          assign card_inventory_tracked = false
+
+          for card_variant in product.variants
+            if card_variant.inventory_management != blank
+              assign card_inventory_tracked = true
+
+              if card_variant.inventory_quantity > 0
+                assign card_inventory_quantity = card_inventory_quantity | plus: card_variant.inventory_quantity
+              endif
+            endif
+          endfor
+
+          assign card_status = ''
+
+          if card_badge_value == 'preorder'
+            assign card_status = 'pre-order'
+          elsif variant.available == false and settings.show_sold_out_badge
+            assign card_status = 'sold-out'
+          elsif card_inventory_tracked and card_inventory_quantity > 0 and card_inventory_quantity < low_stock_threshold
+            assign card_status = 'low-stock'
+          elsif card_badge_value == 'bestselling'
+            assign card_status = 'best-selling'
+          elsif card_badge_value == 'newin'
+            assign card_status = 'new-in'
+          endif
+
+          # 'pre-order' still counts as matched so the custom/discount badges below stay
+          # off the card, even though it renders nothing itself.
+          if card_status != blank
+            assign card_status_matched = true
+
+            unless card_status == 'pre-order'
+              assign is_badge_list_hidden = false
+            endunless
+          endif
+        -%}
+
+        {%- comment -%}
+          'pre-order' is deliberately absent from this case: the badge is already part of
+          the product image, so the card is left clean.
+        {%- endcomment -%}
+        {%- case card_status -%}
+          {%- when 'sold-out' -%}
+            {%- comment -%} Same markup the 'sold_out' type outputs, so nothing changes visually. {%- endcomment -%}
+            <sold-out-badge class="badge badge--sold-out">
+              {{- 'product.general.sold_out_badge' | t -}}
+            </sold-out-badge>
+
+          {%- when 'low-stock' -%}
+            <span class="card-badge card-badge--low-stock">Low Stock</span>
+
+          {%- when 'best-selling' -%}
+            <span class="card-badge card-badge--best-selling">Best Selling</span>
+
+          {%- when 'new-in' -%}
+            <span class="card-badge card-badge--new-in">New In</span>
+        {%- endcase -%}
     {%- endcase -%}
   {%- endfor -%}
 {%- endcapture -%}

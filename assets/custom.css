@@ -1030,3 +1030,65 @@ compare-at-price.h6 {
         display: none;
     }
 }
+
+/* ==========================================================================
+   Product card badges (A/B test) — rendered by the "card_status" group in
+   snippets/product-badges.liquid. Only one of them shows per card.
+
+   A/B TEST SWITCH: adding `card-badges-off` to <html> or <body> hides the whole
+   group in one go (the sold out badge is not part of it and keeps showing).
+   To flip it to hidden by default once everything is approved, uncomment the
+   `.card-badge { display: none; }` rule below and use `card-badges-on` instead.
+   ========================================================================== */
+.card-badge {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding: 1px 6px;
+    color: #FFF;
+    font-family: 'URW DIN', var(--text-font-family);
+    font-size: 8px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.1px;
+    leading-trim: both;
+    text-edge: cap;
+}
+
+@media screen and (min-width: 700px) {
+    .card-badge {
+        padding: 4px 6px;
+        font-size: 12px;
+    }
+}
+
+/* No `.card-badge--pre-order` rule on purpose: pre-order products carry the badge
+   in their own image, so the card renders no badge at all for them. */
+
+.card-badge--low-stock {
+    background: #161616;
+}
+
+.card-badge--best-selling {
+    background: #730101;
+}
+
+.card-badge--new-in {
+    background: #017309;
+}
+
+.card-badges-off .card-badge {
+    display: none;
+}
+
+/* Hidden-by-default variant — uncomment these two rules and delete the
+   `.card-badges-off` one above to ship the badges behind an opt-in class.
+.card-badge {
+    display: none;
+}
+
+.card-badges-on .card-badge {
+    display: flex;
+}
+*/
