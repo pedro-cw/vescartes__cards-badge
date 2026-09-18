@@ -1035,13 +1035,17 @@ compare-at-price.h6 {
    Product card badges (A/B test) — rendered by the "card_status" group in
    snippets/product-badges.liquid. Only one of them shows per card.
 
-   A/B TEST SWITCH: adding `card-badges-off` to <html> or <body> hides the whole
-   group in one go (the sold out badge is not part of it and keeps showing).
-   To flip it to hidden by default once everything is approved, uncomment the
-   `.card-badge { display: none; }` rule below and use `card-badges-on` instead.
+   HIDDEN BY DEFAULT: the control variant gets nothing, so the markup ships live
+   without showing. The test variant turns them on, either by injecting
+
+       .card-badge { display: flex !important; }
+
+   or by adding the `card-badges-on` class to <html> or <body>.
+
+   The sold out badge is not part of this group and keeps showing either way.
    ========================================================================== */
 .card-badge {
-    display: flex;
+    display: none;
     align-items: center;
     width: max-content;
     padding: 1px 6px;
@@ -1078,17 +1082,7 @@ compare-at-price.h6 {
     background: #017309;
 }
 
-.card-badges-off .card-badge {
-    display: none;
-}
-
-/* Hidden-by-default variant — uncomment these two rules and delete the
-   `.card-badges-off` one above to ship the badges behind an opt-in class.
-.card-badge {
-    display: none;
-}
-
+/* Opt-in switch for the test variant. */
 .card-badges-on .card-badge {
     display: flex;
 }
-*/
