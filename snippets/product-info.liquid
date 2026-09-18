@@ -158,6 +158,10 @@ Supported variables
 
             {% render 'usp-icons', block: block %}
 
+          {%- when 'trustpilot_rating' -%}
+
+            {%- render 'trustpilot-rating', block: block -%}
+
           {%- when 'title' -%}
             <div class="product-title-container">
               {%- if product != blank -%}
@@ -364,6 +368,21 @@ Supported variables
               {%- if block.settings.collapse_content -%}
                 {%- assign accordion_title = 'product.general.description' | t -%}
                 {%- render 'accordion', title: accordion_title, content: product_description, prose_content: true, block: block, open: true, show_arrow: true -%}
+
+                <script>
+                  // Open by default is the theme's own behaviour and stays on
+                  // desktop; the mobile variant starts it closed. Runs inline,
+                  // right after the element is parsed, so it never flashes open.
+                  (function () {
+                    if (!window.matchMedia('(max-width: 999px)').matches) return;
+
+                    var details = document.currentScript.previousElementSibling;
+                    if (!details || details.tagName !== 'DETAILS') return;
+
+                    details.open = false;
+                    details.setAttribute('aria-expanded', 'false');
+                  })();
+                </script>
               {%- else -%}
                 <div class="prose">
                   {{- product_description -}}
@@ -782,9 +801,10 @@ Supported variables
             {%- liquid
               assign accordion_title = block.settings.title | default: block.settings.page.title
               assign accordion_content = block.settings.page.content | default: block.settings.liquid | default: block.settings.content
+              assign accordion_handle = accordion_title | handleize
 
               if accordion_title != blank and accordion_content != blank
-                render 'accordion', title: accordion_title, content: accordion_content, prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block, show_arrow: true
+                render 'accordion', title: accordion_title, content: accordion_content, prose_content: true, icon: block.settings.icon, custom_icon: block.settings.custom_icon, block: block, show_arrow: true, handle: accordion_handle
               endif
             -%}
 

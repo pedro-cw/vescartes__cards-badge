@@ -406,8 +406,23 @@ header-sidebar .header-sidebar__footer .link-faded {
     gap: 10px;
 }
 
+@media screen and (max-width: 999px) {
+    .product-title-container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+}
+
 variant-picker :checked+.block-swatch, variant-picker .block-swatch.is-selected {
     border: 1px solid rgba(0,0,0,1);
+}
+
+@media screen and (max-width: 999px) {
+    variant-picker :checked+.block-swatch, variant-picker .block-swatch.is-selected {
+        background: lightgray;
+    }
 }
 
 variant-picker .block-swatch {
@@ -418,6 +433,7 @@ variant-picker .block-swatch {
     height: 35px;
     border-radius: 5px;
     line-height: 1;
+    transition: background-color .15s, border-color .15s, color .15s;
 }
 
 @media screen and (max-width: 768px){
@@ -636,6 +652,25 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
 
 main{
     overflow-x: hidden;
+}
+
+/* On a product page <main> is class="anchor product ...", because the theme
+   stamps request.page_type onto it — so it collides with the ".product" grid
+   meant for the gallery/info layout inside the section, and every section on
+   the page becomes a grid item separated by "gap: var(--product-gap)" (5rem
+   from 1150px up). Zeroing the gap only on the <main> element leaves the real
+   ".product" grid inside the section alone, and the sections keep their own
+   ".section-spacing" padding.
+
+   Note this zeroes `gap`, NOT `--product-gap`. The variable inherits, and
+   below 1000px the inner grid has no declaration of its own to shadow it —
+   so zeroing the variable here would also flatten the space between the
+   gallery and the product info on mobile, plus the gallery's own column gap
+   and the margins at theme.css:5892. */
+@media screen and (max-width: 999px) {
+    main.product {
+        gap: 0;
+    }
 }
 
 :where(.header-search)::part(overlay) {
@@ -960,4 +995,38 @@ cart-drawer .subtotal-wrapper{
 
 compare-at-price.h6 {
     font-family: URW DIN !important;
+}
+
+/* Shared by the TrustPilot badge on the product page and the customer reviews
+   section (see snippets/rating-stars.liquid). Each <svg> carries its own
+   width/height — the full star is a 19x20 asset, the half and empty stars are
+   19x19 — so this doesn't force a uniform box, it just aligns them. */
+.rating-star {
+    display: inline-flex;
+    align-items: center;
+}
+
+.rating-star svg {
+    display: block;
+}
+
+/* ==========================================================================
+   Mobile-only variant — everything below 1000px only. Desktop keeps the
+   theme exactly as it was, so these additions are hidden there.
+   ========================================================================== */
+@media screen and (min-width: 1000px) {
+    .shopify-section--styled-by-you,
+    .shopify-section--customer-reviews,
+    .product-info__block-item[data-block-type="trustpilot-rating"] {
+        display: none;
+    }
+}
+
+/* The "Product Care" accordion is dropped from the mobile variant only. Keyed
+   off the handle of its own title, so renaming that block in the theme editor
+   brings it back on mobile too. */
+@media screen and (max-width: 999px) {
+    details[data-accordion="product-care"] {
+        display: none;
+    }
 }

@@ -22,9 +22,10 @@ Supported parameters
 * is: override the default custom element name
 * bleed: if set to true, the accordion will bleed on mobile
 * block: an optional block to output theme editor attributes
+* handle: an optional handle output as data-accordion, so a specific accordion can be targeted in CSS
 {%- endcomment -%}
 
-<details class="accordion {% if size %}accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
+<details class="accordion {% if size %}accordion--{{ size }}{% endif %} group {% if bleed %}bleed sm:unbleed{% endif %}" is="{{ is | default: 'accordion-disclosure' }}" {% if handle != blank %}data-accordion="{{ handle }}"{% endif %} {% if open %}open aria-expanded="true"{% else %}aria-expanded="false"{% endif %} {{ block.shopify_attributes }}>
   <summary>
     {%- comment -%}iOS 14 does not support flex on the summary itself, so we have to use this extra div{%- endcomment -%}
     <span class="accordion__toggle {% if show_title_as_text %}text-lg{% else %}h6{% endif %}">

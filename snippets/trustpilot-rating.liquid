@@ -1,0 +1,138 @@
+{%- comment -%}
+----------------------------------------------------------------------------------------------------------------------
+TRUSTPILOT RATING BADGE
+----------------------------------------------------------------------------------------------------------------------
+
+Stars + a line of copy ("Rated 4.5 (Excellent) on TrustPilot"), shown under the product title. The whole badge is a
+link whose destination the merchant sets per block — either an on-page anchor (scrolled to smoothly) or any URL.
+
+********************************************
+Supported variables
+********************************************
+
+* block: the section block holding the settings (required)
+{%- endcomment -%}
+
+{%- liquid
+  assign rating = block.settings.rating | default: 4.5
+  assign rating_label = block.settings.rating_label
+  assign link = block.settings.link | strip
+
+  # Stars: one solid star per whole point, a half star for a .5 remainder,
+  # and outline stars for the rest.
+  assign full_stars = rating | floor
+  assign remainder = rating | minus: full_stars
+  assign has_half_star = false
+
+  if remainder >= 0.5
+    assign has_half_star = true
+  endif
+
+  assign empty_stars = 5 | minus: full_stars
+
+  if has_half_star
+    assign empty_stars = empty_stars | minus: 1
+  endif
+
+  if empty_stars < 0
+    assign empty_stars = 0
+  endif
+
+  # A range setting stores 5 as 5.0, which would read "Rated 5.0" — print
+  # whole ratings without the decimal.
+  assign rounded_rating = rating | round
+
+  if rating == rounded_rating
+    assign rating_text = rounded_rating | append: ''
+  else
+    assign rating_text = rating | append: ''
+  endif
+
+  assign badge_text = block.settings.text | replace: '[rating]', rating_text | replace: '[label]', rating_label
+-%}
+
+{%- capture stars -%}
+  {%- render 'rating-stars', rating: rating, uid: block.id -%}
+{%- endcapture -%}
+
+<style>
+  .trustpilot-rating {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a.trustpilot-rating {
+    cursor: pointer;
+  }
+
+  .trustpilot-rating__stars {
+    display: inline-flex;
+    flex-shrink: 0;
+  }
+
+  .trustpilot-rating__text {
+    color: #1c1c1c;
+    font-family: 'URW DIN', var(--text-font-family);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  a.trustpilot-rating .trustpilot-rating__text {
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+    text-decoration-skip-ink: none;
+    text-decoration-thickness: auto;
+    text-underline-offset: auto;
+    text-underline-position: from-font;
+  }
+</style>
+
+{%- capture badge_content -%}
+  <span class="trustpilot-rating__stars" role="img" aria-label="Rated {{ rating_text }} out of 5">
+    {{- stars -}}
+  </span>
+  <span class="trustpilot-rating__text">{{ badge_text }}</span>
+{%- endcapture -%}
+
+{%- if link != blank -%}
+  <a
+    href="{{ link }}"
+    class="trustpilot-rating"
+    {% if block.settings.open_in_new_tab %}target="_blank" rel="noopener"{% endif %}
+  >
+    {{- badge_content -}}
+  </a>
+
+  <script>
+    // Anchor destinations (e.g. "#styled-by-you") scroll rather than jump.
+    // Delegated from the document so it survives a section re-render in the
+    // theme editor, and registered once however many badges are on the page.
+    if (!window.trustpilotRatingScrollBound) {
+      window.trustpilotRatingScrollBound = true;
+
+      document.addEventListener('click', (event) => {
+        const badge = event.target.closest('a.trustpilot-rating');
+        if (!badge) return;
+
+        const href = badge.getAttribute('href') || '';
+        if (href.charAt(0) !== '#' || href.length < 2) return;
+
+        const target = document.querySelector(href);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+  </script>
+{%- else -%}
+  <div class="trustpilot-rating">
+    {{- badge_content -}}
+  </div>
+{%- endif -%}

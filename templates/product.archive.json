@@ -23,6 +23,16 @@
             "heading_tag": "h3"
           }
         },
+        "trustpilot_rating": {
+          "type": "trustpilot_rating",
+          "settings": {
+            "rating": 4.5,
+            "rating_label": "Excellent",
+            "text": "Rated [rating] ([label]) on TrustPilot",
+            "link": "#styled-by-you",
+            "open_in_new_tab": false
+          }
+        },
         "price": {
           "type": "price",
           "settings": {
@@ -198,6 +208,7 @@
       "block_order": [
         "vendor",
         "title",
+        "trustpilot_rating",
         "price",
         "payment_terms",
         "separator",
@@ -238,6 +249,116 @@
         "max_image_zoom_level": 3
       }
     },
+    "styled_by_you": {
+      "type": "styled-by-you",
+      "blocks": {
+        "video_1": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/82de4d49b9834333bcdf5e8f151594ae.mp4",
+            "alt": ""
+          }
+        },
+        "video_2": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/f815d09e5a4e41e09e1ee5fb826498fb.mp4",
+            "alt": ""
+          }
+        },
+        "video_3": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/6a3d26ecf727480a899713d9ea8fb25f.mp4",
+            "alt": ""
+          }
+        },
+        "video_4": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/2126b79110d04f3eab20472c13ed4236.mp4",
+            "alt": ""
+          }
+        },
+        "video_5": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://cdn.shopify.com/videos/c/o/v/b6d829ff038641fd97bf917980373763.mp4",
+            "alt": ""
+          }
+        }
+      },
+      "block_order": [
+        "video_1",
+        "video_2",
+        "video_3",
+        "video_4",
+        "video_5"
+      ],
+      "settings": {
+        "heading": "Styled By You",
+        "autoplay": true
+      }
+    },
+    "new_faq_RfywzX": {
+      "type": "new-faq",
+      "blocks": {
+        "faq_GDpFLC": {
+          "type": "faq",
+          "settings": {
+            "question": "How does this item fit?",
+            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
+          }
+        },
+        "faq_qPP7aK": {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order arrive?",
+            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
+          }
+        },
+        "faq_RctQme": {
+          "type": "faq",
+          "settings": {
+            "question": "Will I have to pay customs or import duties?",
+            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
+          }
+        },
+        "faq_bbFRHx": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the item if the size isn't right?",
+            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
+          }
+        },
+        "faq_tDkfV4": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for this piece?",
+            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_GDpFLC",
+        "faq_qPP7aK",
+        "faq_RctQme",
+        "faq_bbFRHx",
+        "faq_tDkfV4"
+      ],
+      "name": "Vescartes FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "hide_section": true,
+        "single_open": true,
+        "content_width": 930,
+        "padding_desktop": 64,
+        "padding_mobile": 32,
+        "match_desktop_height": true,
+        "background_color": "#fdfdfd",
+        "text_color": "#1c1c1c"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -253,6 +374,88 @@
         "subheading": "",
         "title": "More from Vescartes",
         "content": ""
+      }
+    },
+    "customer_reviews": {
+      "type": "customer-reviews",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Compliment Magnet",
+            "text": "Ordered from them twice now. Once back in November and again in May. I have bought a total of 4 jeans from them and they are all beautiful and of excellent quality. Have received multiple compliments from all sorts of people when wearing them, they are a big hit.",
+            "name": "Joshua S",
+            "initials": "JS"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Excellent after sale service",
+            "text": "Excellent after sale service! I ordered a jacket in size S, it was actually too small. So I contacted the company to find out how to send it back. They sent me all the necessary information and refunded me the total amount I had paid initially!",
+            "name": "Aurelian E",
+            "initials": "AE"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "I’m completely in love",
+            "text": "I’m completely in love with my Brazilian jersey! Honestly, I don’t think I’ve ever received so many compliments on an outfit in my life, haha! The quality is outstanding. It’s absolutely beautiful and incredibly well made.",
+            "name": "Lidia I",
+            "initials": "LI"
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Cherry Blossom Denim Review",
+            "text": "Wanted to wait until the weather was nice out to wear them. They fit amazingly and the quality of the embroidery is like no other! Vescartes makes some of the most high quality pieces I’ve ever purchased. 10/10 highly recommend",
+            "name": "Victor F",
+            "initials": "VF"
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "Vescartes Rocks!",
+            "text": "Best clothing brand out right now!! Anytime I buy clothes from Vescartes it is guaranteed quality clothing. Ordering was easy and my package got to me in about a week and was handed to me by the delivery driver.",
+            "name": "Chris H",
+            "initials": "CH"
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "title": "5/5 Stars",
+            "text": "Really impressed with the Last Supper jacket from Vescartes. The embroidery detail is high quality and you can tell it’s not just printed. It’s a unique piece that carries meaning, not just fashion. Fits well and feels premium, definitely worth it.",
+            "name": "Akintola O",
+            "initials": "AO"
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5",
+        "review_6"
+      ],
+      "settings": {
+        "heading": "Customer Reviews",
+        "color_scheme": "scheme-1",
+        "rating": 4.5,
+        "rating_label": "Excellent",
+        "reviews_count": 590,
+        "summary_text": "Rated [rating] ([label])",
+        "summary_sub": "on TrustPilot based on [count] reviews"
       }
     },
     "custom_slider_9TGR8J": {
@@ -357,65 +560,6 @@
         "c_section_heading": "STYLED BY YOU"
       }
     },
-    "new_faq_RfywzX": {
-      "type": "new-faq",
-      "blocks": {
-        "faq_GDpFLC": {
-          "type": "faq",
-          "settings": {
-            "question": "How does this item fit?",
-            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
-          }
-        },
-        "faq_qPP7aK": {
-          "type": "faq",
-          "settings": {
-            "question": "When will my order arrive?",
-            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
-          }
-        },
-        "faq_RctQme": {
-          "type": "faq",
-          "settings": {
-            "question": "Will I have to pay customs or import duties?",
-            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
-          }
-        },
-        "faq_bbFRHx": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I return the item if the size isn't right?",
-            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
-          }
-        },
-        "faq_tDkfV4": {
-          "type": "faq",
-          "settings": {
-            "question": "How should I care for this piece?",
-            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_GDpFLC",
-        "faq_qPP7aK",
-        "faq_RctQme",
-        "faq_bbFRHx",
-        "faq_tDkfV4"
-      ],
-      "name": "Vescartes FAQ",
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "hide_section": true,
-        "single_open": true,
-        "content_width": 930,
-        "padding_desktop": 64,
-        "padding_mobile": 32,
-        "match_desktop_height": true,
-        "background_color": "#fdfdfd",
-        "text_color": "#1c1c1c"
-      }
-    },
     "media_grid_zXyRVR": {
       "type": "media-grid",
       "blocks": {
@@ -515,9 +659,11 @@
   },
   "order": [
     "main",
-    "related-products",
-    "custom_slider_9TGR8J",
+    "styled_by_you",
     "new_faq_RfywzX",
+    "related-products",
+    "customer_reviews",
+    "custom_slider_9TGR8J",
     "media_grid_zXyRVR"
   ]
 }

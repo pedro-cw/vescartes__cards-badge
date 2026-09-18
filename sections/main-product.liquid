@@ -1046,6 +1046,48 @@ const onIntersect = (entries) => {
   ]
 },
     {
+      "type": "trustpilot_rating",
+      "name": "TrustPilot Rating",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 0,
+          "max": 5,
+          "step": 0.5,
+          "default": 4.5
+        },
+        {
+          "type": "text",
+          "id": "rating_label",
+          "label": "Rating label",
+          "default": "Excellent"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "info": "[rating] and [label] are replaced with the values above.",
+          "default": "Rated [rating] ([label]) on TrustPilot"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "info": "Where the badge leads. Use a full URL (https://...) for an external page such as your TrustPilot profile, or an anchor to scroll to a section on this page, for example #styled-by-you. Leave empty to show the badge without a link.",
+          "default": "#styled-by-you"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_in_new_tab",
+          "label": "Open in a new tab",
+          "default": false
+        }
+      ]
+    },
+    {
       "type": "usp-icon",
       "name": "USP Icons",
       "settings": [

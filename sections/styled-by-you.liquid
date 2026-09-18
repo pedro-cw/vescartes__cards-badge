@@ -1,0 +1,369 @@
+{%- comment -%}
+  "Styled By You" — a horizontal, endlessly looping slider of customer videos.
+  One block per video. Slides autoplay muted and looping; the centered play
+  button is a manual pause/resume toggle. Dragging or the arrows move the
+  strip (see assets/styled-by-you.js).
+{%- endcomment -%}
+
+<style>
+/* ==========================================================================
+   "Styled By You" — horizontal slider of customer videos, one per block.
+   Reuses the theme's own ".h2" / "tap-area" / "icon" classes so it lines up
+   with the rest of the page.
+   ========================================================================== */
+
+/* The page's <main> is a CSS grid without minmax(0, ...) on its column, so a
+   fixed-width overflow-x track here would otherwise force the whole grid
+   column (and every other section in it, including the product gallery)
+   wider than the viewport. min-width: 0 lets the grid item shrink back down;
+   the viewport's own overflow: hidden then clips its content correctly. */
+.shopify-section--styled-by-you,
+.styled-by-you {
+  min-width: 0;
+}
+
+.styled-by-you {
+  background-color: #fff;
+  /* The section has no .section-spacing wrapper of its own, and <main> no
+     longer spaces its children (see main.product in custom.css), so it
+     carries its own breathing room. The theme's own variable keeps it on the
+     same rhythm as every other section, and follows the global spacing
+     setting: 2.5rem here, 4rem from 1000px up. */
+  margin-block: var(--section-vertical-spacing, 2.5rem);
+}
+
+.styled-by-you__inner {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* Font styling comes from the theme's own ".h2" utility class (added
+   alongside this one in the markup) — the same class the theme uses for its
+   native headings like "More from Vescartes" — so this only carries layout
+   that ".h2" doesn't: centering and spacing. */
+.styled-by-you__heading {
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.styled-by-you__wrapper {
+  position: relative;
+  padding: 0 34px;
+}
+
+/* The stationary window the slides scroll behind. This has to be a SEPARATE
+   element from the track: `overflow` clips to the element's own border box,
+   and the track carries a `transform` that drags that box along with it —
+   put both on one element and the clip window slides off with the content,
+   bleeding slides out one edge and leaving blank space at the other. */
+.styled-by-you__viewport {
+  overflow: hidden;
+}
+
+.styled-by-you__track {
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  cursor: grab;
+  /* Without this, dragging to scroll (mousedown + mousemove) also selects the
+     slide content underneath the cursor, like any other click-drag. */
+  user-select: none;
+  -webkit-user-select: none;
+  /* Position is driven entirely by JS setting `transform: translateX()`
+     (see styled-by-you.js), never by scrollLeft — native scrolling gets
+     clamped at the end of the content, which freezes the slider. */
+  will-change: transform;
+}
+
+.styled-by-you__track:active {
+  cursor: grabbing;
+}
+
+.styled-by-you__slide {
+  position: relative;
+  flex: 0 0 auto;
+  width: 114px;
+  height: 203px;
+  padding-inline-start: 0 !important;
+}
+
+.styled-by-you__slide video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: auto;
+  border-radius: 10px;
+  background: #000;
+  cursor: pointer;
+}
+
+/* Play button — 24px on mobile, 54px on desktop (see the min-width: 1000px
+   override below). Hidden while its video is playing. */
+.styled-by-you__play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.styled-by-you__play-icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+.styled-by-you__slide.is-playing .styled-by-you__play {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.styled-by-you__arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  color: #1c1c1c;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.styled-by-you__arrow--prev {
+  left: 0px;
+}
+
+.styled-by-you__arrow--next {
+  right: 0px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .styled-by-you {
+    padding-top: 0;
+  }
+
+  .styled-by-you__heading {
+    margin-bottom: 24px;
+  }
+
+  .styled-by-you__wrapper {
+    padding: 0 15px;
+  }
+
+  .styled-by-you__arrow--prev {
+    left: 20px;
+    color: white;
+  }
+
+  .styled-by-you__arrow--next {
+    right: 20px;
+    color: white;
+  }
+}
+
+@media (min-width: 1000px) {
+  .styled-by-you__heading {
+    margin-bottom: 60px;
+  }
+
+  .styled-by-you__track {
+    gap: 14px;
+  }
+
+  .styled-by-you__slide {
+    width: 306px;
+    height: 437px;
+  }
+
+  .styled-by-you__play,
+  .styled-by-you__play-icon {
+    width: 54px;
+    height: 54px;
+  }
+}
+</style>
+<script src="{{ 'styled-by-you.js' | asset_url }}" defer></script>
+
+{%- liquid
+  assign autoplay = section.settings.autoplay
+  assign left_arrow = '<svg aria-hidden="true" focusable="false" fill="none" width="16" class="icon icon-arrow-left icon--direction-aware" viewBox="0 0 16 18"><path d="M11 1 3 9l8 8" stroke="currentColor" stroke-linecap="square"></path></svg>'
+  assign right_arrow = '<svg aria-hidden="true" focusable="false" fill="none" width="16" class="icon icon-arrow-right icon--direction-aware" viewBox="0 0 16 18"><path d="m5 17 8-8-8-8" stroke="currentColor" stroke-linecap="square"></path></svg>'
+  assign play_icon = '<svg xmlns="http://www.w3.org/2000/svg" class="styled-by-you__play-icon" width="54" height="54" viewBox="0 0 54 54" fill="none" aria-hidden="true"><path d="M13.932 8.25746L44.46 25.4317C44.7381 25.5884 44.9695 25.8162 45.1306 26.0918C45.2916 26.3673 45.3765 26.6808 45.3765 27C45.3765 27.3191 45.2916 27.6326 45.1306 27.9082C44.9695 28.1837 44.7381 28.4115 44.46 28.5682L13.932 45.7425C13.658 45.8965 13.3484 45.9761 13.0341 45.9733C12.7198 45.9705 12.4117 45.8855 12.1404 45.7266C11.8692 45.5678 11.6443 45.3407 11.488 45.068C11.3318 44.7952 11.2498 44.4863 11.25 44.172V9.82796C11.2501 9.51382 11.3325 9.20519 11.4889 8.93274C11.6453 8.6603 11.8702 8.43352 12.1414 8.27495C12.4126 8.11639 12.7205 8.03155 13.0347 8.02887C13.3488 8.0262 13.6582 8.10353 13.932 8.25746Z" fill="white"/></svg>'
+-%}
+
+{%- comment -%}
+  Captured first so a section whose blocks are all still empty renders nothing
+  at all, rather than a heading and arrows around a blank strip.
+  styled-by-you.js clones however many extra copies of these it needs to fill
+  the viewport.
+{%- endcomment -%}
+{%- capture slides -%}
+  {%- for block in section.blocks -%}
+    {%- liquid
+      assign video_src = block.settings.video_url
+      assign poster_src = ''
+
+      if block.settings.poster != blank
+        assign poster_src = block.settings.poster | image_url: width: 800
+      endif
+
+      # A picked video carries several encodings. Prefer the smallest one
+      # that still holds up on a retina slide (306px wide, so ~720p), and
+      # fall back to the largest available when they are all smaller.
+      if block.settings.video != blank
+        assign mp4_sources = block.settings.video.sources | where: 'format', 'mp4' | sort: 'width'
+        assign chosen_source = mp4_sources | last
+        for source in mp4_sources
+          if source.width >= 720
+            assign chosen_source = source
+            break
+          endif
+        endfor
+
+        assign video_src = chosen_source.url
+
+        if poster_src == blank and block.settings.video.preview_image != blank
+          assign poster_src = block.settings.video.preview_image | image_url: width: 800
+        endif
+      endif
+
+      assign video_label = block.settings.alt | default: 'Styled by a customer'
+    -%}
+
+    {%- if video_src != blank -%}
+      <li class="styled-by-you__slide" {{ block.shopify_attributes }}>
+        {%- comment -%}
+          The src is held in data-src and only promoted to src by the script
+          below, which runs on mobile only — desktop hides this section, and an
+          autoplaying <video src> would otherwise still download there.
+        {%- endcomment -%}
+        <video
+          class="styled-by-you__video"
+          data-src="{{ video_src }}"
+          {% if poster_src != blank %}poster="{{ poster_src }}"{% endif %}
+          aria-label="{{ video_label | escape }}"
+          playsinline
+          {% if autoplay %}autoplay{% endif %}
+          muted
+          loop
+          preload="none"
+        ></video>
+
+        <button type="button" class="styled-by-you__play" aria-label="{{ 'general.accessibility.play_video' | t }}">
+          {{- play_icon -}}
+        </button>
+      </li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- if slides != blank -%}
+  <div id="styled-by-you" class="styled-by-you">
+    <div class="styled-by-you__inner">
+      {%- if section.settings.heading != blank -%}
+        <h2 class="styled-by-you__heading h2">{{ section.settings.heading | escape }}</h2>
+      {%- endif -%}
+
+      <div class="styled-by-you__wrapper">
+        <button type="button" class="styled-by-you__arrow styled-by-you__arrow--prev tap-area" aria-label="{{ 'general.accessibility.previous' | t }}">
+          {{- left_arrow -}}
+        </button>
+
+        <div class="styled-by-you__viewport">
+          <ul class="styled-by-you__track" role="list" aria-label="{{ section.settings.heading | escape }}">
+            {{- slides -}}
+          </ul>
+        </div>
+
+        <button type="button" class="styled-by-you__arrow styled-by-you__arrow--next tap-area" aria-label="{{ 'general.accessibility.next' | t }}">
+          {{- right_arrow -}}
+        </button>
+      </div>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Styled By You",
+  "class": "shopify-section--styled-by-you",
+  "tag": "section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Styled By You"
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Autoplay videos",
+      "info": "Videos always play muted and on a loop. Turn this off to show the play button until the customer taps it.",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "video",
+      "name": "Video",
+      "settings": [
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video file URL",
+          "info": "Only used when no video is picked above. Paste a direct .mp4 URL, for example a Shopify CDN video link."
+        },
+        {
+          "type": "image_picker",
+          "id": "poster",
+          "label": "Poster image",
+          "info": "Shown before the video plays. A picked video falls back to its own thumbnail."
+        },
+        {
+          "type": "text",
+          "id": "alt",
+          "label": "Description",
+          "info": "Read out by screen readers. Falls back to a generic label."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Styled By You",
+      "blocks": [
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" },
+        { "type": "video" }
+      ]
+    }
+  ]
+}
+{% endschema %}

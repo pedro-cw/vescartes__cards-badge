@@ -239,6 +239,65 @@
         "max_image_zoom_level": 3
       }
     },
+    "new_faq_tGbJV9": {
+      "type": "new-faq",
+      "blocks": {
+        "faq_zgjttq": {
+          "type": "faq",
+          "settings": {
+            "question": "How does this item fit?",
+            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
+          }
+        },
+        "faq_kPFbjU": {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order arrive?",
+            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
+          }
+        },
+        "faq_jBAJCX": {
+          "type": "faq",
+          "settings": {
+            "question": "Will I have to pay customs or import duties?",
+            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
+          }
+        },
+        "faq_cn4MpQ": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return the item if the size isn't right?",
+            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
+          }
+        },
+        "faq_rxtYBB": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for this piece?",
+            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_zgjttq",
+        "faq_kPFbjU",
+        "faq_jBAJCX",
+        "faq_cn4MpQ",
+        "faq_rxtYBB"
+      ],
+      "name": "Vescartes FAQ",
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "hide_section": true,
+        "single_open": true,
+        "content_width": 930,
+        "padding_desktop": 64,
+        "padding_mobile": 32,
+        "match_desktop_height": true,
+        "background_color": "#fdfdfd",
+        "text_color": "#1c1c1c"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -358,65 +417,6 @@
         "c_section_heading": "STYLED BY YOU"
       }
     },
-    "new_faq_tGbJV9": {
-      "type": "new-faq",
-      "blocks": {
-        "faq_zgjttq": {
-          "type": "faq",
-          "settings": {
-            "question": "How does this item fit?",
-            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
-          }
-        },
-        "faq_kPFbjU": {
-          "type": "faq",
-          "settings": {
-            "question": "When will my order arrive?",
-            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
-          }
-        },
-        "faq_jBAJCX": {
-          "type": "faq",
-          "settings": {
-            "question": "Will I have to pay customs or import duties?",
-            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
-          }
-        },
-        "faq_cn4MpQ": {
-          "type": "faq",
-          "settings": {
-            "question": "Can I return the item if the size isn't right?",
-            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
-          }
-        },
-        "faq_rxtYBB": {
-          "type": "faq",
-          "settings": {
-            "question": "How should I care for this piece?",
-            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_zgjttq",
-        "faq_kPFbjU",
-        "faq_jBAJCX",
-        "faq_cn4MpQ",
-        "faq_rxtYBB"
-      ],
-      "name": "Vescartes FAQ",
-      "settings": {
-        "heading": "Frequently Asked Questions",
-        "hide_section": true,
-        "single_open": true,
-        "content_width": 930,
-        "padding_desktop": 64,
-        "padding_mobile": 32,
-        "match_desktop_height": true,
-        "background_color": "#fdfdfd",
-        "text_color": "#1c1c1c"
-      }
-    },
     "media_grid_zXyRVR": {
       "type": "media-grid",
       "blocks": {
@@ -516,9 +516,9 @@
   },
   "order": [
     "main",
+    "new_faq_tGbJV9",
     "related-products",
     "custom_slider_9TGR8J",
-    "new_faq_tGbJV9",
     "media_grid_zXyRVR"
   ]
 }
