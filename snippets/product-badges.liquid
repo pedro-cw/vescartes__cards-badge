@@ -93,15 +93,14 @@ Supported variables
           Exclusive badge group used on the product cards of the collection grids. At
           most one badge is rendered, in this priority order:
 
-            1. Pre-order    -> custom.card_badge metafield, renders NO badge
+            1. Pre-order    -> custom.card_badge metafield
             2. Sold out     -> existing theme logic, untouched
             3. Low stock    -> fewer than `low_stock_threshold` units in stock
             4. Best selling -> custom.card_badge metafield
             5. New in       -> custom.card_badge metafield
 
-          Pre-order comes first and outputs nothing on purpose: those products already
-          carry the pre-order badge inside their own image, so the metafield is there to
-          keep every other badge (sold out included) off the card.
+          Pre-order sits above sold out on purpose: a pre-order product is usually out
+          of stock, and the pre-order badge is the one that should win there.
         {%- endcomment -%}
         {%- liquid
           assign low_stock_threshold = 50
@@ -139,27 +138,21 @@ Supported variables
             assign card_status = 'new-in'
           endif
 
-          # 'pre-order' still counts as matched so the custom/discount badges below stay
-          # off the card, even though it renders nothing itself.
           if card_status != blank
             assign card_status_matched = true
-
-            unless card_status == 'pre-order'
-              assign is_badge_list_hidden = false
-            endunless
+            assign is_badge_list_hidden = false
           endif
         -%}
 
-        {%- comment -%}
-          'pre-order' is deliberately absent from this case: the badge is already part of
-          the product image, so the card is left clean.
-        {%- endcomment -%}
         {%- case card_status -%}
           {%- when 'sold-out' -%}
             {%- comment -%} Same markup the 'sold_out' type outputs, so nothing changes visually. {%- endcomment -%}
             <sold-out-badge class="badge badge--sold-out">
               {{- 'product.general.sold_out_badge' | t -}}
             </sold-out-badge>
+
+          {%- when 'pre-order' -%}
+            <span class="card-badge card-badge--pre-order">Pre-Order</span>
 
           {%- when 'low-stock' -%}
             <span class="card-badge card-badge--low-stock">Low Stock</span>

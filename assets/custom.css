@@ -1049,7 +1049,10 @@ compare-at-price.h6 {
     align-items: center;
     width: max-content;
     padding: 1px 6px;
-    color: #FFF;
+    border: 0.5px solid #ECE8E0;
+    border-radius: 32px;
+    background: #FFF;
+    color: #000;
     font-family: 'URW DIN', var(--text-font-family);
     font-size: 8px;
     font-style: normal;
@@ -1067,20 +1070,9 @@ compare-at-price.h6 {
     }
 }
 
-/* No `.card-badge--pre-order` rule on purpose: pre-order products carry the badge
-   in their own image, so the card renders no badge at all for them. */
-
-.card-badge--low-stock {
-    background: #161616;
-}
-
-.card-badge--best-selling {
-    background: #730101;
-}
-
-.card-badge--new-in {
-    background: #017309;
-}
+/* Every badge shares the same pill, so there are no per-badge color rules. The
+   `card-badge--pre-order`, `--low-stock`, `--best-selling` and `--new-in`
+   modifiers stay on the markup as hooks for targeting one of them later. */
 
 /* Opt-in switch for the test variant. */
 .card-badges-on .card-badge {
