@@ -55,11 +55,11 @@ Supported variables
     <div class="product-card__figure">
       {%- if show_badges -%}
         {%- comment -%}
-          "card_status" replaces the "sold_out" type here: it renders the sold out badge
-          with the very same markup, plus the four new A/B test badges, and never more
-          than one of them. The custom/discount badges still render when none matched.
+          The "sold_out" type is left out on purpose: "card_status" renders its own sold
+          out badge, styled like the other A/B test ones. The badge list is horizontal
+          here so the badges sit side by side when more than one applies.
         {%- endcomment -%}
-        {%- render 'product-badges', product: product, vertical: true, types: 'card_status, custom, discount' -%}
+        {%- render 'product-badges', product: product, types: 'card_status, custom, discount' -%}
       {%- endif -%}
 
       <a href="{{ product.url }}" class="product-card__media" data-instant>

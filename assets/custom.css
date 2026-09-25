@@ -1042,7 +1042,9 @@ compare-at-price.h6 {
 
    or by adding the `card-badges-on` class to <html> or <body>.
 
-   The sold out badge is not part of this group and keeps showing either way.
+   They render side by side, wrapping to a second line when a card has enough of
+   them, and the theme's own sold out badge is no longer rendered on the card —
+   the sold out pill below replaces it.
    ========================================================================== */
 .card-badge {
     display: none;
@@ -1071,8 +1073,8 @@ compare-at-price.h6 {
 }
 
 /* Every badge shares the same pill, so there are no per-badge color rules. The
-   `card-badge--pre-order`, `--low-stock`, `--best-selling` and `--new-in`
-   modifiers stay on the markup as hooks for targeting one of them later. */
+   `card-badge--pre-order`, `--sold-out`, `--low-stock`, `--best-selling` and
+   `--new-in` modifiers stay on the markup as hooks for targeting one later. */
 
 /* Opt-in switch for the test variant. */
 .card-badges-on .card-badge {
