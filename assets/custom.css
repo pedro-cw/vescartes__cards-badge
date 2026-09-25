@@ -1048,13 +1048,13 @@ compare-at-price.h6 {
     display: none;
     align-items: center;
     width: max-content;
-    padding: 1px 6px;
+    padding: 3px 6px;
     border: 0.5px solid #ECE8E0;
     border-radius: 32px;
     background: #FFF;
     color: #000;
     font-family: 'URW DIN', var(--text-font-family);
-    font-size: 8px;
+    font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
@@ -1065,8 +1065,8 @@ compare-at-price.h6 {
 
 @media screen and (min-width: 700px) {
     .card-badge {
-        padding: 4px 6px;
-        font-size: 12px;
+        padding: 6px;
+        font-size: 14px;
     }
 }
 
