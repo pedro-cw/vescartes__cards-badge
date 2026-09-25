@@ -1072,9 +1072,14 @@ compare-at-price.h6 {
     }
 }
 
-/* Every badge shares the same pill, so there are no per-badge color rules. The
-   `card-badge--pre-order`, `--sold-out`, `--low-stock`, `--best-selling` and
-   `--new-in` modifiers stay on the markup as hooks for targeting one later. */
+/* Sold out is the only one that breaks away from the white pill. The other
+   modifiers (`--pre-order`, `--low-stock`, `--best-selling`, `--new-in`) stay on
+   the markup as hooks for styling one of them separately later. */
+.card-badge--sold-out {
+    border-color: #969696;
+    background: #969696;
+    color: #FFF;
+}
 
 /* Opt-in switch for the test variant. */
 .card-badges-on .card-badge {
