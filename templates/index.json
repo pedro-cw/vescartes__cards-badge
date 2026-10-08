@@ -333,7 +333,7 @@
             "desktop_text_position": "sm:place-self-end-center sm:text-center",
             "content_max_width": 720,
             "button_1_text": "Shop Now",
-            "button_1_link": "shopify://collections/thriller",
+            "button_1_link": "shopify://collections/new",
             "button_1_style": "solid",
             "button_1_icon": false,
             "button_1_background": "#ffffff",

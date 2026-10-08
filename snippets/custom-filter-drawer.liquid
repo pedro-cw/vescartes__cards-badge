@@ -34,7 +34,7 @@
             {%- case filter.presentation -%}
                 
                 {%- comment -%} 1. COLOUR SWATCHES (2-Column Grid) {%- endcomment -%}
-                {%- when 'swatch' or filter.label == 'Colour' or filter.label == 'Color' -%}
+                {%- when 'swatch', filter.label -%}
                 <div class="custom-filter-grid color-grid">
                     {%- for value in filter.values -%}
                     <label class="custom-grid-item color-item {% if value.active %}selected{% endif %}">
@@ -445,4 +445,14 @@
       window.location.reload(); 
     });
   });
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%- when 'swatch' or filter.label == 'Colour' or filter.label == 'Color'
+    -%}"
+  to: "{%- when 'swatch', filter.label -%}"
+  position: 1688..1723
+{%- endcomment -%}

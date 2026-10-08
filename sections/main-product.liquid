@@ -199,17 +199,7 @@ quick buy information in a template, that will be extracted in JS, which ensures
     </div>
 
     <div class="sticky-atc__controls">
-      {%- render 'buy-buttons',
-          product: product,
-          form_id: sticky_form_id,
-          show_payment_button: false,  /* usually cleaner in a compact bar; flip to true if you want */
-          show_gift_card_recipient: block.settings.show_gift_card_recipient,
-          atc_button_background: block.settings.atc_button_background,
-          atc_button_text_color: block.settings.atc_button_text_color,
-          payment_button_background: block.settings.payment_button_background,
-          payment_button_text_color: block.settings.payment_button_text_color,
-          btn_text:section.settings.btn_text
-      -%}
+      {%- render 'buy-buttons', product: product, form_id: sticky_form_id, show_payment_button: false, show_gift_card_recipient: block.settings.show_gift_card_recipient, atc_button_background: block.settings.atc_button_background, atc_button_text_color: block.settings.atc_button_text_color, payment_button_background: block.settings.payment_button_background, payment_button_text_color: block.settings.payment_button_text_color, btn_text: section.settings.btn_text -%}
     </div>
   </div>
 </div>
@@ -2739,3 +2729,29 @@ const onIntersect = (entries) => {
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {%- render 'buy-buttons',
+              product: product,
+              form_id: sticky_form_id,
+              show_payment_button: false,  /* usually cleaner in a compact bar; flip to true if you want */
+              show_gift_card_recipient: block.settings.show_gift_card_recipient,
+              atc_button_background: block.settings.atc_button_background,
+              atc_button_text_color: block.settings.atc_button_text_color,
+              payment_button_background: block.settings.payment_button_background,
+              payment_button_text_color: block.settings.payment_button_text_color,
+              btn_text:section.settings.btn_text
+          -%}
+  to: "{%- render 'buy-buttons', product: product, form_id: sticky_form_id, show_payment_button:
+    false, show_gift_card_recipient: block.settings.show_gift_card_recipient, atc_button_background:
+    block.settings.atc_button_background, atc_button_text_color: block.settings.atc_button_text_color,
+    payment_button_background: block.settings.payment_button_background, payment_button_text_color:
+    block.settings.payment_button_text_color, btn_text: section.settings.btn_text
+    -%}"
+  position: 9389..9852
+{% endcomment %}
