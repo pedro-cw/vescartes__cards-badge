@@ -1,0 +1,439 @@
+{%- comment -%}
+  Nextlaunch — fake password / drop signup page section.
+  Renders a single Klaviyo form embed over an optional full-screen background.
+  Form ID is set per-template via the klaviyo_form_id setting.
+{%- endcomment -%}
+
+{%- assign newdrop_background_mobile = section.settings.background_mobile | default: section.settings.background_desktop -%}
+
+{%- if section.settings.unify_background_effects -%}
+  {%- assign desktop_image_opacity = section.settings.background_image_opacity -%}
+  {%- assign desktop_overlay_color = section.settings.background_overlay_color -%}
+  {%- assign desktop_overlay_opacity = section.settings.background_overlay_opacity -%}
+  {%- assign mobile_image_opacity = section.settings.background_image_opacity -%}
+  {%- assign mobile_overlay_color = section.settings.background_overlay_color -%}
+  {%- assign mobile_overlay_opacity = section.settings.background_overlay_opacity -%}
+{%- else -%}
+  {%- assign desktop_image_opacity = section.settings.background_desktop_image_opacity -%}
+  {%- assign desktop_overlay_color = section.settings.background_desktop_overlay_color -%}
+  {%- assign desktop_overlay_opacity = section.settings.background_desktop_overlay_opacity -%}
+  {%- assign mobile_image_opacity = section.settings.background_mobile_image_opacity -%}
+  {%- assign mobile_overlay_color = section.settings.background_mobile_overlay_color -%}
+  {%- assign mobile_overlay_opacity = section.settings.background_mobile_overlay_opacity -%}
+{%- endif -%}
+
+<style>
+  {%- if section.settings.background_desktop != blank or section.settings.background_mobile != blank -%}
+    body {
+      position: relative;
+    }
+
+    body::before,
+    body::after {
+      content: '';
+      display: none;
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      z-index: 0;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body::after {
+      z-index: 1;
+    }
+
+    body > #MainContent {
+      position: relative;
+      z-index: 2;
+    }
+
+    {%- if section.settings.background_desktop != blank -%}
+      @media screen and (min-width: 750px) {
+        body::before,
+        body::after {
+          display: block;
+        }
+
+        body::before {
+          background-image: url('{{ section.settings.background_desktop | image_url: width: 3840 }}');
+          opacity: {{ desktop_image_opacity | divided_by: 100.0 }};
+        }
+
+        body::after {
+          background-color: {{ desktop_overlay_color }};
+          opacity: {{ desktop_overlay_opacity | divided_by: 100.0 }};
+        }
+      }
+    {%- endif -%}
+
+    {%- if newdrop_background_mobile != blank -%}
+      @media screen and (max-width: 749px) {
+        body::before,
+        body::after {
+          display: block;
+        }
+
+        body::before {
+          background-image: url('{{ newdrop_background_mobile | image_url: width: 1500 }}');
+          opacity: {{ mobile_image_opacity | divided_by: 100.0 }};
+        }
+
+        body::after {
+          background-color: {{ mobile_overlay_color }};
+          opacity: {{ mobile_overlay_opacity | divided_by: 100.0 }};
+        }
+      }
+    {%- endif -%}
+  {%- endif -%}
+
+  .nextlaunch-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 40px 20px;
+    background: #000000;
+  }
+
+  .nextlaunch-form__inner {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .nextlaunch-form__inner > * {
+    margin-inline: auto;
+  }
+
+  .nextlaunch-form * {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  .nextlaunch-form__logo {
+    margin-bottom: 40px;
+  }
+
+  .nextlaunch-form__logo img {
+    height: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #nextlaunch-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 25px;
+    width: 100%;
+  }
+
+  #nextlaunch-countdown .time-unit {
+    min-width: 65px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+  }
+
+  #nextlaunch-countdown .time-value {
+    font-size: 3.5em;
+    font-weight: 400;
+    display: block;
+    color: #ffffff;
+    letter-spacing: 0.1em;
+  }
+
+  #nextlaunch-countdown .time-label {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    color: #cccccc;
+    margin-top: 5px;
+  }
+
+  #nextlaunch-countdown.expired {
+    color: rgb(252, 250, 250);
+    font-size: 20px;
+    font-weight: 400;
+    font-style: normal;
+    max-width: 400px;
+    flex-wrap: wrap;
+    text-wrap-style: pretty;
+  }
+
+  #nextlaunch-countdown .expired-text {
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  .nextlaunch-form .klaviyo-form-section iframe {
+    max-width: 100% !important;
+  }
+
+  @media (max-width: 480px) {
+    .nextlaunch-form__inner {
+      padding: 10px;
+    }
+
+    #nextlaunch-countdown {
+      gap: 10px;
+    }
+
+    #nextlaunch-countdown .time-value {
+      font-size: 2.8em;
+    }
+
+    #nextlaunch-countdown .time-label {
+      font-size: 1em;
+    }
+  }
+</style>
+
+<div class="nextlaunch-form">
+  <div class="nextlaunch-form__inner">
+    {%- if section.settings.logo != blank -%}
+      <div class="nextlaunch-form__logo">
+        <img
+          src="{{ section.settings.logo | image_url: width: 2000 }}"
+          alt="{{ shop.name }}"
+          loading="lazy"
+        >
+      </div>
+    {%- endif -%}
+
+    <div id="nextlaunch-countdown">
+      <div class="time-unit">
+        <span id="nl-days" class="time-value"></span>
+        <span class="time-label">days</span>
+      </div>
+      <div class="time-unit">
+        <span id="nl-hours" class="time-value"></span>
+        <span class="time-label">hours</span>
+      </div>
+      <div class="time-unit">
+        <span id="nl-minutes" class="time-value"></span>
+        <span class="time-label">minutes</span>
+      </div>
+      <div class="time-unit">
+        <span id="nl-seconds" class="time-value"></span>
+        <span class="time-label">seconds</span>
+      </div>
+    </div>
+
+    {%- if section.settings.klaviyo_form_id != blank -%}
+      <div class="klaviyo-form-{{ section.settings.klaviyo_form_id }}"></div>
+    {%- else -%}
+      <p style="color: #999;">Add a Klaviyo form ID in the section settings.</p>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  (function() {
+    var targetMonth = "{{ settings.nextlaunch_target_month | default: '' }}";
+    var targetDay = "{{ settings.nextlaunch_target_day | default: '' }}";
+    var targetHour = "{{ settings.nextlaunch_target_hour | default: '' }}";
+    var targetMinute = "{{ settings.nextlaunch_target_minute | default: '' }}";
+
+    var countdownEl = document.getElementById('nextlaunch-countdown');
+    var daysEl = document.getElementById('nl-days');
+    var hoursEl = document.getElementById('nl-hours');
+    var minutesEl = document.getElementById('nl-minutes');
+    var secondsEl = document.getElementById('nl-seconds');
+
+    if (!targetMonth || !targetDay || !targetHour || !targetMinute) {
+      if (countdownEl) countdownEl.style.display = 'none';
+      return;
+    }
+
+    var currentYear = new Date().getFullYear();
+    var paddedMonth = targetMonth.padStart(2, '0');
+    var paddedDay = targetDay.padStart(2, '0');
+    var paddedHour = targetHour.padStart(2, '0');
+    var paddedMinute = targetMinute.padStart(2, '0');
+    var targetDateString = currentYear + '-' + paddedMonth + '-' + paddedDay + 'T' + paddedHour + ':' + paddedMinute + ':00-05:00';
+    var targetDateEST = new Date(targetDateString);
+
+    if (isNaN(targetDateEST.getTime())) {
+      countdownEl.innerHTML = 'Countdown timer configuration error.';
+      return;
+    }
+
+    function update() {
+      var diff = targetDateEST.getTime() - Date.now();
+      if (diff <= 0) {
+        countdownEl.innerHTML = '<span class="expired-text">{{ settings.nextlaunch_countdown_expired_text | default: "Launched!" }}</span>';
+        countdownEl.classList.add('expired');
+        clearInterval(timer);
+        return;
+      }
+      daysEl.textContent = Math.floor(diff / 86400000);
+      hoursEl.textContent = String(Math.floor((diff % 86400000) / 3600000)).padStart(2, '0');
+      minutesEl.textContent = String(Math.floor((diff % 3600000) / 60000)).padStart(2, '0');
+      secondsEl.textContent = String(Math.floor((diff % 60000) / 1000)).padStart(2, '0');
+    }
+
+    var timer = setInterval(update, 1000);
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Next Launch Form",
+  "tag": "div",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Logo"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo image"
+    },
+    {
+      "type": "header",
+      "content": "Klaviyo Form"
+    },
+    {
+      "type": "text",
+      "id": "klaviyo_form_id",
+      "label": "Klaviyo form ID",
+      "info": "The ID from your Klaviyo embed code (e.g. WceqVw from klaviyo-form-WceqVw)."
+    },
+    {
+      "type": "header",
+      "content": "Page Background"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_desktop",
+      "label": "Desktop background image"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_mobile",
+      "label": "Mobile background image",
+      "info": "Falls back to desktop image when blank."
+    },
+    {
+      "type": "header",
+      "content": "Effects"
+    },
+    {
+      "type": "checkbox",
+      "id": "unify_background_effects",
+      "label": "Use same effects for desktop and mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Shared Effects"
+    },
+    {
+      "type": "range",
+      "id": "background_image_opacity",
+      "label": "Image opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "background_overlay_color",
+      "label": "Overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "background_overlay_opacity",
+      "label": "Overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Effects"
+    },
+    {
+      "type": "range",
+      "id": "background_desktop_image_opacity",
+      "label": "Desktop image opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "background_desktop_overlay_color",
+      "label": "Desktop overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "background_desktop_overlay_opacity",
+      "label": "Desktop overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "unit": "%"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Effects"
+    },
+    {
+      "type": "range",
+      "id": "background_mobile_image_opacity",
+      "label": "Mobile image opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "color",
+      "id": "background_mobile_overlay_color",
+      "label": "Mobile overlay color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "background_mobile_overlay_opacity",
+      "label": "Mobile overlay opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 0,
+      "unit": "%"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Next Launch Form"
+    }
+  ]
+}
+{% endschema %}

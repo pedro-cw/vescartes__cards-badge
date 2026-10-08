@@ -24,16 +24,16 @@
         ".pw-page {background: #000;}",
         ".pw-page__logo img {height: auto; width: 100%; max-width: 250px;}",
         "button#openPasswordModal {background: none; color: #fff;}",
-        "div#rich-text-01KH9XVMDV4CGA4R3HC33Q4FHM * {background-color: #731100 !important;}",
+        "div#rich-text-01KH9XVMDV4CGA4R3HC33Q4FHM * {background-color: #000 !important;}",
         ".password-button {display: none;}"
       ],
       "name": "Password page",
       "settings": {
         "logo": "shopify://shop_images/VESCARTES_CURSIVE_3.png",
         "description_text": "",
-        "target_month": "8",
-        "target_day": "28",
-        "target_hour": "12",
+        "target_month": "10",
+        "target_day": "9",
+        "target_hour": "13",
         "target_minute": "00",
         "countdown_expired_text": "Opening Soon."
       }

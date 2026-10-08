@@ -576,6 +576,15 @@ line-item.line-item {
     font-style: normal;
     font-display: swap;
 }
+@font-face {
+    font-family: 'URW DIN';
+    src: url('https://cdn.shopify.com/s/files/1/0873/3546/9381/files/NeueHaasUnica-Medium.woff2?v=1786997662') format('woff2'),
+         url('https://cdn.shopify.com/s/files/1/0873/3546/9381/files/NeueHaasUnica-Medium.woff?v=1786997661') format('woff'),
+         url('https://cdn.shopify.com/s/files/1/0873/3546/9381/files/NeueHaasUnica-Medium.ttf?v=1786997662') format('truetype');
+    font-weight: 500 900;
+    font-style: normal;
+    font-display: swap;
+}
 
 @font-face {
     font-family: 'Apple garamond';
@@ -1033,7 +1042,7 @@ compare-at-price.h6 {
 
 /* ==========================================================================
    Product card badges (A/B test) — rendered by the "card_status" group in
-   snippets/product-badges.liquid. Only one of them shows per card.
+   snippets/product-badges.liquid.
 
    HIDDEN BY DEFAULT: the control variant gets nothing, so the markup ships live
    without showing. The test variant turns them on, either by injecting
@@ -1043,8 +1052,8 @@ compare-at-price.h6 {
    or by adding the `card-badges-on` class to <html> or <body>.
 
    They render side by side, wrapping to a second line when a card has enough of
-   them, and the theme's own sold out badge is no longer rendered on the card —
-   the sold out pill below replaces it.
+   them. Sold out is the exception: it replaces the badge the theme used to render
+   on the card, so it shows in both variants and is never hidden.
    ========================================================================== */
 .card-badge {
     display: none;
@@ -1072,10 +1081,13 @@ compare-at-price.h6 {
     }
 }
 
-/* Sold out is the only one that breaks away from the white pill. The other
-   modifiers (`--pre-order`, `--low-stock`, `--best-selling`, `--new-in`) stay on
-   the markup as hooks for styling one of them separately later. */
+/* Sold out stands apart twice over: it is the only badge that is not white, and
+   the only one that is not part of the A/B test — it took the place of the badge
+   the theme rendered before, so it shows in the control too. The other modifiers
+   (`--pre-order`, `--low-stock`, `--best-selling`, `--new-in`) stay on the markup
+   as hooks for styling one of them separately later. */
 .card-badge--sold-out {
+    display: flex;
     border-color: #969696;
     background: #969696;
     color: #FFF;

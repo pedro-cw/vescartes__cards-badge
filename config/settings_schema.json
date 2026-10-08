@@ -948,5 +948,46 @@
         }
       }
     ]
+  },
+  {
+    "name": "Next Launch Countdown",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "nextlaunch_logo",
+        "label": "Logo image",
+        "info": "Used on Next Launch pages and EasyLockdown password form."
+      },
+      {
+        "type": "text",
+        "id": "nextlaunch_target_month",
+        "label": "Countdown Month (EST)",
+        "info": "Enter month number (1-12). Shared across all Next Launch pages."
+      },
+      {
+        "type": "text",
+        "id": "nextlaunch_target_day",
+        "label": "Countdown Day (EST)",
+        "info": "Enter day number (1-31)"
+      },
+      {
+        "type": "text",
+        "id": "nextlaunch_target_hour",
+        "label": "Countdown Hour (EST)",
+        "info": "Enter hour (0-23, 24-hour format, e.g. 14 for 2 PM)"
+      },
+      {
+        "type": "text",
+        "id": "nextlaunch_target_minute",
+        "label": "Countdown Minute (EST)",
+        "info": "Enter minute (0-59)"
+      },
+      {
+        "type": "text",
+        "id": "nextlaunch_countdown_expired_text",
+        "label": "Countdown Expired Text",
+        "default": "Opening Soon."
+      }
+    ]
   }
 ]

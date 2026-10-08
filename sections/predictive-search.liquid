@@ -18,7 +18,7 @@ Nothing
 {%- if predictive_search.performed -%}
   {%- assign results_count = 0 -%}
 
-  {%- for resource in predictive_search.resources -%}
+  {%- for resource in predictive_search.resources -%}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collection' with resource, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
     {%- assign results_count = results_count | plus: resource.last.size -%}
   {%- endfor -%}
 

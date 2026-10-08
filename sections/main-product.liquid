@@ -255,6 +255,7 @@ quick buy information in a template, that will be extracted in JS, which ensures
   border: 1px solid rgba(0,0,0,.06);
   border-radius: 4px;
 }
+.message-state-inventory_pulse_haRgh9.active{position: relative; top: 1px;}
 
 .sticky-atc__title {
   font-size: 14px;
@@ -449,6 +450,44 @@ quick buy information in a template, that will be extracted in JS, which ensures
     display: block;
     padding: 10px 12px;
     border-left: 1px solid #e5e5e5;
+}
+
+/* ---- DIN optical centring ---- */
+:root {
+  --vescartes-din-nudge: 1.5px;
+}
+
+/* Size buttons (XS - 2XL) */
+.product-info variant-picker .block-swatch {
+  --vescartes-pad: 10px; /* set to the swatch's current top/bottom padding */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-top: calc(var(--vescartes-pad) + var(--vescartes-din-nudge));
+  padding-bottom: calc(var(--vescartes-pad) - var(--vescartes-din-nudge));
+}
+
+/* Main Add to Cart button */
+[data-main-buy-buttons] button[type="submit"] {
+  --vescartes-pad: 16px; /* set to the button's current top/bottom padding */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-top: calc(var(--vescartes-pad) + var(--vescartes-din-nudge)) !important;
+  padding-bottom: calc(var(--vescartes-pad) - var(--vescartes-din-nudge)) !important;
+}
+
+/* Sticky Add to Bag button */
+.sticky-atc__controls button[type="submit"] {
+  --vescartes-pad: 12px; /* set to the button's current top/bottom padding */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-top: calc(var(--vescartes-pad) + var(--vescartes-din-nudge)) !important;
+  padding-bottom: calc(var(--vescartes-pad) - var(--vescartes-din-nudge)) !important;
 }
 </style>
 
@@ -2735,23 +2774,19 @@ This file has been rewritten to preserve the original behavior.
 
 ---
 Changes:
-- from: |-
-    {%- render 'buy-buttons',
-              product: product,
-              form_id: sticky_form_id,
-              show_payment_button: false,  /* usually cleaner in a compact bar; flip to true if you want */
-              show_gift_card_recipient: block.settings.show_gift_card_recipient,
-              atc_button_background: block.settings.atc_button_background,
-              atc_button_text_color: block.settings.atc_button_text_color,
-              payment_button_background: block.settings.payment_button_background,
-              payment_button_text_color: block.settings.payment_button_text_color,
-              btn_text:section.settings.btn_text
-          -%}
+- from: "{%- render 'buy-buttons',\r\n          product: product,\r\n          form_id:
+    sticky_form_id,\r\n          show_payment_button: false,  /* usually cleaner in
+    a compact bar; flip to true if you want */\r\n          show_gift_card_recipient:
+    block.settings.show_gift_card_recipient,\r\n          atc_button_background: block.settings.atc_button_background,\r\n
+    \         atc_button_text_color: block.settings.atc_button_text_color,\r\n          payment_button_background:
+    block.settings.payment_button_background,\r\n          payment_button_text_color:
+    block.settings.payment_button_text_color,\r\n          btn_text:section.settings.btn_text\r\n
+    \     -%}"
   to: "{%- render 'buy-buttons', product: product, form_id: sticky_form_id, show_payment_button:
     false, show_gift_card_recipient: block.settings.show_gift_card_recipient, atc_button_background:
     block.settings.atc_button_background, atc_button_text_color: block.settings.atc_button_text_color,
     payment_button_background: block.settings.payment_button_background, payment_button_text_color:
     block.settings.payment_button_text_color, btn_text: section.settings.btn_text
     -%}"
-  position: 9389..9852
+  position: 9590..10053
 {% endcomment %}

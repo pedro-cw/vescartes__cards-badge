@@ -2,7 +2,6 @@
 
 <html class="no-js" lang="{{ request.locale.iso_code }}" dir="{% render 'direction' %}">
   <head>
-{% comment %}ElHeadStart{% endcomment %}{% unless request.design_mode %}{% comment %}EasylockdownHeadBegin{% endcomment %}{% capture elhRender %}{% render 'easylockdown_head', easylockdownRender: true, easylockdownOnlySpecialPriceSelector: easylockdownOnlySpecialPriceSelector, easylockdownCustomPriceSelector: easylockdownCustomPriceSelector %}{% endcapture %}{% assign elhRender = elhRender | split: '--elhResults--'%}{{ elhRender[0] }}{% comment %}EasylockdownHeadEnd{% endcomment %}{% endunless %}{% comment %}ElHeadEnd{% endcomment %}
     {% render 'shogun-optimizer' %}
 
     
@@ -93,12 +92,78 @@
 
     {{- 'theme.aio.min.css' | asset_url | stylesheet_tag: preload: true -}}
 
-    {% comment %} REMOVED: Microsoft Clarity + PostHog — both removed for performance {% endcomment %}
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = 'https://www.clarity.ms/tag/' + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, 'clarity', 'script', 'rkjz6krt19');
+    </script>
     {% include 'pagefly-app-header' %}
 
     {{- 'custom.css' | asset_url | stylesheet_tag: preload: true -}}
 
-    {% comment %} REMOVED: PostHog (phc_BtQNWeiQBuuokS9H4y5yZH7hMFndHoFuW2E9J8Q5gqZ5) — redundant with Clarity, both removed for performance {% endcomment %}
+    <script>
+      !(function (t, e) {
+        var o, n, p, r;
+        e.__SV ||
+          ((window.posthog = e),
+          (e._i = []),
+          (e.init = function (i, s, a) {
+            function g(t, e) {
+              var o = e.split('.');
+              2 == o.length && ((t = t[o[0]]), (e = o[1])),
+                (t[e] = function () {
+                  t.push([e].concat(Array.prototype.slice.call(arguments, 0)));
+                });
+            }
+            ((p = t.createElement('script')).type = 'text/javascript'),
+              (p.async = !0),
+              (p.src = s.api_host.replace('.i.posthog.com', '-assets.i.posthog.com') + '/static/array.js'),
+              (r = t.getElementsByTagName('script')[0]).parentNode.insertBefore(p, r);
+            var u = e;
+            for (
+              void 0 !== a ? (u = e[a] = []) : (a = 'posthog'),
+                u.people = u.people || [],
+                u.toString = function (t) {
+                  var e = 'posthog';
+                  return 'posthog' !== a && (e += '.' + a), t || (e += ' (stub)'), e;
+                },
+                u.people.toString = function () {
+                  return u.toString(1) + '.people (stub)';
+                },
+                o =
+                  'init capture register register_once register_for_session unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group identify setPersonProperties setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags resetGroups onFeatureFlags addFeatureFlagsHandler onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep'.split(
+                    ' '
+                  ),
+                n = 0;
+              n < o.length;
+              n++
+            )
+              g(u, o[n]);
+            e._i.push([i, s, a]);
+          }),
+          (e.__SV = 1));
+      })(document, window.posthog || []);
+      posthog.init('phc_BtQNWeiQBuuokS9H4y5yZH7hMFndHoFuW2E9J8Q5gqZ5', {
+        api_host: 'https://us.i.posthog.com',
+        defaults: '2026-01-30',
+      });
+    </script>
+
+    <script>
+      window.__ph_distinct_id = posthog.get_distinct_id();
+      // Cookie fallback so the pixel can read distinct_id on the checkout subdomain
+      document.cookie =
+        'ph_did=' + posthog.get_distinct_id() + '; path=/; domain=.vescartes.com; SameSite=Lax; Secure';
+    </script>
     
   </head>
 
@@ -147,7 +212,7 @@
         {%- endif -%}
 
     <main id="main" class="anchor {{request.page_type  }} {{ template.suffix }}">
-      {% comment %}ElBodyStart{% endcomment %}{% unless request.design_mode %}{% comment %}{{ content_for_layout }}{% endcomment %}{% render 'easylockdown_body', content_for_layout: content_for_layout, elhDefines: elhRender[1] %}{% else %} {{ content_for_layout }} {% endunless %}{% comment %}ElBodyEnd{% endcomment %}
+      {{ content_for_layout }}
 
       {%- comment -%}
         IMPLEMENTATION NOTE: For best semantics, having the footer group outside the main would be slightly better, but

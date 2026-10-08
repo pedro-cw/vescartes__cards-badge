@@ -1,61 +1,84 @@
 {% style %}
-    {% if section.settings.hide_section %}
-    .vescartes-faq-section {
-        display: none;
+  {% if section.settings.bold_font_url != blank %}
+    @font-face {
+      font-family: "Vescartes FAQ Bold";
+      src: url("{{ section.settings.bold_font_url }}");
+      font-weight: {{ section.settings.question_font_weight }};
+      font-style: normal;
+      font-display: swap;
     }
-    {% endif %}
-    #VescartesFAQ-{{ section.id }} {
+  {% endif %}
+  {% if section.settings.hide_section %}
+    .vescartes-faq-section {
+      display: none;
+    }
+  {% endif %}
+  #VescartesFAQ-{{ section.id }} {
     --faq-background: {{ section.settings.background_color }};
     --faq-text: {{ section.settings.text_color }};
     --faq-divider: {{ section.settings.text_color | color_modify: 'alpha', 0.102 }};
+    --faq-font: "URW DIN", "DIN Next", "DIN", Arial, sans-serif;
+    {% if section.settings.bold_font_url != blank %}
+      --faq-font-bold: "Vescartes FAQ Bold", "URW DIN", "DIN Next", "DIN", Arial, sans-serif;
+    {% else %}
+      --faq-font-bold: var(--faq-font);
+    {% endif %}
     box-sizing: border-box;
     width: 100%;
     padding: {{ section.settings.padding_mobile }}px 16px;
     background: var(--faq-background);
     color: var(--faq-text);
-    font-family: "URW DIN";
+    font-family: var(--faq-font);
     font-weight: 400;
     font-style: normal;
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
     letter-spacing: 0;
     text-align: start;
-    }
-
+    margin-top: -40px;
+  }
   #VescartesFAQ-{{ section.id }} *,
   #VescartesFAQ-{{ section.id }} *::before,
   #VescartesFAQ-{{ section.id }} *::after {
     box-sizing: border-box;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__inner {
     width: 100%;
     max-width: {{ section.settings.content_width }}px;
     margin-inline: auto;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__heading {
-    margin: 0 0 20px;
+    margin: 0 0 30px;
     padding: 0;
     color: inherit;
     font: inherit;
+    font-family: var(--faq-font-bold);
     font-size: 20px;
     line-height: 24px;
     letter-spacing: -0.1px;
     text-align: center;
     text-transform: none;
     overflow-wrap: anywhere;
+    font-weight: {{ section.settings.question_font_weight }};
+    font-synthesis: none;
   }
-
+  #VescartesFAQ-{{ section.id }} .vfaq__list {
+    padding: 20px 12px;
+    background: #FCFBF5;
+  }
   #VescartesFAQ-{{ section.id }} .vfaq__item {
     margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__item + .vfaq__item {
     border-top: 1px solid var(--faq-divider);
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question {
     display: flex;
     align-items: flex-start;
@@ -78,39 +101,36 @@
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__item:first-child > .vfaq__question {
     padding-top: 0;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__item:last-child > .vfaq__question {
     padding-bottom: 0;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question::-webkit-details-marker {
     display: none;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question::marker {
     content: "";
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question::before,
   #VescartesFAQ-{{ section.id }} .vfaq__question::after {
     content: none;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question:focus-visible {
     outline: 2px solid currentColor;
     outline-offset: 4px;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__question-text {
+    font-family: var(--faq-font-bold);
+    font-weight: {{ section.settings.question_font_weight }};
+    font-synthesis: none;
     flex: 1 1 auto;
     min-width: 0;
     overflow-wrap: anywhere;
+    position: relative;
+    top: 5px;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__icon {
     display: grid;
     place-items: center;
@@ -123,85 +143,77 @@
     font-weight: 400;
     line-height: 1;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__minus,
   #VescartesFAQ-{{ section.id }} .vfaq__item[open] .vfaq__plus {
     display: none;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__item[open] .vfaq__minus {
     display: block;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__answer {
     margin: 0 28px 0 0;
     padding: 0 0 16px;
-    color: inherit;
     font-size: 14px;
     line-height: 1.5;
     overflow-wrap: anywhere;
-    color: #1C1C1C99;
+    color: #1C1C1C;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__item:last-child .vfaq__answer {
     margin-top: 8px;
     padding-bottom: 0;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__answer > :first-child {
     margin-top: 0;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__answer > :last-child {
     margin-bottom: 0;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__answer p {
     margin: 0 0 12px;
   }
-
+  #VescartesFAQ-{{ section.id }} .vfaq__answer strong,
+  #VescartesFAQ-{{ section.id }} .vfaq__answer b {
+    font-family: var(--faq-font-bold);
+    font-weight: {{ section.settings.question_font_weight }};
+  }
   #VescartesFAQ-{{ section.id }} .vfaq__answer ul,
   #VescartesFAQ-{{ section.id }} .vfaq__answer ol {
     padding-inline-start: 24px;
   }
-
   #VescartesFAQ-{{ section.id }} .vfaq__answer a {
     color: inherit;
     text-decoration: underline;
     text-underline-offset: 3px;
   }
-
   @media screen and (min-width: 750px) {
+    #VescartesFAQ-{{ section.id }} .vfaq__list {
+      padding: 24px 16px;
+    }
     #VescartesFAQ-{{ section.id }} {
       {% if section.settings.match_desktop_height %}
         min-height: 533px;
       {% endif %}
       padding: {{ section.settings.padding_desktop }}px 32px;
     }
-
     #VescartesFAQ-{{ section.id }} .vfaq__heading {
-      margin-bottom: 32px;
+      margin-bottom: 56px;
       font-size: 28px;
       line-height: 40px;
     }
-
     #VescartesFAQ-{{ section.id }} .vfaq__question {
       font-size: 14px;
     }
-
     #VescartesFAQ-{{ section.id }} .vfaq__icon {
       flex-basis: 16px;
       width: 16px;
       font-size: 16px;
     }
-
     #VescartesFAQ-{{ section.id }} .vfaq__answer {
       margin-inline-end: 36px;
       font-size: 14px;
     }
   }
 {% endstyle %}
-
 <section
   id="VescartesFAQ-{{ section.id }}"
   {% if section.settings.heading != blank %}
@@ -219,7 +231,6 @@
         {{ section.settings.heading | escape }}
       </h2>
     {% endif %}
-
     <div class="vfaq__list">
       {% for block in section.blocks %}
         {% if block.settings.question != blank %}
@@ -233,22 +244,25 @@
           >
             <summary class="vfaq__question">
               <span class="vfaq__question-text">
-                {{ block.settings.question | escape }}
+                {%- assign faq_question = block.settings.question | strip -%}
+                {%- if faq_question == 'Will I have to pay customs duties or import charges?' or faq_question == 'Will I have to pay customs or import duties?' -%}
+                  Will I have to pay customs / duties?
+                {%- else -%}
+                  {{ faq_question | escape }}
+                {%- endif -%}
               </span>
-
               <span class="vfaq__icon" aria-hidden="true">
                 <span class="vfaq__plus">+</span>
-                <span class="vfaq__minus">&minus;</span>
+                <span class="vfaq__minus">−</span>
               </span>
             </summary>
-
             {% if block.settings.answer != blank %}
               <div class="vfaq__answer">
                 {{ block.settings.answer }}
               </div>
             {% elsif request.design_mode %}
               <div class="vfaq__answer">
-                <p>Add an answer in this FAQ block's settings.</p>
+                <p>Add Liquid code for this FAQ answer.</p>
               </div>
             {% endif %}
           </details>
@@ -257,7 +271,6 @@
     </div>
   </div>
 </section>
-
 {% schema %}
 {
   "name": "Vescartes FAQ",
@@ -283,6 +296,33 @@
       "id": "single_open",
       "label": "Open one answer at a time",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "text",
+      "id": "bold_font_url",
+      "label": "Bold font file URL",
+      "info": "Upload the real URW DIN Bold file (.woff2 preferred) in Content > Files and paste its URL here. Prevents the browser from faking bold text on mobile."
+    },
+    {
+      "type": "select",
+      "id": "question_font_weight",
+      "label": "Question font weight",
+      "info": "Must match a weight that exists as a real font file. Faux bold is disabled.",
+      "options": [
+        { "value": "400", "label": "Regular (400)" },
+        { "value": "500", "label": "Medium (500)" },
+        { "value": "600", "label": "Demi (600)" },
+        { "value": "700", "label": "Bold (700)" }
+      ],
+      "default": "700"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
     },
     {
       "type": "range",
@@ -322,6 +362,10 @@
       "default": true
     },
     {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
       "type": "color",
       "id": "background_color",
       "label": "Background",
@@ -346,10 +390,10 @@
           "default": "Your question"
         },
         {
-          "type": "richtext",
+          "type": "liquid",
           "id": "answer",
           "label": "Answer",
-          "info": "Add the answer before publishing this section."
+          "info": "Add Liquid or HTML code for the FAQ answer."
         }
       ]
     }
@@ -361,31 +405,36 @@
         {
           "type": "faq",
           "settings": {
-            "question": "How does this item fit?"
+            "question": "How does this item fit?",
+            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
           }
         },
         {
           "type": "faq",
           "settings": {
-            "question": "When will my order arrive?"
+            "question": "When will my order arrive?",
+            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
           }
         },
         {
           "type": "faq",
           "settings": {
-            "question": "Will I have to pay customs or import duties?"
+            "question": "Will I have to pay customs / duties?",
+            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
           }
         },
         {
           "type": "faq",
           "settings": {
-            "question": "Can I return the item if the size isn't right?"
+            "question": "Can I return the item if the size isn't right?",
+            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
           }
         },
         {
           "type": "faq",
           "settings": {
-            "question": "How should I care for this piece?"
+            "question": "How should I care for this piece?",
+            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our Product Care page.</p>"
           }
         }
       ]

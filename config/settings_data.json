@@ -52,6 +52,11 @@
     "easysize_language": "english",
     "easysize_size_update_function": "function(size) {\n    var size_element = document.querySelector('input[value=\"'+ size +'\"]');\n    if (size_element) {\n      size_element.click();\n      console.info(\"Easysize: Size element clicked\", size_element);\n      return true;\n    }\n    return false;\n  }",
     "mapped_genders": "{'maleMapping': [], 'femaleMapping': [], 'unisexMapping': []}",
+    "nextlaunch_logo": "shopify://shop_images/VESCARTES_CURSIVE_3.png",
+    "nextlaunch_target_month": "10",
+    "nextlaunch_target_day": "9",
+    "nextlaunch_target_hour": "13",
+    "nextlaunch_target_minute": "0",
     "checkout_logo_image": "shopify://shop_images/Charava_Logo_089d3608-8bb8-41c9-9cdb-b816bb4629e9.png",
     "checkout_accent_color": "#467c99",
     "checkout_button_color": "#06b0f1",
@@ -91,11 +96,6 @@
       },
       "12657775114333427046": {
         "type": "shopify://apps/essential-countdown/blocks/app_embed/722378e8-5a70-4eae-aa89-9e44e8e9f6de",
-        "disabled": false,
-        "settings": {}
-      },
-      "16225679183443353566": {
-        "type": "shopify://apps/pixiehog/blocks/posthog_js_web/3bc10c13-7b55-491e-8df6-d5677acf3250",
         "disabled": false,
         "settings": {}
       },

@@ -63,7 +63,7 @@ LIQUID
             <div class="collection-list wrap">
               {%- assign collections_to_show = section.settings.collections | default: collections -%}
 
-              {%- for collection in collections_to_show -%}
+              {%- for collection in collections_to_show -%}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_collections' with collection, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
                 {%- if collection.featured_image == blank or section.settings.collections == empty and collection.handle == 'frontpage' -%}
                   {%- continue -%}
                 {%- endif -%}

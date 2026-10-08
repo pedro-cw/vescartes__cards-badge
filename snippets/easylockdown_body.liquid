@@ -1,0 +1,6 @@
+{% comment %}EasyLockdownSnippetRevision:20261005163616-3b84d0c94213{% endcomment %}
+{% unless request.design_mode %}
+{{ content_for_layout }}
+{% else %}
+{{ content_for_layout }}
+{% endunless %}

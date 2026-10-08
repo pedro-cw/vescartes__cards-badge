@@ -54,7 +54,7 @@
 "items":
 [
 {%- paginate search.results by lim -%}
-{% for product in search.results %}
+{% for product in search.results %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_search' with product, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
 {
 {%- if pageurl contains 'preview=1' or pageurl contains 'q=id' -%}
   "available": {{ product.available | json }},
@@ -114,7 +114,7 @@
 "items":
 [
 {%- paginate search.results by lim -%}
-{% for article in search.results %}
+{% for article in search.results %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_search' with article, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
 {
 {%- if pageurl contains 'preview=1' -%}
   "author": {{ article.author | json }},
@@ -156,7 +156,7 @@
 "items":
 [
 {%- paginate search.results by lim -%}
-{% for page in search.results %}
+{% for page in search.results %}{% comment %}EasylockdownFilterBegin{% endcomment %}{% capture easylockdownFilter %}{% render 'easylockdown_filter_search' with page, easylockdownRender: true, easylockdownItemSelectorOff: easylockdownItemSelectorOff %}{% endcapture %}{% assign easylockdownFilter = easylockdownFilter | strip %}{% if easylockdownFilter == 'continue' %}{% continue %}{% else %}{{ easylockdownFilter }}{% endif %}{% comment %}EasylockdownFilterEnd{% endcomment %}
 {
 {%- if pageurl contains 'preview=1' -%}
   "author": {{ page.author | json }},

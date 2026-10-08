@@ -1,7 +1,6 @@
 /*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
- *
  * This file may be updated by the Shopify admin theme editor
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
@@ -302,51 +301,51 @@
         "autoplay": true
       }
     },
-    "new_faq_6cGyzW": {
+    "new_faq_bGcwG3": {
       "type": "new-faq",
       "blocks": {
-        "faq_nAbBQz": {
+        "faq_mEhfDN": {
           "type": "faq",
           "settings": {
             "question": "How does this item fit?",
-            "answer": "<p>Each product page includes item-specific fit guidance, detailed measurements and model information. We recommend checking the Size Chart or using our size finder to find the best fit for you.</p>"
+            "answer": "<p>We recommend checking the <strong><a href=\"#open-size-drawer\" onclick=\"var trigger = document.getElementById('open-size-drawer'); if (trigger) { event.preventDefault(); trigger.click(); }\">Size Chart</a></strong> before ordering.</p><p>Model measurements (including their height, weight, and their worn Vescartes size) are also written above.</p><p>Use our <strong><a href=\"#easysize_button\" onclick=\"var trigger = document.getElementById('easysize_button') || document.getElementById('cstm-easysize_button'); if (trigger) { event.preventDefault(); trigger.click(); }\">Size Finder</a></strong> for a personalised recommendation based on your measurements and preferred fit.</p>"
           }
         },
-        "faq_dWprKk": {
+        "faq_tUrEXP": {
           "type": "faq",
           "settings": {
             "question": "When will my order arrive?",
-            "answer": "<p>Orders are dispatched on the next working day and typically delivered within 5–12 working days, depending on your location. Once dispatched, you’ll receive a confirmation email with your tracking number.</p>"
+            "answer": "<p>Orders are dispatched the next working day* and typically delivered within 5–12 working days.</p><p>Once dispatched, you’ll receive a confirmation email with your tracking number.</p><p>*Some products are available on preorder and require additional time to produce from scratch. This will be clearly stated before you purchase.</p>"
           }
         },
-        "faq_98bTnr": {
+        "faq_T84N83": {
           "type": "faq",
           "settings": {
-            "question": "Will I have to pay customs or import duties?",
-            "answer": "<p>No. All applicable customs duties and taxes are prepaid and included in the final price, so there should be no additional charges upon delivery.</p>"
+            "question": "How is each piece crafted?",
+            "answer": "<p>Our mission is to create wearable art - which is why every Vescartes garment is produced to an exceptional standard.</p><p>Original hand-drawn artwork is brought to life through intricate embroidery, custom-developed fabrics and considered garment construction.</p><p>The specific materials and construction used can be found in the product details above.</p>"
           }
         },
-        "faq_FgRnmB": {
+        "faq_xrCehk": {
           "type": "faq",
           "settings": {
-            "question": "Can I return the item if the size isn't right?",
-            "answer": "<p>Yes. Returns can be requested within 14 days of delivery. Items must be unworn, unused and returned in their original packaging. Return shipping for sizing-related returns is the customer’s responsibility, and the parcel must be sent using tracked delivery.</p>"
+            "question": "Can I return the item if it doesn’t fit?",
+            "answer": "<p>Yes. You may request a return within 14 days of receiving your order, provided the item is unworn, unused and returned in its original condition and packaging.</p><p>To begin a return, contact our customer-care team (<a href=\"mailto:contact@vescartes.com\">contact@vescartes.com</a>) with your order number and we will provide the return instructions.</p><p><a href=\"/pages/returns-exchanges\">View our full returns policy.</a></p>"
           }
         },
-        "faq_QPyFQG": {
+        "faq_3Wt3WV": {
           "type": "faq",
           "settings": {
-            "question": "How should I care for this piece?",
-            "answer": "<p>Always follow the care instructions provided on the garment. To protect embroidery and printed artwork, turn the item inside out before washing, avoid high temperatures and do not iron directly over the artwork. For detailed guidance, visit our<a href=\"https://vescartes.com/pages/product-care?srsltid=AfmBOoqMkS6pd54hQGylf1UWwnXqowzxUxIjNTOhiBKVlA8S8Ts6kZ8d\"><span style=\"text-decoration:underline\"> Product Care page</span></a>.</p>"
+            "question": "Will I have to pay customs / duties?",
+            "answer": "<p>No. Customs duties and import tariffs are prepaid by Vescartes and included in the price you pay. You will not be asked to pay any additional charges.</p>"
           }
         }
       },
       "block_order": [
-        "faq_nAbBQz",
-        "faq_dWprKk",
-        "faq_98bTnr",
-        "faq_FgRnmB",
-        "faq_QPyFQG"
+        "faq_mEhfDN",
+        "faq_tUrEXP",
+        "faq_T84N83",
+        "faq_xrCehk",
+        "faq_3Wt3WV"
       ],
       "name": "Vescartes FAQ",
       "settings": {
@@ -662,7 +661,7 @@
   "order": [
     "main",
     "styled_by_you",
-    "new_faq_6cGyzW",
+    "new_faq_bGcwG3",
     "related-products",
     "customer_reviews",
     "custom_slider_9TGR8J",
