@@ -89,13 +89,14 @@ Supported variables
             4. Best selling -> custom.card_badge metafield
             5. New in       -> custom.card_badge metafield
 
-          Sold out is the one exception to the stacking: it is skipped when the product is
+          Sold out is the exception to the stacking, on both sides: when it shows it is
+          the only badge on the card, and it is itself skipped when the product is
           flagged as pre-order, since a pre-order product is out of stock by nature and
           "Pre-Order" is the badge that should speak for it.
 
-          The legacy badges of the theme (sold out, custom, discount) keep rendering next
-          to these, and are hidden by the A/B test CSS — that way the control variant is
-          exactly the card that is live today.
+          It is also the only badge of the group that is not hidden by default: it took
+          the place of the sold out badge the theme used to render on the card, so it
+          shows in the control variant too.
         {%- endcomment -%}
         {%- liquid
           assign low_stock_threshold = 50
@@ -135,26 +136,34 @@ Supported variables
             assign card_is_pre_order = true
           endif
 
-          assign card_statuses = ''
-
-          if card_is_pre_order
-            assign card_statuses = card_statuses | append: 'pre-order,'
-          endif
+          assign card_is_sold_out = false
 
           if variant.available == false and settings.show_sold_out_badge and card_is_pre_order == false
-            assign card_statuses = card_statuses | append: 'sold-out,'
+            assign card_is_sold_out = true
           endif
 
-          if card_inventory_tracked and card_inventory_quantity > 0 and card_inventory_quantity < low_stock_threshold
-            assign card_statuses = card_statuses | append: 'low-stock,'
-          endif
+          assign card_statuses = ''
 
-          if card_badge_value contains 'bestselling'
-            assign card_statuses = card_statuses | append: 'best-selling,'
-          endif
+          if card_is_sold_out
+            # Sold out goes alone: there is nothing to sell, so no other badge is worth
+            # the shopper's attention next to it.
+            assign card_statuses = 'sold-out,'
+          else
+            if card_is_pre_order
+              assign card_statuses = card_statuses | append: 'pre-order,'
+            endif
 
-          if card_badge_value contains 'newin'
-            assign card_statuses = card_statuses | append: 'new-in,'
+            if card_inventory_tracked and card_inventory_quantity > 0 and card_inventory_quantity < low_stock_threshold
+              assign card_statuses = card_statuses | append: 'low-stock,'
+            endif
+
+            if card_badge_value contains 'bestselling'
+              assign card_statuses = card_statuses | append: 'best-selling,'
+            endif
+
+            if card_badge_value contains 'newin'
+              assign card_statuses = card_statuses | append: 'new-in,'
+            endif
           endif
 
           assign card_statuses = card_statuses | split: ','
